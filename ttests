@@ -1298,22 +1298,12 @@ if chest and chest:IsDescendantOf(workspace) then
     local teleportPosition = chest:GetBoundingBox().Position
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
 
-    -- Relishing the anticipation during a momentary pause
-    wait(0.5)
-
-    -- Loop to pick up the treasure chest for 5 seconds
-    local endTime = os.time() + 5
-    while os.time() < endTime do
-        -- Initiating the pickup procedure to seize the treasure
-        local args = {
-            [1] = chest.PrimaryPart,
-            [2] = "Pickup"
-        }
-        game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
-
-        -- Wait for a short interval before picking up again
-        wait(0.1)
-    end
+    -- Initiating the pickup procedure to seize the treasure
+    local args = {
+        [1] = chest.PrimaryPart,
+        [2] = "Pickup"
+    }
+    game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
 
     -- Ensuring the adventurer's safe return to their original abode
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
@@ -1329,13 +1319,18 @@ else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "We can't find a Cabbage Patch.",
+        Content = "We can't find a Cabbage patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
 end
   	end    
 })
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 --[[
 Name = <string> - The name of the button.
@@ -1371,22 +1366,12 @@ if chest and chest:IsDescendantOf(workspace) then
     local teleportPosition = chest:GetBoundingBox().Position
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
 
-    -- Relishing the anticipation during a momentary pause
-    wait(0.5)
-
-    -- Loop to pick up the treasure chest for 5 seconds
-    local endTime = os.time() + 5
-    while os.time() < endTime do
-        -- Initiating the pickup procedure to seize the treasure
-        local args = {
-            [1] = chest.PrimaryPart,
-            [2] = "Pickup"
-        }
-        game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
-
-        -- Wait for a short interval before picking up again
-        wait(0.1)
-    end
+    -- Initiating the pickup procedure to seize the treasure
+    local args = {
+        [1] = chest.PrimaryPart,
+        [2] = "Pickup"
+    }
+    game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
 
     -- Ensuring the adventurer's safe return to their original abode
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
@@ -1402,13 +1387,18 @@ else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "We can't find a Watermelon Patch.",
+        Content = "We can't find a Watermelon patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
 end
   	end    
 })
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 --[[
 Name = <string> - The name of the button.
@@ -1443,22 +1433,12 @@ if chest and chest:IsDescendantOf(workspace) then
     local teleportPosition = chest:GetBoundingBox().Position
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
 
-    -- Relishing the anticipation during a momentary pause
-    wait(0.5)
-
-    -- Loop to pick up the treasure chest for 5 seconds
-    local endTime = os.time() + 5
-    while os.time() < endTime do
-        -- Initiating the pickup procedure to seize the treasure
-        local args = {
-            [1] = chest.PrimaryPart,
-            [2] = "Pickup"
-        }
-        game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
-
-        -- Wait for a short interval before picking up again
-        wait(0.1)
-    end
+    -- Initiating the pickup procedure to seize the treasure
+    local args = {
+        [1] = chest.PrimaryPart,
+        [2] = "Pickup"
+    }
+    game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
 
     -- Ensuring the adventurer's safe return to their original abode
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
@@ -1474,7 +1454,7 @@ else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "We can't find a Carrot Patch.",
+        Content = "We can't find a Carrot patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
@@ -1482,6 +1462,10 @@ end
   	end    
 })
 
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
