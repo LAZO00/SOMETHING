@@ -7,33 +7,32 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
 Tab:AddToggle({
 	Name = "Ob Golem",
 	Default = false,
 	Callback = function(Value)
-		local counter = 0
-local isExecuting = false
+		local spamCounter = 0
 
-local function executeScript()
-    local golem = workspace:WaitForChild("Replicators"):WaitForChild("NonPassive"):WaitForChild("Obsidian Golem")
+local function ExecuteScript()
+    local args = {
+        [1] = workspace:WaitForChild("Replicators"):WaitForChild("NonPassive"):WaitForChild("Obsidian Golem")
+    }
     
-    -- Replace "fireclickdetector" with the appropriate function provided by your exploit API
-    fireclickdetector(golem.ClickDetector)
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ToolAction"):FireServer(unpack(args))
 end
 
-local function toggleScript()
-    counter = counter + 1
-    
-    if counter % 2 == 1 then
-        isExecuting = true
-        executeScript()
-    else
-        isExecuting = false
+ExecuteScript() -- Initial execution
+
+game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.Return then -- Change the key to execute the script
+        spamCounter = spamCounter + 1
+        
+        if spamCounter % 2 == 1 then
+            ExecuteScript()
+        end
     end
-end
-
--- Call toggleScript() to start executing the script
-toggleScript()
+end)
 
 	end    
 })
@@ -49,6 +48,7 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
 
 Tab:AddButton({
 	Name = "ttaa!",
