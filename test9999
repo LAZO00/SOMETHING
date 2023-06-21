@@ -8,39 +8,6 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local isExecuting = false
-
--- Function to execute the code
-local function ExecuteCode()
-    local args = {
-       local args = {
-    [1] = workspace:WaitForChild("Replicators"):WaitForChild("NonPassive"):WaitForChild("Obsidian Golem")
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ToolAction"):FireServer(unpack(args))
-
-
--- Callback function for the toggle
-local function ToggleCallback(value)
-    if value then
-        -- Start executing the code
-        isExecuting = true
-        while isExecuting do
-            ExecuteCode()
-            wait()  -- Adjust the wait time between executions if needed
-        end
-    else
-        -- Stop executing the code
-        isExecuting = false
-    end
-end
-
--- Example usage with the toggle
-Tab:AddToggle({
-    Name = "Ob golemee",
-    Default = false,
-    Callback = ToggleCallback
-})
 
 local Tab = Window:MakeTab({
 	Name = "Auto Sell",
