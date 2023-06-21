@@ -1,3 +1,1190 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Auto Sell",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "ttaa!",
+	Callback = function()
+      		local args = {
+    [1] = "Resource Trader",
+    [2] = 19
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+
+  	end    
+})
+
+
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 27
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Ruby Shield",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 28
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Diamond Shield",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 29
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Zenyte Shield",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 30
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Obsidian Shield",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 31
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Ruby Helmet",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 32
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Ruby Body",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 33
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Ruby Legs",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 34
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Ruby Boots",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 35
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Diamond Helmet",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 36
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Diamond Body",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 37
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Diamond Leg",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 38
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Diamond Boots",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 39
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Zenyte Helmet",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 40
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Zenyte Body",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 41
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Zenyte Leg",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 42
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Zenyte Boot",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 43
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Obsidian Helmet",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 44
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Obsidian Body",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 45
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Obsidian Leg",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 46
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Obsidian boot",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 47
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Moonstone Helmet",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 48
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Moonstone Body",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 49
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Moonstone Leg",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 50
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Moonstone Boot",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Armour Trader",
+        [2] = 51
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "Soull Boot And Lucky boot for springy booots",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+Tab:AddParagraph("ItemTrader","!!")
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Resource Trader",
+        [2] = 14
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "4 Iron = 1 Token",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Resource Trader",
+        [2] = 15
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "4 Slime Ball = 1 Token",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Resource Trader",
+        [2] = 16
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "2 Gold Bar = 1 Token",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Resource Trader",
+        [2] = 17
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "1 Ruby = 3 Token",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+
+
+
+
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Tab 1",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddBind({
+	Name = "Auto Pickup",
+	Default = Enum.KeyCode.X,
+	Hold = false,
+	Callback = function()
+		local function autoPickupNearbyItems()
+    local function getNearbyItems()
+        local player = game:GetService("Players").LocalPlayer
+        local character = player.Character
+        local items = {}
+
+        if character then
+            local playerPosition = character.PrimaryPart.Position
+
+            for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
+                if item:IsA("Model") and item.PrimaryPart then
+                    local itemPosition = item.PrimaryPart.Position
+                    local distance = (playerPosition - itemPosition).Magnitude
+
+                    if distance <= 5 then -- Adjust the distance as needed
+                        table.insert(items, item)
+                    end
+                end
+            end
+        end
+
+        return items
+    end
+
+    local itemInteractedEvent = game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted
+
+    local items = getNearbyItems()
+    for _, item in ipairs(items) do
+        local success = pcall(function()
+            itemInteractedEvent:FireServer(item, "Pickup")
+        end)
+        if not success then
+            warn("Failed to pick up item:", item.Name)
+        end
+        wait() -- Wait a short time before moving on to the next item
+    end
+end
+
+autoPickupNearbyItems()
+	end    
+})
+
+
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Chest",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Buy Easy Chest",
+	Callback = function()
+      		local args = {
+    [1] = 1
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("BuyWorldEvent"):FireServer(unpack(args))
+
+  	end    
+})
+
+
+
+
+Tab:AddButton({
+	Name = "Buy Medium Chest",
+	Callback = function()
+      		local args = {
+    [1] = 2
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("BuyWorldEvent"):FireServer(unpack(args))
+
+  	end    
+})
+
+
+
+
+Tab:AddButton({
+	Name = "Buy Hard Chest",
+	Callback = function()
+      		local args = {
+    [1] = 3
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("BuyWorldEvent"):FireServer(unpack(args))
+
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "Open Medium Chest",
+	Callback = function()
+      		local args = {
+    [1] = 167,
+    [2] = "Open"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("InventoryInteraction"):FireServer(unpack(args))
+
+  	end    
+})
+
+
 Tab:AddButton({
 	Name = "Tp To Medium Chest",
 	Callback = function()
@@ -7,6 +1194,58 @@ Tab:AddButton({
 local function findTreasureChest(parent)
     for _, child in ipairs(parent:GetChildren()) do
         if child.Name == "Treasure Chest (Medium)" then
+            chest = child
+            break
+        elseif child:IsA("Model") or child:IsA("Folder") then
+            findTreasureChest(child)
+        end
+    end
+end
+
+
+findTreasureChest(workspace)
+
+if chest and chest:IsDescendantOf(workspace) then
+
+    local originalPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+
+    local teleportPosition = chest:GetBoundingBox().Position
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+
+
+    wait(0.5)
+
+
+    local endTime = os.time() + 5
+    while os.time() < endTime do
+
+        local args = {
+            [1] = chest.PrimaryPart,
+            [2] = "Pickup"
+        }
+        game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
+
+     
+        wait(0.1)
+    end
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+else
+    print("Ah, how the treasure chest has eluded us! Let us embark on a new quest and seek fortune elsewhere!")
+end
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Tp To Medium Easy",
+	Callback = function()
+      		local chest = nil
+
+
+local function findTreasureChest(parent)
+    for _, child in ipairs(parent:GetChildren()) do
+        if child.Name == "Treasure Chest (Easy)" then
             chest = child
             break
         elseif child:IsA("Model") or child:IsA("Folder") then
