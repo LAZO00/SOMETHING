@@ -8,6 +8,64 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+--//Global Variables
+getgenv().MaxDistance = 50
+_G.KillAura = true
+
+--//Functions
+function GetClosestTorso()
+    local closest
+    local plrtorso = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+    for _,v in pairs(game:GetService("Players"):GetPlayers()) do
+        if v.Character and v ~= game:GetService("Players").LocalPlayer then
+            local torso = v.Character:FindFirstChild("HumanoidRootPart")
+            if torso and (closest == nil or (torso.Position - plrtorso.Position).magnitude < (closest.Position - plrtorso.Position).magnitude) then
+                 if (torso.Position - plrtorso.Position).magnitude <= getgenv().MaxDistance then
+                    closest = torso
+              end
+           end
+        end
+    end
+    wait()
+    return closest
+end
+
+function BreakJoints()
+    Player.CharacterAdded:wait()
+    for i = 1,20 do
+        RunService.Heartbeat:wait()
+        if Player.Character:FindFirstChild("HumanoidRootPart") then
+            Player.Character:FindFirstChild("HumanoidRootPart").CFrame = Old
+        end
+    end
+end
+
+Tab:AddToggle({
+	Name = "Kill Aura",
+	Default = false,
+	Callback = function(Value)
+		--// Execution
+if _G.KillAura == false then
+    _G.KillAura = true
+    game:GetService("RunService").Stepped:connect(function()
+        if _G.KillAura then
+            local Closest = GetClosestTorso()
+            if Closest ~= nil then
+                local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
+            
+                -- I took this from dev forum lol
+                local args = {
+                    [1] = Player.Character
+                }
+                game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
+            end
+        end
+    end)
+else
+    _G.KillAura = false
+end
+	end    
+})
 
 local Tab = Window:MakeTab({
 	Name = "Auto Sell",
