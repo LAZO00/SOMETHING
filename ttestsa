@@ -1198,6 +1198,19 @@ game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Co
   	end    
 })
 
+Tab:AddButton({
+	Name = "Open Hard Chest",
+	Callback = function()
+      		local args = {
+    [1] = 168,
+    [2] = "Open"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("InventoryInteraction"):FireServer(unpack(args))
+
+  	end    
+})
+
 
 Tab:AddButton({
 	Name = "Tp To Medium Chest",
