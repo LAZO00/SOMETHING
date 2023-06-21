@@ -9,6 +9,7 @@ local Tab = Window:MakeTab({
 })
 
 local spamCounter = 0
+local scriptRunning = false
 
 local function ExecuteScript()
     local args = {
@@ -25,10 +26,19 @@ Tab:AddToggle({
         spamCounter = spamCounter + 1
         
         if spamCounter % 2 == 1 then
-            ExecuteScript()
+            if not scriptRunning then
+                scriptRunning = true
+                while scriptRunning and spamCounter % 2 == 1 do
+                    ExecuteScript()
+                    wait()
+                end
+            end
+        else
+            scriptRunning = false
         end
     end
 })
+
 
 
 local Tab = Window:MakeTab({
