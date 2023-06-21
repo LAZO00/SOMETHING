@@ -2,6 +2,52 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 
+local Tab = Window:MakeTab({
+	Name = "Combat",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddToggle({
+	Name = "Obsidian Golem",
+	Default = false,
+	Callback = function(Value)
+		local counter = 0
+local isExecuting = false
+
+local function executeScript()
+    local args = {
+        [1] = workspace:WaitForChild("Replicators"):WaitForChild("NonPassive"):WaitForChild("Obsidian Golem")
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ToolAction"):FireServer(unpack(args))
+end
+
+local function danceRoutine()
+    -- Insert your custom dance routine here!
+    print("Performing an epic dance routine!")
+end
+
+local function toggleScript()
+    counter = counter + 1
+    
+    if counter % 4 == 1 or counter % 4 == 3 then
+        isExecuting = true
+        executeScript()
+        danceRoutine()
+    else
+        isExecuting = false
+    end
+end
+
+	end    
+})
+
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
 
 
 local Tab = Window:MakeTab({
