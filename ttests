@@ -1172,6 +1172,20 @@ Callback = <function> - The function of the button.
 ]]
 
 Tab:AddButton({
+	Name = "Open Easy Chest",
+	Callback = function()
+      		local args = {
+    [1] = 166,
+    [2] = "Open"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("InventoryInteraction"):FireServer(unpack(args))
+
+  	end    
+})
+
+
+Tab:AddButton({
 	Name = "Open Medium Chest",
 	Callback = function()
       		local args = {
