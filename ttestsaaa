@@ -1226,7 +1226,7 @@ if chest and chest:IsDescendantOf(workspace) then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
 
     -- Relishing the anticipation during a momentary pause
-    wait(0.5)
+    wait(0.1)
 
     -- Loop to pick up the treasure chest for 5 seconds
     local endTime = os.time() + 5
