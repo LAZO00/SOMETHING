@@ -1256,7 +1256,7 @@ else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "We can't find a Potato patch.",
+        Content = "We can't find a Potato Patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
@@ -1329,7 +1329,7 @@ else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "We can't find a Cabbage patch.",
+        Content = "We can't find a Cabbage Patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
@@ -1402,7 +1402,7 @@ else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "We can't find a Watermelon patch.",
+        Content = "We can't find a Watermelon Patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
@@ -1462,11 +1462,30 @@ if chest and chest:IsDescendantOf(workspace) then
 
     -- Ensuring the adventurer's safe return to their original abode
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+
+    -- Display the success notification with a mischievous twist
+    OrionLib:MakeNotification({
+        Name = "Title!",
+        Content = "Carrot Patch successfully acquired",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
 else
-    print("Ah, how the treasure chest has eluded us! Let us embark on a new quest and seek fortune elsewhere!")
+    -- Display the failure notification with a rebellious touch
+    OrionLib:MakeNotification({
+        Name = "Title!",
+        Content = "We can't find a Carrot Patch.",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
 end
   	end    
 })
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 
 --[[
