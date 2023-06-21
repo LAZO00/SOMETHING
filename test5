@@ -12,22 +12,14 @@ Tab:AddToggle({
 	Name = "Obsidian Golem",
 	Default = false,
 	Callback = function(Value)
-		-- Assuming you have Synapse X API enabled and running
-
-local counter = 0
+		local counter = 0
 local isExecuting = false
 
 local function executeScript()
-    local args = {
-        [1] = workspace:WaitForChild("Replicators"):WaitForChild("NonPassive"):WaitForChild("Obsidian Golem")
-    }
+    local golem = workspace:WaitForChild("Replicators"):WaitForChild("NonPassive"):WaitForChild("Obsidian Golem")
     
-    -- Replace "FireServer" with the appropriate function provided by Synapse X API
-    syn.request({
-        ["method"] = "FireServer",
-        ["args"] = args,
-        ["target"] = game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ToolAction")
-    })
+    -- Replace "fireclickdetector" with the appropriate function provided by your exploit API
+    fireclickdetector(golem.ClickDetector)
 end
 
 local function toggleScript()
@@ -47,11 +39,6 @@ toggleScript()
 	end    
 })
 
---[[
-Name = <string> - The name of the toggle.
-Default = <bool> - The default value of the toggle.
-Callback = <function> - The function of the toggle.
-]]
 --[[
 Name = <string> - The name of the toggle.
 Default = <bool> - The default value of the toggle.
