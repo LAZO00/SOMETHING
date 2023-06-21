@@ -1227,15 +1227,25 @@ end
 -- Start the search from the workspace
 findTreasureChest(workspace)
 
--- Check if the chest was found
-if chest then
+-- Confirming the existence and accessibility of the treasure chest
+if chest and chest:IsDescendantOf(workspace) then
+    -- Briefly acquiring the adventurer's physical presence
+    local originalPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+
+    -- Teleport the character near the treasure chest
+    local teleportPosition = chest.PrimaryPart.Position
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+
     -- Display the success notification with a mischievous twist
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "Potato Patch found!",
+        Content = "Potato Patch found! Teleported to its location.",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
+
+    -- Ensuring the adventurer's safe return to their original abode
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
@@ -1249,6 +1259,10 @@ end
   	end    
 })
 
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
