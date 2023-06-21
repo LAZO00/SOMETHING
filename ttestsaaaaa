@@ -1121,7 +1121,10 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-local chest = nil
+Tab:AddButton({
+	Name = "Asteroid",
+	Callback = function()
+      		local chest = nil
 
 -- Function to recursively search for the treasure chest
 local function findTreasureChest(parent)
@@ -1183,6 +1186,14 @@ else
         Time = 5
     })
 end
+
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 
 Tab:AddButton({
