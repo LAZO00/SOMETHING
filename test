@@ -8,43 +8,6 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddToggle({
-	Name = "Obsidian Golem",
-	Default = false,
-	Callback = function(Value)
-		local counter = 0
-local isExecuting = false
-
-local function executeScript()
-    local golem = workspace:WaitForChild("Replicators"):WaitForChild("NonPassive"):WaitForChild("Obsidian Golem")
-    
-    -- Replace "fireclickdetector" with the appropriate function provided by your exploit API
-    fireclickdetector(golem.ClickDetector)
-end
-
-local function toggleScript()
-    counter = counter + 1
-    
-    if counter % 2 == 1 then
-        isExecuting = true
-        executeScript()
-    else
-        isExecuting = false
-    end
-end
-
--- Call toggleScript() to start executing the script
-toggleScript()
-
-	end    
-})
-
---[[
-Name = <string> - The name of the toggle.
-Default = <bool> - The default value of the toggle.
-Callback = <function> - The function of the toggle.
-]]
-
 
 local Tab = Window:MakeTab({
 	Name = "Auto Sell",
