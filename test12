@@ -23,22 +23,19 @@ local function executeScript()
     game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ToolAction"):FireServer(unpack(args))
 end
 
-local function danceRoutine()
-    -- Insert your custom dance routine here!
-    print("Performing an epic dance routine!")
-end
-
 local function toggleScript()
     counter = counter + 1
     
-    if counter % 4 == 1 or counter % 4 == 3 then
+    if counter % 2 == 1 then
         isExecuting = true
         executeScript()
-        danceRoutine()
     else
         isExecuting = false
     end
 end
+
+-- Call toggleScript() to start executing the script
+toggleScript()
 
 	end    
 })
