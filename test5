@@ -10,8 +10,10 @@ local Tab = Window:MakeTab({
 
 
 
+
+
 Tab:AddToggle({
-	Name = "Ob Golem",
+	Name = "ob golem da",
 	Default = false,
 	Callback = function(Value)
 		local scriptExecutions = 0
@@ -25,33 +27,25 @@ local function ExecuteScript()
     game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
 end
 
--- Example checkbox toggle
-local toggleEnabled = false
+-- Call this function to execute the script
+local function ExecuteSpamScript()
+    scriptExecutions = scriptExecutions + 1
 
-local function ToggleCallback()
-    toggleEnabled = not toggleEnabled
+    if scriptExecutions % 2 == 1 then
+        scriptRunning = true
 
-    if toggleEnabled then
-        scriptExecutions = scriptExecutions + 1
-
-        if scriptExecutions % 2 == 1 then
-            scriptRunning = true
-
-            while scriptRunning do
-                ExecuteScript()
-                wait()
-            end
-        else
-            scriptRunning = false
+        while scriptRunning do
+            ExecuteScript()
+            wait()
         end
     else
         scriptRunning = false
     end
 end
 
--- Call the toggle callback to simulate the script execution
-ToggleCallback()
-ToggleCallback()
+-- Call the function twice to simulate the first and second execution
+ExecuteSpamScript()
+ExecuteSpamScript()
 
 	end    
 })
