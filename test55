@@ -8,38 +8,59 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local spamCounter = 0
+
+
+Tab:AddToggle({
+	Name = "Ob Golem",
+	Default = false,
+	Callback = function(Value)
+		local scriptExecutions = 0
 local scriptRunning = false
 
 local function ExecuteScript()
     local args = {
-        [1] = workspace:WaitForChild("Replicators"):WaitForChild("NonPassive"):WaitForChild("Obsidian Golem")
+        [1] = workspace.Replicators.NonPassive["Obsidian Golem"]
     }
-    
-    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ToolAction"):FireServer(unpack(args))
+
+    game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
 end
 
-Tab:AddToggle({
-    Name = "Toggle Spam",
-    Default = false,
-    Callback = function(Value)
-        spamCounter = spamCounter + 1
-        
-        if spamCounter % 2 == 1 then
-            if not scriptRunning then
-                scriptRunning = true
-                while scriptRunning and spamCounter % 2 == 1 do
-                    ExecuteScript()
-                    wait()
-                end
+-- Example checkbox toggle
+local toggleEnabled = false
+
+local function ToggleCallback()
+    toggleEnabled = not toggleEnabled
+
+    if toggleEnabled then
+        scriptExecutions = scriptExecutions + 1
+
+        if scriptExecutions % 2 == 1 then
+            scriptRunning = true
+
+            while scriptRunning do
+                ExecuteScript()
+                wait()
             end
         else
             scriptRunning = false
         end
+    else
+        scriptRunning = false
     end
+end
+
+-- Call the toggle callback to simulate the script execution
+ToggleCallback()
+ToggleCallback()
+
+	end    
 })
 
-
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
 
 local Tab = Window:MakeTab({
 	Name = "Auto Sell",
