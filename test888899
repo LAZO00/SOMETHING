@@ -67,6 +67,14 @@ end
 	end    
 })
 
+Tab:AddButton({
+	Name = "Infinite-Yield",
+	Default = false,
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+	end    
+})
+
 local Tab = Window:MakeTab({
 	Name = "Auto Sell",
 	Icon = "rbxassetid://4483345998",
