@@ -59,18 +59,7 @@ local Tab = Window:MakeTab({
 })
 
 
-Tab:AddButton({
-	Name = "ttaa!",
-	Callback = function()
-      		local args = {
-    [1] = "Resource Trader",
-    [2] = 19
-}
 
-game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
-
-  	end    
-})
 
 
 
