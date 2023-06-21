@@ -1748,6 +1748,9 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
+Tab:AddLabel("Events")
+
 Tab:AddButton({
 	Name = "Asteroid",
 	Callback = function()
@@ -1802,7 +1805,7 @@ if chest and chest:IsDescendantOf(workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
             Name = "Title!",
-            Content = "Treasure successfully acquired, you cheeky pirate!",
+            Content = "Asteroid successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
         })
@@ -1832,6 +1835,89 @@ end
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
+
+Tab:AddLabel("Items")
+
+Tab:AddButton({
+	Name = "Candy",
+	Callback = function()
+      		local chest = nil
+
+-- Function to recursively search for the treasure chest
+local function findTreasureChest(parent)
+    for _, child in ipairs(parent:GetChildren()) do
+        if child.Name == "Candy" then
+            chest = child
+            break
+        elseif child:IsA("Model") or child:IsA("Folder") then
+            findTreasureChest(child)
+        end
+    end
+end
+
+-- Start the search from the workspace
+findTreasureChest(workspace)
+
+-- Confirming the existence and accessibility of the treasure chest
+if chest and chest:IsDescendantOf(workspace) then
+    -- Briefly acquiring the adventurer's physical presence
+    local originalPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+
+    -- Teleport the character near the treasure chest
+    local teleportPosition = chest:GetBoundingBox().Position
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition + Vector3.new(0, 5, 0))
+
+    -- Relishing the anticipation during a momentary pause
+    wait(0.5)
+
+    -- Loop to pick up the treasure chest for 5 seconds
+    local endTime = os.time() + 5
+    while os.time() < endTime do
+        -- Initiating the pickup procedure to seize the treasure
+        local args = {
+            [1] = chest.PrimaryPart,
+            [2] = "Pickup"
+        }
+        game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
+
+        -- Wait for a short interval before picking up again
+        wait(0.1)
+    end
+
+    -- Ensuring the adventurer's safe return to their original abode
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+
+    -- Check if the chest was successfully acquired
+    if not chest:IsDescendantOf(game.Workspace) then
+        -- Display the success notification with a mischievous twist
+        OrionLib:MakeNotification({
+            Name = "Title!",
+            Content = "Candy successfully acquired",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    else
+        -- Display the failure notification with a rebellious touch
+        OrionLib:MakeNotification({
+            Name = "Title!",
+            Content = "We can't find an Candy.",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    end
+else
+    -- Display the failure notification with a rebellious touch
+    OrionLib:MakeNotification({
+        Name = "Title!",
+        Content = "We can't find a Candy.",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
+
+  	end    
+})
+
 Tab:AddLabel("patches")
 
 Tab:AddButton({
