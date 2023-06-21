@@ -1183,7 +1183,7 @@ if chest and chest:IsDescendantOf(workspace) then
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
             Name = "Title!",
-            Content = "Ah, how the treasure chest has eluded us! Let's embrace the spirit of adventure and chase another dream!",
+            Content = "We can't find an Asteroid.",
             Image = "rbxassetid://4483345998",
             Time = 5
         })
@@ -1192,7 +1192,7 @@ else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "Ah, how the treasure chest has eluded us! Let's embrace the spirit of adventure and chase another dream!",
+        Content = "We can't find an Asteroid.",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
