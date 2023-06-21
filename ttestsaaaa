@@ -1173,7 +1173,7 @@ if chest and chest:IsDescendantOf(workspace) then
     -- Display the success notification with a mischievous twist
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "Treasure successfully acquired, you cheeky pirate!",
+        Content = "Asteroid successfully acquired",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
@@ -1181,7 +1181,7 @@ else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "We can't find an asteroid. :(",
+        Content = "We can't find an Asteroid. :(",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
@@ -1248,7 +1248,7 @@ if chest and chest:IsDescendantOf(workspace) then
     -- Display the success notification with a mischievous twist
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "Potato Patch successfully acquired, you cheeky pirate!",
+        Content = "Potato Patch successfully acquired",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
@@ -1321,7 +1321,7 @@ if chest and chest:IsDescendantOf(workspace) then
     -- Display the success notification with a mischievous twist
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "Cabbage Patch successfully acquired, you cheeky pirate!",
+        Content = "Cabbage Patch successfully acquired",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
@@ -1390,12 +1390,30 @@ if chest and chest:IsDescendantOf(workspace) then
 
     -- Ensuring the adventurer's safe return to their original abode
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+
+    -- Display the success notification with a mischievous twist
+    OrionLib:MakeNotification({
+        Name = "Title!",
+        Content = "Watermelon Patch successfully acquired",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
 else
-    print("Ah, how the treasure chest has eluded us! Let us embark on a new quest and seek fortune elsewhere!")
+    -- Display the failure notification with a rebellious touch
+    OrionLib:MakeNotification({
+        Name = "Title!",
+        Content = "We can't find a Watermelon patch.",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
 end
   	end    
 })
 
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 Tab:AddButton({
 	Name = "Carrot Patch",
 	Callback = function()
