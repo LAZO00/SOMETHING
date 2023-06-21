@@ -17,7 +17,7 @@ local Tab = Window:MakeTab({
 
 
 
-
+Tab:AddLabel("Sheilds")
 
 
 local isExecuting = false
@@ -159,6 +159,8 @@ Tab:AddToggle({
     Default = false,
     Callback = ToggleCallback
 })
+
+Tab:AddLabel("Armours")
 
 local isExecuting = false
 
@@ -895,7 +897,9 @@ Tab:AddToggle({
     Callback = ToggleCallback
 })
 
-Tab:AddParagraph("ItemTrader","!!")
+Tab:AddParagraph("Weapon Trader","!!")
+
+Tab:AddParagraph("ItemTrader","")
 
 local isExecuting = false
 
