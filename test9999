@@ -18,7 +18,7 @@ local function ExecuteCode()
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ToolAction"):FireServer(unpack(args))
-end
+
 
 -- Callback function for the toggle
 local function ToggleCallback(value)
