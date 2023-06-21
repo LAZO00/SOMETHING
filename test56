@@ -8,7 +8,48 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+Tab:AddToggle({
+	Name = "Ob golem",
+	Default = false,
+	Callback = function(Value)
+		local isExecuting = false
 
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = workspace:WaitForChild("Replicators"):WaitForChild("NonPassive"):WaitForChild("Obsidian Golem")
+    }
+    
+    -- Trigger the ToolAction event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ToolAction"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+ToggleCallback(true) -- Enable the toggle to start executing the code
+
+	end    
+})
+
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
 
 
 local Tab = Window:MakeTab({
