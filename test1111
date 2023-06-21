@@ -1542,7 +1542,7 @@ if chest and chest:IsDescendantOf(workspace) then
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
             Name = "Title!",
-            Content = "We can't find a Carrot Patch.",
+            Content = "Carrot Patch successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
         })
