@@ -1247,7 +1247,7 @@ if chest and chest:IsDescendantOf(workspace) then
 
     -- Display the success notification with a mischievous twist
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "Potato Patch successfully acquired",
         Image = "rbxassetid://4483345998",
         Time = 5
