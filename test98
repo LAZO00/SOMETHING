@@ -1247,7 +1247,7 @@ end
 
 -- Example usage with the toggle
 Tab:AddToggle({
-    Name = "4 Iron = 1 Token",
+    Name = "4 Silver = 1 Token",
     Default = false,
     Callback = ToggleCallback
 })
