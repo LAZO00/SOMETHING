@@ -1148,7 +1148,7 @@ if chest and chest:IsDescendantOf(workspace) then
 
     -- Teleport the character near the treasure chest
     local teleportPosition = chest:GetBoundingBox().Position
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition + Vector3.new(0, 5, 0))
 
     -- Relishing the anticipation during a momentary pause
     wait(0.5)
@@ -1170,18 +1170,29 @@ if chest and chest:IsDescendantOf(workspace) then
     -- Ensuring the adventurer's safe return to their original abode
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
 
-    -- Display the success notification with a mischievous twist
-    OrionLib:MakeNotification({
-        Name = "Title!",
-        Content = "Asteroid successfully acquired",
-        Image = "rbxassetid://4483345998",
-        Time = 5
-    })
+    -- Check if the chest was successfully acquired
+    if not chest:IsDescendantOf(game.Workspace) then
+        -- Display the success notification with a mischievous twist
+        OrionLib:MakeNotification({
+            Name = "Title!",
+            Content = "Treasure successfully acquired, you cheeky pirate!",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    else
+        -- Display the failure notification with a rebellious touch
+        OrionLib:MakeNotification({
+            Name = "Title!",
+            Content = "Ah, how the treasure chest has eluded us! Let's embrace the spirit of adventure and chase another dream!",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    end
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "We can't find an Asteroid. :(",
+        Content = "Ah, how the treasure chest has eluded us! Let's embrace the spirit of adventure and chase another dream!",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
@@ -1322,36 +1333,63 @@ if chest and chest:IsDescendantOf(workspace) then
 
     -- Teleport the character near the treasure chest
     local teleportPosition = chest:GetBoundingBox().Position
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition + Vector3.new(0, 5, 0))
 
-    -- Initiating the pickup procedure to seize the treasure
-    local args = {
-        [1] = chest.PrimaryPart,
-        [2] = "Pickup"
-    }
-    game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
+    -- Relishing the anticipation during a momentary pause
+    wait(0.5)
+
+    -- Loop to pick up the treasure chest for 5 seconds
+    local endTime = os.time() + 5
+    while os.time() < endTime do
+        -- Initiating the pickup procedure to seize the treasure
+        local args = {
+            [1] = chest.PrimaryPart,
+            [2] = "Pickup"
+        }
+        game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
+
+        -- Wait for a short interval before picking up again
+        wait(0.1)
+    end
 
     -- Ensuring the adventurer's safe return to their original abode
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
 
-    -- Display the success notification with a mischievous twist
-    OrionLib:MakeNotification({
-        Name = "Title!",
-        Content = "Cabbage Patch successfully acquired",
-        Image = "rbxassetid://4483345998",
-        Time = 5
-    })
+    -- Check if the chest was successfully acquired
+    if not chest:IsDescendantOf(game.Workspace) then
+        -- Display the success notification with a mischievous twist
+        OrionLib:MakeNotification({
+            Name = "Title!",
+            Content = "Cabbage Patch successfully acquired",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    else
+        -- Display the failure notification with a rebellious touch
+        OrionLib:MakeNotification({
+            Name = "Title!",
+            Content = "We can't find a Cabbage Patch.",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    end
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "We can't find a Cabbage patch.",
+        Content = "We can't find a Cabbage Patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
 end
+
   	end    
 })
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 --[[
 Name = <string> - The name of the button.
@@ -1390,37 +1428,63 @@ if chest and chest:IsDescendantOf(workspace) then
 
     -- Teleport the character near the treasure chest
     local teleportPosition = chest:GetBoundingBox().Position
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition + Vector3.new(0, 5, 0))
 
-    -- Initiating the pickup procedure to seize the treasure
-    local args = {
-        [1] = chest.PrimaryPart,
-        [2] = "Pickup"
-    }
-    game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
+    -- Relishing the anticipation during a momentary pause
+    wait(0.5)
+
+    -- Loop to pick up the treasure chest for 5 seconds
+    local endTime = os.time() + 5
+    while os.time() < endTime do
+        -- Initiating the pickup procedure to seize the treasure
+        local args = {
+            [1] = chest.PrimaryPart,
+            [2] = "Pickup"
+        }
+        game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
+
+        -- Wait for a short interval before picking up again
+        wait(0.1)
+    end
 
     -- Ensuring the adventurer's safe return to their original abode
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
 
-    -- Display the success notification with a mischievous twist
-    OrionLib:MakeNotification({
-        Name = "Title!",
-        Content = "Watermelon Patch successfully acquired",
-        Image = "rbxassetid://4483345998",
-        Time = 5
-    })
+    -- Check if the chest was successfully acquired
+    if not chest:IsDescendantOf(game.Workspace) then
+        -- Display the success notification with a mischievous twist
+        OrionLib:MakeNotification({
+            Name = "Title!",
+            Content = "Watermelon Patch successfully acquired",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    else
+        -- Display the failure notification with a rebellious touch
+        OrionLib:MakeNotification({
+            Name = "Title!",
+            Content = "We can't find a Watermelon Patch.",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    end
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "We can't find a Watermelon patch.",
+        Content = "We can't find a Watermelon Patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
 end
+
   	end    
 })
 
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
@@ -1457,36 +1521,63 @@ if chest and chest:IsDescendantOf(workspace) then
 
     -- Teleport the character near the treasure chest
     local teleportPosition = chest:GetBoundingBox().Position
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition + Vector3.new(0, 5, 0))
 
-    -- Initiating the pickup procedure to seize the treasure
-    local args = {
-        [1] = chest.PrimaryPart,
-        [2] = "Pickup"
-    }
-    game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
+    -- Relishing the anticipation during a momentary pause
+    wait(0.5)
+
+    -- Loop to pick up the treasure chest for 5 seconds
+    local endTime = os.time() + 5
+    while os.time() < endTime do
+        -- Initiating the pickup procedure to seize the treasure
+        local args = {
+            [1] = chest.PrimaryPart,
+            [2] = "Pickup"
+        }
+        game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
+
+        -- Wait for a short interval before picking up again
+        wait(0.1)
+    end
 
     -- Ensuring the adventurer's safe return to their original abode
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
 
-    -- Display the success notification with a mischievous twist
-    OrionLib:MakeNotification({
-        Name = "Title!",
-        Content = "Carrot Patch successfully acquired",
-        Image = "rbxassetid://4483345998",
-        Time = 5
-    })
+    -- Check if the chest was successfully acquired
+    if not chest:IsDescendantOf(game.Workspace) then
+        -- Display the success notification with a mischievous twist
+        OrionLib:MakeNotification({
+            Name = "Title!",
+            Content = "Carrot Patch successfully acquired",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    else
+        -- Display the failure notification with a rebellious touch
+        OrionLib:MakeNotification({
+            Name = "Title!",
+            Content = "We can't find a Carrot Patch.",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    end
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "We can't find a Carrot patch.",
+        Content = "We can't find a Carrot Patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
 end
+
   	end    
 })
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 --[[
 Name = <string> - The name of the button.
