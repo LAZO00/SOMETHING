@@ -1,0 +1,51 @@
+Tab:AddButton({
+	Name = "Tp To Medium Chest",
+	Callback = function()
+      		local chest = nil
+
+
+local function findTreasureChest(parent)
+    for _, child in ipairs(parent:GetChildren()) do
+        if child.Name == "Treasure Chest (Medium)" then
+            chest = child
+            break
+        elseif child:IsA("Model") or child:IsA("Folder") then
+            findTreasureChest(child)
+        end
+    end
+end
+
+
+findTreasureChest(workspace)
+
+if chest and chest:IsDescendantOf(workspace) then
+
+    local originalPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+
+    local teleportPosition = chest:GetBoundingBox().Position
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+
+
+    wait(0.5)
+
+
+    local endTime = os.time() + 5
+    while os.time() < endTime do
+
+        local args = {
+            [1] = chest.PrimaryPart,
+            [2] = "Pickup"
+        }
+        game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
+
+     
+        wait(0.1)
+    end
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+else
+    print("Ah, how the treasure chest has eluded us! Let us embark on a new quest and seek fortune elsewhere!")
+end
+  	end    
+})
+
