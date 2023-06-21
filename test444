@@ -8,11 +8,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddToggle({
-	Name = "Ob Golem",
-	Default = false,
-	Callback = function(Value)
-		local spamCounter = 0
+local spamCounter = 0
 
 local function ExecuteScript()
     local args = {
@@ -22,26 +18,18 @@ local function ExecuteScript()
     game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ToolAction"):FireServer(unpack(args))
 end
 
-ExecuteScript() -- Initial execution
-
-game:GetService("UserInputService").InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.Return then -- Change the key to execute the script
+Tab:AddToggle({
+    Name = "Toggle Spam",
+    Default = false,
+    Callback = function(Value)
         spamCounter = spamCounter + 1
         
         if spamCounter % 2 == 1 then
             ExecuteScript()
         end
     end
-end)
-
-	end    
 })
 
---[[
-Name = <string> - The name of the toggle.
-Default = <bool> - The default value of the toggle.
-Callback = <function> - The function of the toggle.
-]]
 
 local Tab = Window:MakeTab({
 	Name = "Auto Sell",
