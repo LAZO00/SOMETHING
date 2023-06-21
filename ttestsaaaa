@@ -1181,7 +1181,7 @@ else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "There is no chests :(",
+        Content = "We can't find an asteroid. :(",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
