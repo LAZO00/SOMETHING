@@ -1230,6 +1230,60 @@ end
   	end    
 })
 
+Tab:AddButton({
+	Name = "Cabbage Patch",
+	Callback = function()
+      		local chest = nil
+
+-- Function to recursively search for the treasure chest
+local function findTreasureChest(parent)
+    for _, child in ipairs(parent:GetChildren()) do
+        if child.Name == "Cabbage Patch" then
+            chest = child
+            break
+        elseif child:IsA("Model") or child:IsA("Folder") then
+            findTreasureChest(child)
+        end
+    end
+end
+
+-- Start the search from the workspace
+findTreasureChest(workspace)
+
+-- Confirming the existence and accessibility of the treasure chest
+if chest and chest:IsDescendantOf(workspace) then
+    -- Briefly acquiring the adventurer's physical presence
+    local originalPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+
+    -- Teleport the character near the treasure chest
+    local teleportPosition = chest:GetBoundingBox().Position
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+
+    -- Relishing the anticipation during a momentary pause
+    wait(0.5)
+
+    -- Loop to pick up the treasure chest for 5 seconds
+    local endTime = os.time() + 5
+    while os.time() < endTime do
+        -- Initiating the pickup procedure to seize the treasure
+        local args = {
+            [1] = chest.PrimaryPart,
+            [2] = "Pickup"
+        }
+        game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
+
+        -- Wait for a short interval before picking up again
+        wait(0.1)
+    end
+
+    -- Ensuring the adventurer's safe return to their original abode
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+else
+    print("Ah, how the treasure chest has eluded us! Let us embark on a new quest and seek fortune elsewhere!")
+end
+  	end    
+})
+
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
