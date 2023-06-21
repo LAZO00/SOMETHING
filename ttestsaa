@@ -1226,7 +1226,7 @@ if chest and chest:IsDescendantOf(workspace) then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
 
     -- Relishing the anticipation during a momentary pause
-    wait(0.1)
+    wait(0.5)
 
     -- Loop to pick up the treasure chest for 5 seconds
     local endTime = os.time() + 5
@@ -1247,7 +1247,7 @@ if chest and chest:IsDescendantOf(workspace) then
 
     -- Display the success notification with a mischievous twist
     OrionLib:MakeNotification({
-        Name = "",
+        Name = "Title!",
         Content = "Potato Patch successfully acquired",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -1256,14 +1256,19 @@ else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
         Name = "Title!",
-        Content = "We can't find a Potato Patch.",
+        Content = "We can't find a Potato patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
 end
+
   	end    
 })
 
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
