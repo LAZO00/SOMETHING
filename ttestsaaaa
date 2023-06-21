@@ -1204,7 +1204,7 @@ Tab:AddButton({
 -- Function to recursively search for the treasure chest
 local function findTreasureChest(parent)
     for _, child in ipairs(parent:GetChildren()) do
-        if child.Name == "Asteroid" then
+        if child.Name == "Potato Patch" then
             chest = child
             break
         elseif child:IsA("Model") or child:IsA("Folder") then
@@ -1317,11 +1317,30 @@ if chest and chest:IsDescendantOf(workspace) then
 
     -- Ensuring the adventurer's safe return to their original abode
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+
+    -- Display the success notification with a mischievous twist
+    OrionLib:MakeNotification({
+        Name = "Title!",
+        Content = "Cabbage Patch successfully acquired, you cheeky pirate!",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
 else
-    print("Ah, how the treasure chest has eluded us! Let us embark on a new quest and seek fortune elsewhere!")
+    -- Display the failure notification with a rebellious touch
+    OrionLib:MakeNotification({
+        Name = "Title!",
+        Content = "We can't find a Cabbage patch.",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
 end
   	end    
 })
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 Tab:AddButton({
 	Name = "Watermelon Patch",
