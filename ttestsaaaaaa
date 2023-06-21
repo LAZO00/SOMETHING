@@ -1121,10 +1121,7 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-Tab:AddButton({
-	Name = "Asteroid",
-	Callback = function()
-      		local chest = nil
+local chest = nil
 
 -- Function to recursively search for the treasure chest
 local function findTreasureChest(parent)
@@ -1169,11 +1166,23 @@ if chest and chest:IsDescendantOf(workspace) then
 
     -- Ensuring the adventurer's safe return to their original abode
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+
+    -- Display the success notification with a mischievous twist
+    OrionLib:MakeNotification({
+        Name = "Title!",
+        Content = "Treasure successfully acquired, you cheeky pirate!",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
 else
-    print("Ah, how the treasure chest has eluded us! Let us embark on a new quest and seek fortune elsewhere!")
+    -- Display the failure notification with a rebellious touch
+    OrionLib:MakeNotification({
+        Name = "Title!",
+        Content = "Ah, how the treasure chest has eluded us! Let's embrace the spirit of adventure and chase another dream!",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
 end
-  	end    
-})
 
 
 Tab:AddButton({
