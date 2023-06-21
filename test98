@@ -1215,7 +1215,7 @@ Tab:AddToggle({
 })
 
 
-Tab:AddParagraph("ItemTrader","")
+Tab:AddParagraph("Resource Trader","")
 
 local isExecuting = false
 
@@ -1424,11 +1424,255 @@ end
 
 -- Example usage with the toggle
 Tab:AddToggle({
-    Name = "1 Zen = 5 Token",
+    Name = "1 Zen = 6 Token",
     Default = false,
     Callback = ToggleCallback
 })
 
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Resource Trader",
+        [2] = 20
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "3 Pumpkin = 1 Token",
+    Default = false,
+    Callback = ToggleCallback
+})
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Resource Trader",
+        [2] = 21
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "5 Candy = 1 Token",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Resource Trader",
+        [2] = 22
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "1 Soul = 5 Token",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Resource Trader",
+        [2] = 23
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "1 Volcanic Ore = 15 Token",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Resource Trader",
+        [2] = 24
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "1 Obsidian = 20 Token",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Resource Trader",
+        [2] = 25
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "1 Lunar Ore = 25 Token",
+    Default = false,
+    Callback = ToggleCallback
+})
+
+local isExecuting = false
+
+-- Function to execute the code
+local function ExecuteCode()
+    local args = {
+        [1] = "Resource Trader",
+        [2] = 26
+    }
+    
+    -- Trigger the TradeTrader event
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("TradeTrader"):FireServer(unpack(args))
+end
+
+-- Callback function for the toggle
+local function ToggleCallback(value)
+    if value then
+        -- Start executing the code
+        isExecuting = true
+        while isExecuting do
+            ExecuteCode()
+            wait()  -- Adjust the wait time between executions if needed
+        end
+    else
+        -- Stop executing the code
+        isExecuting = false
+    end
+end
+
+-- Example usage with the toggle
+Tab:AddToggle({
+    Name = "1 Moonstone = 30 Token",
+    Default = false,
+    Callback = ToggleCallback
+})
 
 --[[
 Name = <string> - The name of the tab.
