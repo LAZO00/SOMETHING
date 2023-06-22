@@ -94,7 +94,7 @@ function BreakJoints()
 end
 
 Tab:AddButton({
-	Name = "INVISIBLE AIMBOT MADE BY MYSELF F1 TO HIDE",
+	Name = "Hidden Aimbot Script Made by myself F1 to hide",
 	Callback = function()
       		local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -132,7 +132,6 @@ TargetLabel.BackgroundTransparency = 1
 TargetLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TargetLabel.TextSize = 14
 TargetLabel.TextXAlignment = Enum.TextXAlignment.Left
-TargetLabel.Text = "Target: None" -- Initial label text
 TargetLabel.Parent = Frame
 
 local DiscordLabel = Instance.new("TextLabel")
@@ -244,11 +243,13 @@ UserInputService.InputBegan:Connect(function(input)
                     if SelectedPlayer then
                         TargetSelected = true
                         UpdateTargetLabel()
+                        print()
                     end
                 else
                     SelectedPlayer = nil
                     TargetSelected = false
                     UpdateTargetLabel()
+                    print()
                 end
             end
         end
@@ -280,8 +281,40 @@ game:GetService("RunService").RenderStepped:Connect(function()
     end
 end)
 
-HideFrame() -- Hide the GUI initially
+UpdateTargetLabel()
 
+
+
+-- Loop to print the Discord server link every 3 minutes
+while true do
+    wait(180) -- 3 minutes in seconds
+    PrintDiscordLink()
+end
+
+
+
+-- Rainbow color effect
+local hue = 0
+local saturation = 1
+local value = 1
+local animationSpeed = 0.005 -- Adjust the speed here (smaller values make it slower)
+
+local function UpdateFrameColor()
+    Frame.BackgroundColor3 = Color3.fromHSV(hue, saturation, value)
+end
+
+while true do
+    if LocalPlayer.Character then
+        break
+    end
+    wait()
+end
+
+while LocalPlayer.Character do
+    hue = (hue + animationSpeed) % 1
+    UpdateFrameColor()
+    wait()
+end
   	end    
 })
 
@@ -3687,6 +3720,51 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
+Tab:AddButton({
+	Name = "Anti-AFK script",
+	Callback = function()
+      		local success, error = pcall(function()
+    local VirtualUser = game:GetService("VirtualUser")
+    game:GetService("Players").LocalPlayer.Idled:Connect(function()
+        VirtualUser:CaptureController()
+        VirtualUser:ClickButton2(Vector2.new())
+    end)
+end)
+
+if success then
+    OrionLib:MakeNotification({
+	Name = "",
+	Content = "Anti-AFK script executed successfully.",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+--[[
+Title = <string> - The title of the notification.
+Content = <string> - The content of the notification.
+Image = <string> - The icon of the notification.
+Time = <number> - The duration of the notfication.
+]]
+else
+OrionLib:MakeNotification({
+	Name = "Error",
+	Content = "Error occurred while executing the anti-AFK script",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+--[[
+Title = <string> - The title of the notification.
+Content = <string> - The content of the notification.
+Image = <string> - The icon of the notification.
+Time = <number> - The duration of the notfication.
+]]
+end
+
+  	end    
+})
+
 
 
 Tab:AddBind({
