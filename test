@@ -132,6 +132,7 @@ TargetLabel.BackgroundTransparency = 1
 TargetLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TargetLabel.TextSize = 14
 TargetLabel.TextXAlignment = Enum.TextXAlignment.Left
+TargetLabel.Text = "Target: None" -- Initial label text
 TargetLabel.Parent = Frame
 
 local DiscordLabel = Instance.new("TextLabel")
@@ -281,6 +282,8 @@ game:GetService("RunService").RenderStepped:Connect(function()
     end
 end)
 
+HideFrame() -- Hide the GUI initially
+
   	end    
 })
 
@@ -289,10 +292,6 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
 
 Tab:AddToggle({
 	Name = "Kill Aura",
