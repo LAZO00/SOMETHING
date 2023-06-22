@@ -94,7 +94,7 @@ function BreakJoints()
 end
 
 Tab:AddButton({
-	Name = "Hidden Aimbot Script Made by myself F1 to hide",
+	Name = "F1 TO HIDE AIMBOT GUI MADE BY MYSELF",
 	Callback = function()
       		local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -255,13 +255,6 @@ UserInputService.InputBegan:Connect(function(input)
         end
     elseif input.UserInputType == Enum.UserInputType.MouseButton2 then
         Holding = true
-    elseif input.KeyCode == Enum.KeyCode.F1 then
-        Hidden = not Hidden
-        if Hidden then
-            HideFrame()
-        else
-            ShowFrame()
-        end
     end
 end)
 
@@ -283,49 +276,23 @@ end)
 
 UpdateTargetLabel()
 
-
-
-
-
 LocalPlayer.CharacterAdded:Connect(function(character)
-    wait(5) -- Wait for 5 seconds
     if Hidden then
         ShowFrame()
     end
 end)
 
 LocalPlayer.CharacterRemoving:Connect(function()
-    wait(5) -- Wait for 5 seconds
-    if Hidden then
-        ShowFrame()
-    end
+    HideFrame()
 end)
 
--- Rainbow color effect
-local hue = 0
-local saturation = 1
-local value = 1
-local animationSpeed = 0.005 -- Adjust the speed here (smaller values make it slower)
-
-local function UpdateFrameColor()
-    Frame.BackgroundColor3 = Color3.fromHSV(hue, saturation, value)
-end
-
-while true do
-    if LocalPlayer.Character then
-        break
-    end
-    wait()
-end
-
-while LocalPlayer.Character do
-    hue = (hue + animationSpeed) % 1
-    UpdateFrameColor()
-    wait()
-end
   	end    
 })
 
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 Tab:AddToggle({
 	Name = "Kill Aura",
