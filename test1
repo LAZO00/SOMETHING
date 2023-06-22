@@ -94,7 +94,7 @@ function BreakJoints()
 end
 
 Tab:AddButton({
-	Name = "F1 TO HIDE INVISIBLE AIMBOT MADE BY MYSELF",
+	Name = "INVISIBLE AIMBOT MADE BY MYSELF F1 TO HIDE",
 	Callback = function()
       		local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -244,13 +244,11 @@ UserInputService.InputBegan:Connect(function(input)
                     if SelectedPlayer then
                         TargetSelected = true
                         UpdateTargetLabel()
-                        print(SelectedPlayer.Name .. " has been selected.")
                     end
                 else
                     SelectedPlayer = nil
                     TargetSelected = false
                     UpdateTargetLabel()
-                    print("Target deselected.")
                 end
             end
         end
