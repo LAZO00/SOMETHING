@@ -94,7 +94,7 @@ function BreakJoints()
 end
 
 Tab:AddButton({
-	Name = "F1 TO HIDE AIMBOT GUI MADE BY MYSELF",
+	Name = "F1 TO HIDE INVISIBLE AIMBOT MADE BY MYSELF",
 	Callback = function()
       		local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -255,6 +255,13 @@ UserInputService.InputBegan:Connect(function(input)
         end
     elseif input.UserInputType == Enum.UserInputType.MouseButton2 then
         Holding = true
+    elseif input.KeyCode == Enum.KeyCode.F1 then
+        Hidden = not Hidden
+        if Hidden then
+            HideFrame()
+        else
+            ShowFrame()
+        end
     end
 end)
 
@@ -274,20 +281,13 @@ game:GetService("RunService").RenderStepped:Connect(function()
     end
 end)
 
-UpdateTargetLabel()
-
-LocalPlayer.CharacterAdded:Connect(function(character)
-    if Hidden then
-        ShowFrame()
-    end
-end)
-
-LocalPlayer.CharacterRemoving:Connect(function()
-    HideFrame()
-end)
-
   	end    
 })
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 --[[
 Name = <string> - The name of the button.
