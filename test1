@@ -3769,7 +3769,7 @@ end
 
 Tab:AddBind({
 	Name = "ob to chest",
-	Default = Enum.KeyCode.E,
+	Default = Enum.KeyCode.F2,
 	Hold = false,
 	Callback = function()
 		      		
@@ -3847,7 +3847,7 @@ Callback = <function> - The function of the bind.
 
 Tab:AddBind({
 	Name = "moonitem to chest",
-	Default = Enum.KeyCode.E,
+	Default = Enum.KeyCode.F2,
 	Hold = false,
 	Callback = function()
 		local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"] -- change the chest to what chest it is
