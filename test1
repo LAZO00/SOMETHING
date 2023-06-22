@@ -3484,3 +3484,278 @@ end
   	end    
 })
 
+local Tab = Window:MakeTab({
+	Name = "Mic",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+Tab:AddButton({
+	Name = "Save Ob Item To Ob Chest",
+	Callback = function()
+      		
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = true
+    local A_3 = 227
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = true
+    local A_3 = 228
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = true
+    local A_3 = 226
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = true
+    local A_3 = 225
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = true
+    local A_3 = 369
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    wait(10) -- Delay for 5 seconds before executing the next block of code
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = false
+    local A_3 = 227
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = false
+    local A_3 = 228
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = false
+    local A_3 = 226
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = false
+    local A_3 = 225
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = false
+    local A_3 = 369
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "Save Moon Item To Ob Chest",
+	Callback = function()
+      		
+ 
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"] -- change the chest to what chest it is
+local A_2 = true -- if true it puts in
+local A_3 = 369  -- ID of the item, NOTE: ( NOT SOUL ) ( ID OF THE ITEMS,BOOKS CAN BE PURCHASED VIA WHATEVER DISCORD SERVER)
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+Event:FireServer(A_1, A_2, A_3)
+
+
+
+
+
+ 
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+local A_2 = true -- if true it puts in
+local A_3 = 366  -- id of the item, NOTE: ( NOT SOUL )
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+Event:FireServer(A_1, A_2, A_3)
+
+
+
+
+ 
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+local A_2 = true -- if true it puts in
+local A_3 = 365  -- id of the item, NOTE: ( NOT SOUL )
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+Event:FireServer(A_1, A_2, A_3)
+
+
+
+ 
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+local A_2 = true -- if true it puts in
+local A_3 = 363  -- id of the item, NOTE: ( NOT SOUL )
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+Event:FireServer(A_1, A_2, A_3)
+
+
+
+ 
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+local A_2 = true -- if true it puts in
+local A_3 = 364  -- id of the item, NOTE: ( NOT SOUL )
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+Event:FireServer(A_1, A_2, A_3)
+
+
+wait(10) -- Delay for 5 seconds before executing the next block of code
+
+ 
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"] -- change the chest to what chest it is
+local A_2 = false -- if true it puts in
+local A_3 = 369  -- ID of the item, NOTE: ( NOT SOUL ) ( ID OF THE ITEMS,BOOKS CAN BE PURCHASED VIA WHATEVER DISCORD SERVER)
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+Event:FireServer(A_1, A_2, A_3)
+
+
+
+
+
+ 
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+local A_2 = false -- if true it puts in
+local A_3 = 366  -- id of the item, NOTE: ( NOT SOUL )
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+Event:FireServer(A_1, A_2, A_3)
+
+
+
+
+ 
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+local A_2 = false -- if true it puts in
+local A_3 = 365  -- id of the item, NOTE: ( NOT SOUL )
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+Event:FireServer(A_1, A_2, A_3)
+
+
+
+ 
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+local A_2 = false -- if true it puts in
+local A_3 = 363  -- id of the item, NOTE: ( NOT SOUL )
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+Event:FireServer(A_1, A_2, A_3)
+
+
+
+ 
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+local A_2 = false -- if true it puts in
+local A_3 = 364  -- id of the item, NOTE: ( NOT SOUL )
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+Event:FireServer(A_1, A_2, A_3)
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+
+
+--[[
+Name = <string> - The name of the bind.
+Default = <keycode> - The default value of the bind.
+Hold = <bool> - Makes the bind work like: Holding the key > The bind returns true, Not holding the key > Bind returns false.
+Callback = <function> - The function of the bind.
+]]
+
+Tab:AddBind({
+	Name = "ob to chest",
+	Default = Enum.KeyCode.E,
+	Hold = false,
+	Callback = function()
+		      		
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = true
+    local A_3 = 227
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = true
+    local A_3 = 228
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = true
+    local A_3 = 226
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = true
+    local A_3 = 225
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = true
+    local A_3 = 369
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    wait(10) -- Delay for 5 seconds before executing the next block of code
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = false
+    local A_3 = 227
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = false
+    local A_3 = 228
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = false
+    local A_3 = 226
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = false
+    local A_3 = 225
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_2 = false
+    local A_3 = 369
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+	end    
+})
+
+
+
