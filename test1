@@ -243,13 +243,13 @@ UserInputService.InputBegan:Connect(function(input)
                     if SelectedPlayer then
                         TargetSelected = true
                         UpdateTargetLabel()
-                        print()
+                        
                     end
                 else
                     SelectedPlayer = nil
                     TargetSelected = false
                     UpdateTargetLabel()
-                    print()
+                    
                 end
             end
         end
