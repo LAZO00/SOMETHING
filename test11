@@ -352,7 +352,7 @@ end
 })
 
 Tab:AddButton({
-	Name = "ESP-1",
+	Name = "ESP 1",
 	Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/FishExploitsYT/ESP/53c5835d974487dad9297200f630e58e45d69427/Good%20ESP.lua"))()
   	end    
@@ -360,7 +360,7 @@ Tab:AddButton({
 
 
 Tab:AddButton({
-	Name = "ESP-2",
+	Name = "ESP 2",
 	Callback = function()
       		local FillColor = Color3.fromRGB(175,25,255)
 local DepthMode = "AlwaysOnTop"
