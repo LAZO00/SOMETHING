@@ -2271,7 +2271,7 @@ end
 })
 
 Tab:AddButton({
-	Name = "Pile Of Candy",
+	Name = "Pile of Candy",
 	Callback = function()
       		local chest = nil
 
