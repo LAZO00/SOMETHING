@@ -351,6 +351,134 @@ end
 	end    
 })
 
+Tab:AddToggle({
+	Name = "Esp",
+	Default = false,
+	Callback = function(Value)
+		local FillColor = Color3.fromRGB(175, 25, 255)
+local DepthMode = "AlwaysOnTop"
+local FillTransparency = 0.5
+local OutlineColor = Color3.fromRGB(255, 255, 255)
+local OutlineTransparency = 0
+
+local CoreGui = game:GetService("CoreGui")
+local Players = game:GetService("Players")
+local lp = Players.LocalPlayer
+local connections = {}
+
+local Storage = CoreGui:FindFirstChild("Highlight_Storage")
+if not Storage then
+    Storage = Instance.new("Folder")
+    Storage.Parent = CoreGui
+    Storage.Name = "Highlight_Storage"
+end
+
+local ESPEnabled = false
+
+local function Highlight(plr)
+    if ESPEnabled then
+        return
+    end
+
+    local espName = plr.Name
+
+    local Highlight = Instance.new("BoxHandleAdornment")
+    Highlight.Name = espName
+    Highlight.Size = plr.Character:FindFirstChild("HumanoidRootPart").Size * 1.1
+    Highlight.Adornee = plr.Character:FindFirstChild("HumanoidRootPart")
+    Highlight.AlwaysOnTop = true
+    Highlight.Transparency = FillTransparency
+    Highlight.Color3 = FillColor
+    Highlight.ZIndex = 10
+    Highlight.Parent = Storage
+
+    local outline = Instance.new("BoxHandleAdornment")
+    outline.Name = espName .. "_Outline"
+    outline.Size = plr.Character:FindFirstChild("HumanoidRootPart").Size * 1.12
+    outline.Adornee = plr.Character:FindFirstChild("HumanoidRootPart")
+    outline.AlwaysOnTop = true
+    outline.Transparency = OutlineTransparency
+    outline.Color3 = OutlineColor
+    outline.ZIndex = 0
+    outline.Parent = Storage
+
+    connections[plr] = plr.CharacterAdded:Connect(function(char)
+        local humanoidRootPart = char:FindFirstChild("HumanoidRootPart")
+        if humanoidRootPart then
+            Highlight.Size = humanoidRootPart.Size * 1.1
+            Highlight.Adornee = humanoidRootPart
+            outline.Size = humanoidRootPart.Size * 1.12
+            outline.Adornee = humanoidRootPart
+        end
+    end)
+
+    ESPEnabled = true
+end
+
+local function DisableESP()
+    if not ESPEnabled then
+        return
+    end
+
+    for _, child in ipairs(Storage:GetChildren()) do
+        child:Destroy()
+    end
+
+    for _, connection in pairs(connections) do
+        connection:Disconnect()
+    end
+
+    connections = {}
+    ESPEnabled = false
+end
+
+local function ToggleESP()
+    if ESPEnabled then
+        DisableESP()
+    else
+        for _, plr in ipairs(Players:GetPlayers()) do
+            Highlight(plr)
+        end
+    end
+end
+
+Players.PlayerAdded:Connect(function(plr)
+    if ESPEnabled then
+        Highlight(plr)
+    end
+end)
+
+Players.PlayerRemoving:Connect(function(plr)
+    local espName = plr.Name
+    local highlight = Storage:FindFirstChild(espName)
+    local outline = Storage:FindFirstChild(espName .. "_Outline")
+
+    if highlight then
+        highlight:Destroy()
+    end
+
+    if outline then
+        outline:Destroy()
+    end
+
+    if connections[plr] then
+        connections[plr]:Disconnect()
+        connections[plr] = nil
+    end
+end)
+
+-- Toggle the ESP state when the script is executed
+ToggleESP()
+
+	end    
+})
+
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
+
 Tab:AddButton({
 	Name = "Infinite-Yield",
 	Default = false,
