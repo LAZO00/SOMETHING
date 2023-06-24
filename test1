@@ -8,50 +8,50 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddBind({
-	Name = "Auto Pickup",
-	Default = Enum.KeyCode.X,
-	Hold = false,
-	Callback = function()
-		local function autoPickupNearbyItems()
-    local function getNearbyItems()
-        local player = game:GetService("Players").LocalPlayer
-        local character = player.Character
-        local items = {}
+    Name = "Auto Pickup",
+    Default = Enum.KeyCode.X,
+    Hold = false,
+    Callback = function()
+        local function autoPickupNearbyItems()
+            local function getNearbyItems()
+                local player = game:GetService("Players").LocalPlayer
+                local character = player.Character
+                local items = {}
 
-        if character then
-            local playerPosition = character.PrimaryPart.Position
+                if character then
+                    local playerPosition = character.PrimaryPart.Position
 
-            for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
-                if item:IsA("Model") and item.PrimaryPart then
-                    local itemPosition = item.PrimaryPart.Position
-                    local distance = (playerPosition - itemPosition).Magnitude
+                    for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
+                        if item:IsA("Model") and item.PrimaryPart then
+                            local itemPosition = item.PrimaryPart.Position
+                            local distance = (playerPosition - itemPosition).Magnitude
 
-                    if distance <= 5 then -- Adjust the distance as needed
-                        table.insert(items, item)
+                            if distance <= 5 then -- Adjust the distance as needed
+                                table.insert(items, item)
+                            end
+                        end
                     end
                 end
+
+                return items
+            end
+
+            local itemInteractedEvent = game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted
+
+            local items = getNearbyItems()
+            for _, item in ipairs(items) do
+                local success = pcall(function()
+                    itemInteractedEvent:FireServer(item, "Pickup")
+                end)
+                if not success then
+                    warn("Failed to pick up item:", item.Name)
+                end
+                wait() -- Wait a short time before moving on to the next item
             end
         end
 
-        return items
+        autoPickupNearbyItems()
     end
-
-    local itemInteractedEvent = game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted
-
-    local items = getNearbyItems()
-    for _, item in ipairs(items) do
-        local success = pcall(function()
-            itemInteractedEvent:FireServer(item, "Pickup")
-        end)
-        if not success then
-            warn("Failed to pick up item:", item.Name)
-        end
-        wait() -- Wait a short time before moving on to the next item
-    end
-end
-
-autoPickupNearbyItems()
-	end    
 })
 
 
