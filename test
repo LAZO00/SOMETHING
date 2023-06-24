@@ -450,11 +450,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddToggle({
-	Name = "Mushrumm Spirit",
-	Default = false,
-	Callback = function(Value)
-		local spamEnabled = true
+local spamEnabled = false
 
 local function spamToolActionEvent()
     local A_1 = game:GetService("Workspace").Replicators.NonPassive["Mushroom Spirit"]
@@ -462,22 +458,17 @@ local function spamToolActionEvent()
     Event:FireServer(A_1)
 end
 
-Tab:AddBind({
+Tab:AddToggle({
     Name = "Spam Tool Action",
-    Default = Enum.KeyCode.X,
-    Hold = false,
-    Callback = function()
+    Default = false,
+    Callback = function(Value)
+        spamEnabled = Value
         if spamEnabled then
             spamToolActionEvent()
-            spamEnabled = false
         else
             warn("Spamming stopped.")
-            spamEnabled = true
         end
     end
-})
-
-	end    
 })
 
 --[[
