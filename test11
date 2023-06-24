@@ -450,6 +450,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+local firstExecution = true
 local spamEnabled = false
 
 local function spamToolActionEvent()
@@ -463,10 +464,12 @@ Tab:AddToggle({
     Default = false,
     Callback = function(Value)
         spamEnabled = Value
-        if spamEnabled then
+        if spamEnabled and firstExecution then
             spamToolActionEvent()
-        else
+            firstExecution = false
+        elseif not spamEnabled then
             warn("Spamming stopped.")
+            firstExecution = true
         end
     end
 })
