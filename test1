@@ -455,6 +455,35 @@ local isSpamming = false
 
 local function spamToolActionEvent()
     while isSpamming do
+        local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Golem"]
+        local Event = game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction
+        Event:FireServer(A_1)
+        wait()
+    end
+end
+
+Tab:AddToggle({
+    Name = "Obsidian Golem",
+    Default = false,
+    Callback = function(Value)
+        spamEnabled = Value
+        if spamEnabled then
+            if not isSpamming then
+                isSpamming = true
+                spawn(spamToolActionEvent)
+            end
+        else
+            isSpamming = false
+        end
+    end
+})
+
+
+local spamEnabled = false
+local isSpamming = false
+
+local function spamToolActionEvent()
+    while isSpamming do
         local A_1 = game:GetService("Workspace").Replicators.NonPassive["Mushroom Spirit"]
         local Event = game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction
         Event:FireServer(A_1)
@@ -484,11 +513,7 @@ Default = <bool> - The default value of the toggle.
 Callback = <function> - The function of the toggle.
 ]]
 
---[[
-Name = <string> - The name of the toggle.
-Default = <bool> - The default value of the toggle.
-Callback = <function> - The function of the toggle.
-]]
+
 
 local Tab = Window:MakeTab({
 	Name = "Auto Sell",
