@@ -463,7 +463,7 @@ local function spamToolActionEvent()
 end
 
 Tab:AddToggle({
-    Name = "Spam Tool Action",
+    Name = "Mushrumm Spirit",
     Default = false,
     Callback = function(Value)
         spamEnabled = Value
