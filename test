@@ -3885,7 +3885,7 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddButton({
-	Name = "Equip Obsidian Set",
+	Name = "Equip / Unequip Obsidian Set",
 	Callback = function()
 -- ob helmet
 local A_1 = 225
