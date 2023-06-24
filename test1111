@@ -453,26 +453,24 @@ local Tab = Window:MakeTab({
 local firstExecution = true
 local spamEnabled = false
 
-local function spamToolActionEvent()
-    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Mushroom Spirit"]
-    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction
-    Event:FireServer(A_1)
-end
-
 Tab:AddToggle({
     Name = "Spam Tool Action",
     Default = false,
     Callback = function(Value)
-        spamEnabled = Value
-        if spamEnabled and firstExecution then
-            spamToolActionEvent()
-            firstExecution = false
-        elseif not spamEnabled then
-            warn("Spamming stopped.")
-            firstExecution = true
+        if spamEnabled ~= Value then
+            spamEnabled = Value
+
+            if spamEnabled then
+                local A_1 = game:GetService("Workspace").Replicators.NonPassive["Mushroom Spirit"]
+                local Event = game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction
+                Event:FireServer(A_1)
+            else
+                warn("Spamming stopped.")
+            end
         end
     end
 })
+
 
 --[[
 Name = <string> - The name of the toggle.
