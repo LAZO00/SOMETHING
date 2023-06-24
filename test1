@@ -541,6 +541,34 @@ Tab:AddToggle({
     end
 })
 
+local spamEnabled = false
+local isSpamming = false
+
+local function spamToolActionEvent()
+    while isSpamming do
+        local A_1 = game:GetService("Workspace").Replicators.Both["Orange Slime"]
+        local Event = game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction
+        Event:FireServer(A_1)
+        wait()
+    end
+end
+
+Tab:AddToggle({
+    Name = "Mob",
+    Default = false,
+    Callback = function(Value)
+        spamEnabled = Value
+        if spamEnabled then
+            if not isSpamming then
+                isSpamming = true
+                spawn(spamToolActionEvent)
+            end
+        else
+            isSpamming = false
+        end
+    end
+})
+
 
 local Tab = Window:MakeTab({
 	Name = "Auto Sell",
