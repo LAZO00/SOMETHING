@@ -66,8 +66,13 @@ Tab:AddBind({
 	Default = Enum.KeyCode.E,
 	Hold = false,
 	Callback = function()
-		print("press")
-	end    
+		 local player = game:GetService("Players").LocalPlayer
+        local humanoid = player.Character and player.Character:FindFirstChild("Humanoid")
+
+        if humanoid then
+            humanoid.WalkSpeed = 30
+        end
+	  
 })
 
 --[[
