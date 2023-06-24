@@ -3885,6 +3885,42 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddButton({
+	Name = "Equip Obsidian Set",
+	Callback = function()
+-- ob helmet
+local A_1 = 225
+local A_2 = "Equip"
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.InventoryInteraction
+Event:FireServer(A_1, A_2)
+
+-- ob body
+local A_1 = 226
+local A_2 = "Equip"
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.InventoryInteraction
+Event:FireServer(A_1, A_2)
+
+-- ob leg 
+local A_1 = 227
+local A_2 = "Equip"
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.InventoryInteraction
+Event:FireServer(A_1, A_2)
+
+--ob boots
+local A_1 = 228
+local A_2 = "Equip"
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.InventoryInteraction
+Event:FireServer(A_1, A_2)
+
+
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
 	Name = "Anti-AFK script",
 	Callback = function()
       		local success, error = pcall(function()
