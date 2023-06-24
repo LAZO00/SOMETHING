@@ -61,19 +61,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddBind({
-	Name = "SPEED",
-	Default = Enum.KeyCode.E,
-	Hold = false,
-	Callback = function()
-		 local player = game:GetService("Players").LocalPlayer
-        local humanoid = player.Character and player.Character:FindFirstChild("Humanoid")
 
-        if humanoid then
-            humanoid.WalkSpeed = 30
-        end
-	  
-})
 
 --[[
 Name = <string> - The name of the bind.
