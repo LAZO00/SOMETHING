@@ -2239,7 +2239,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Asteroid successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2247,7 +2247,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "We can't find an Asteroid.",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2256,7 +2256,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find an Asteroid.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -2326,7 +2326,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Candy successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2334,7 +2334,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "We can't find an Candy.",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2343,7 +2343,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Candy.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -2406,7 +2406,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Pile Of Candy successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2414,7 +2414,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "We can't find a Pile Of Candy.",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2423,7 +2423,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Pile Of Candy.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -2488,7 +2488,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Carrot Patch successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2496,7 +2496,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Potato Patch successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2505,7 +2505,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Carrot Patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -2601,7 +2601,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Cabbage Patch successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2609,7 +2609,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Cabbage Patch successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2618,7 +2618,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Cabbage Patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -2696,7 +2696,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Watermelon Patch successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2704,7 +2704,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Watermelon Patch successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2713,7 +2713,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Watermelon Patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -2789,7 +2789,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Carrot Patch successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2797,7 +2797,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Carrot Patch successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2806,7 +2806,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Carrot Patch.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -2871,7 +2871,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Obsidian Golem successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2879,7 +2879,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Obsidian Golem successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2888,7 +2888,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Obsidian Golem.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -2951,7 +2951,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Ogre successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2959,7 +2959,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Ogre successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -2968,7 +2968,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Ogre.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -3032,7 +3032,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Lucky Slime successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3040,7 +3040,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Lucky Slime successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3049,7 +3049,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Lucky Slime.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -3116,7 +3116,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Silver Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3124,7 +3124,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Silver Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3133,7 +3133,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Silver Rock.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -3197,7 +3197,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Gold Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3205,7 +3205,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Volcanic Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3214,7 +3214,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Gold Rock.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -3277,7 +3277,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Volcanic Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3285,7 +3285,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Ruby Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3294,7 +3294,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Ruby Rock.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -3357,7 +3357,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Diamond Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3365,7 +3365,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Diamond Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3374,7 +3374,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Diamond Rock.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -3437,7 +3437,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Zenyte Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3445,7 +3445,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Zenyte Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3454,7 +3454,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Zenyte Rock.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -3517,7 +3517,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Volcanic Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3525,7 +3525,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Volcanic Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3534,7 +3534,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Volcanic Rock.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -3597,7 +3597,7 @@ if chest and chest:IsDescendantOf(workspace) then
     if not chest:IsDescendantOf(game.Workspace) then
         -- Display the success notification with a mischievous twist
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Magic Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3605,7 +3605,7 @@ if chest and chest:IsDescendantOf(workspace) then
     else
         -- Display the failure notification with a rebellious touch
         OrionLib:MakeNotification({
-            Name = "Title!",
+            Name = "",
             Content = "Magic Rock successfully acquired",
             Image = "rbxassetid://4483345998",
             Time = 5
@@ -3614,7 +3614,7 @@ if chest and chest:IsDescendantOf(workspace) then
 else
     -- Display the failure notification with a rebellious touch
     OrionLib:MakeNotification({
-        Name = "Title!",
+        Name = "",
         Content = "We can't find a Magic Rock.",
         Image = "rbxassetid://4483345998",
         Time = 5
@@ -3833,7 +3833,7 @@ if chest and chest:IsDescendantOf(workspace) then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
 else
     OrionLib:MakeNotification({
-	Name = "Title!",
+	Name = "",
 	Content = "We can't find an Medium chest.",
 	Image = "rbxassetid://4483345998",
 	Time = 5
