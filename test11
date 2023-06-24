@@ -46,8 +46,11 @@ Tab:AddBind({
                 end)
                 if not success then
                     warn("Failed to pick up item:", item.Name)
+                else
+                    repeat
+                        wait() -- Wait until item is confirmed as picked up
+                    until not item:IsDescendantOf(game:GetService("Workspace"))
                 end
-                wait() -- Wait a short time before moving on to the next item
             end
         end
 
