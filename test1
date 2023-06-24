@@ -451,72 +451,40 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddToggle({
-	Name = "Obsidian Golem",
+	Name = "Mushrumm Spirit",
 	Default = false,
 	Callback = function(Value)
-		local Player = game.Players.LocalPlayer
-local spamEnabled = false -- Initialize spam state
+		local spamEnabled = true
 
--- Create GUI
-local gui = Instance.new("ScreenGui")
-gui.Name = "ToggleGUI"
+local function spamToolActionEvent()
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Mushroom Spirit"]
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction
+    Event:FireServer(A_1)
+end
 
--- Create frame
-local frame = Instance.new("Frame")
-frame.Parent = gui
-frame.Size = UDim2.new(0, 100, 0, 50)
-frame.Position = UDim2.new(0, 10, 0, 10)
-frame.BackgroundTransparency = 0.5
-
--- Create toggle button
-local toggleButton = Instance.new("TextButton")
-toggleButton.Parent = frame
-toggleButton.Size = UDim2.new(1, 0, 1, 0)
-toggleButton.BackgroundTransparency = 0.2
-toggleButton.Text = "Toggle"
-
--- Function to toggle spam
-local function toggleSpam()
-    spamEnabled = not spamEnabled -- Toggle the state
-    
-    if spamEnabled then
-        while spamEnabled do
-            local args = {
-                [1] = workspace.Replicators.NonPassive["Obsidian Golem"]
-            }
-            game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
-            wait(0.1) -- Adjust the delay between each script spam if needed
+Tab:AddBind({
+    Name = "Spam Tool Action",
+    Default = Enum.KeyCode.X,
+    Hold = false,
+    Callback = function()
+        if spamEnabled then
+            spamToolActionEvent()
+            spamEnabled = false
+        else
+            warn("Spamming stopped.")
+            spamEnabled = true
         end
     end
-end
+})
 
-toggleButton.MouseButton1Click:Connect(toggleSpam)
-
--- Add GUI to player's PlayerGui
-gui.Parent = Player.PlayerGui
-
--- Handle player character removal
-local function onCharacterAdded(character)
-    if character.Parent == Player then
-        gui.Parent = Player.PlayerGui -- Reattach GUI when character is added
-    end
-end
-
-local function onCharacterRemoving(character)
-    if character.Parent == Player then
-        gui.Parent = nil -- Remove GUI when character is removed
-    end
-end
-
-Player.CharacterAdded:Connect(onCharacterAdded)
-Player.CharacterRemoving:Connect(onCharacterRemoving)
-
--- Initial check if the character is already present
-if Player.Character then
-    onCharacterAdded(Player.Character)
-end
 	end    
 })
+
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
 
 --[[
 Name = <string> - The name of the toggle.
