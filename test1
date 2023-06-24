@@ -3769,7 +3769,19 @@ if chest and chest:IsDescendantOf(workspace) then
 
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
 else
-    print("Ah, how the treasure chest has eluded us! Let us embark on a new quest and seek fortune elsewhere!")
+    OrionLib:MakeNotification({
+	Name = "",
+	Content = "We can't find an Easy Chest.",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+--[[
+Title = <string> - The title of the notification.
+Content = <string> - The content of the notification.
+Image = <string> - The icon of the notification.
+Time = <number> - The duration of the notfication.
+]]
 end
   	end    
 })
@@ -3820,7 +3832,19 @@ if chest and chest:IsDescendantOf(workspace) then
 
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
 else
-    print("Ah, how the treasure chest has eluded us! Let us embark on a new quest and seek fortune elsewhere!")
+    OrionLib:MakeNotification({
+	Name = "Title!",
+	Content = "We can't find an Medium chest.",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+--[[
+Title = <string> - The title of the notification.
+Content = <string> - The content of the notification.
+Image = <string> - The icon of the notification.
+Time = <number> - The duration of the notfication.
+]]
 end
   	end    
 })
@@ -3873,7 +3897,19 @@ if chest and chest:IsDescendantOf(workspace) then
 
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
 else
-    print("Ah, how the treasure chest has eluded us! Let us embark on a new quest and seek fortune elsewhere!")
+    OrionLib:MakeNotification({
+	Name = "",
+	Content = "We can't find an Hard Chest.",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+--[[
+Title = <string> - The title of the notification.
+Content = <string> - The content of the notification.
+Image = <string> - The icon of the notification.
+Time = <number> - The duration of the notfication.
+]]
 end
   	end    
 })
