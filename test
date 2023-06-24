@@ -39,7 +39,8 @@ Tab:AddBind({
             local itemInteractedEvent = game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted
 
             local items = getNearbyItems()
-            for _, item in ipairs(items) do
+            for i = 1, #items do
+                local item = items[i]
                 local success = pcall(function()
                     itemInteractedEvent:FireServer(item, "Pickup")
                 end)
