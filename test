@@ -470,14 +470,13 @@ Tab:AddToggle({
         if spamEnabled then
             if not isSpamming then
                 isSpamming = true
-                spamToolActionEvent()
+                spawn(spamToolActionEvent)
             end
         else
             isSpamming = false
         end
     end
 })
-
 
 --[[
 Name = <string> - The name of the toggle.
