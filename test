@@ -2489,7 +2489,7 @@ Tab:AddButton({
 -- Function to recursively search for the treasure chest
 local function findTreasureChest(parent)
     for _, child in ipairs(parent:GetChildren()) do
-        if child.Name == "Pile Of Candy" then
+        if child.Name == "Pile of Candy" then
             chest = child
             break
         elseif child:IsA("Model") or child:IsA("Folder") then
