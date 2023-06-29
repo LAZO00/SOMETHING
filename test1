@@ -4208,22 +4208,7 @@ Hold = <bool> - Makes the bind work like: Holding the key > The bind returns tru
 Callback = <function> - The function of the bind.
 ]]
 
-Tab:AddButton({
-	Name = "Soul Item instant repair",
-	Callback = function()
-      		local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
-local A_2 = true -- if true it puts in
-local A_3 = 201  -- id of the item, NOTE: ( NOT SOUL )
-local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
-Event:FireServer(A_1, A_2, A_3)
 
-  	end    
-})
-
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
 
 Tab:AddBind({
 	Name = "moonitem to chest",
