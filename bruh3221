@@ -342,23 +342,18 @@ Tab:AddToggle({
         --// Execution
         if _G.KillAura == false then
             _G.KillAura = true
-            local delay = 5 -- Set the desired delay time (in seconds)
-            local lastAttackTime = tick() - delay -- Initialize the time of the last attack
+            local delay = 1 -- Set the desired delay time (in seconds)
             while _G.KillAura do
-                local currentTime = tick()
-                if currentTime - lastAttackTime >= delay then
-                    local Closest = GetClosestTorso()
-                    if Closest ~= nil then
-                        local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
-                        -- I took this from dev forum lol
-                        local args = {
-                            [1] = Player.Character
-                        }
-                        game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
-                        lastAttackTime = currentTime
-                    end
+                local Closest = GetClosestTorso()
+                if Closest ~= nil then
+                    local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
+                    -- I took this from dev forum lol
+                    local args = {
+                        [1] = Player.Character
+                    }
+                    game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
                 end
-                wait()
+                wait(delay)
             end
         else
             _G.KillAura = false
