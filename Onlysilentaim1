@@ -39,3 +39,34 @@ local A_1 = "rbxassetid://4150159559" local A_2 = 1 local A_3 = game:GetService(
         end
     end
 })
+
+Tab:AddBind({
+	Name = "Silnet Aim1",
+	Default = Enum.KeyCode.F3,
+	Hold = false,
+	Callback = function()
+		        --// Execution
+        if _G.SilentAim == false then
+            _G.SilentAim = true
+            local delay = 0.7 -- Set the desired delay time (in seconds)
+            while _G.SilentAim do
+                local Closest = GetClosestTorso()
+                if Closest ~= nil then
+                    local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
+                    -- I took this from dev forum lol
+                    local args = {
+                        [1] = Player.Character
+                    }
+                    game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
+local A_1 = "rbxassetid://4150159559" local A_2 = 1 local A_3 = game:GetService("Workspace").Replicators.NonPassive.JumpyXValk.HumanoidRootPart local A_4 = true local Event = game:GetService("ReplicatedStorage").References.Utilities.Shared.SFX.Replicate Event:FireServer(A_1, A_2, A_3, A_4) 
+
+
+                end
+                wait(delay)
+            end
+        else
+            _G.SilentAim = false
+        end
+	end    
+})
+
