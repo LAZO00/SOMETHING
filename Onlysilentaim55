@@ -10,6 +10,7 @@ local Tab = Window:MakeTab({
 --//Global Variables
 getgenv().MaxDistance = 50
 _G.SilentAim = true
+local WhitelistedPlayer = "JumpyXValk"
 
 --//Functions
 function GetClosestTorso()
@@ -20,7 +21,9 @@ function GetClosestTorso()
             local torso = v.Character:FindFirstChild("HumanoidRootPart")
             if torso and (closest == nil or (torso.Position - plrtorso.Position).magnitude < (closest.Position - plrtorso.Position).magnitude) then
                 if (torso.Position - plrtorso.Position).magnitude <= getgenv().MaxDistance then
-                    closest = torso
+                    if v.Name == WhitelistedPlayer then
+                        closest = torso
+                    end
                 end
             end
         end
@@ -34,13 +37,14 @@ Tab:AddToggle({
     Default = false,
     Callback = function(Value)
         --// Execution
-        if _G.SilentAim == false then
+        local Player = game:GetService("Players").LocalPlayer
+        if Value and Player.Name == WhitelistedPlayer then
             _G.SilentAim = true
             local delay = 0.7 -- Set the desired delay time (in seconds)
             while _G.SilentAim do
                 local Closest = GetClosestTorso()
                 if Closest ~= nil then
-                    local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
+                    Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
                     -- I took this from dev forum lol
                     local args = {
                         [1] = Player.Character
@@ -55,4 +59,3 @@ Tab:AddToggle({
         end
     end
 })
-
