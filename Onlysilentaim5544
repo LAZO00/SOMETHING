@@ -10,6 +10,7 @@ local Tab = Window:MakeTab({
 --//Global Variables
 getgenv().MaxDistance = 50
 _G.SilentAim = true
+local WhitelistedPlayer = "JumpyXValk"
 
 --//Functions
 function GetValidTargets()
@@ -17,9 +18,11 @@ function GetValidTargets()
     local plrtorso = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
     for _, v in pairs(game:GetService("Players"):GetPlayers()) do
         if v.Character and v ~= game:GetService("Players").LocalPlayer then
-            local torso = v.Character:FindFirstChild("HumanoidRootPart")
-            if torso and (torso.Position - plrtorso.Position).magnitude <= getgenv().MaxDistance then
-                table.insert(targets, v)
+            if v.Name == WhitelistedPlayer then
+                local torso = v.Character:FindFirstChild("HumanoidRootPart")
+                if torso and (torso.Position - plrtorso.Position).magnitude <= getgenv().MaxDistance then
+                    table.insert(targets, v)
+                end
             end
         end
     end
