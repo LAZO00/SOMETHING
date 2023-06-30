@@ -84,10 +84,10 @@ function GetClosestTorso()
         if v.Character and v ~= game:GetService("Players").LocalPlayer then
             local torso = v.Character:FindFirstChild("HumanoidRootPart")
             if torso and (closest == nil or (torso.Position - plrtorso.Position).magnitude < (closest.Position - plrtorso.Position).magnitude) then
-                 if (torso.Position - plrtorso.Position).magnitude <= getgenv().MaxDistance then
+                if (torso.Position - plrtorso.Position).magnitude <= getgenv().MaxDistance then
                     closest = torso
-              end
-           end
+                end
+            end
         end
     end
     wait()
@@ -95,14 +95,15 @@ function GetClosestTorso()
 end
 
 function BreakJoints()
-    Player.CharacterAdded:wait()
+    Player.CharacterAdded:Wait()
     for i = 1, 20 do
-        RunService.Heartbeat:wait()
+        RunService.Heartbeat:Wait()
         if Player.Character:FindFirstChild("HumanoidRootPart") then
             Player.Character:FindFirstChild("HumanoidRootPart").CFrame = Old
         end
     end
 end
+
 
 Tab:AddButton({
 	Name = "Hidden Aimbot Script Made by myself F1 to hide",
@@ -342,23 +343,23 @@ Tab:AddToggle({
         --// Execution
         if _G.KillAura == false then
             _G.KillAura = true
-            local cooldown = 0.1 -- Set the initial cooldown time (in seconds)
             local delay = 5 -- Set the desired delay time (in seconds)
-            game:GetService("RunService").Stepped:Connect(function()
-                if _G.KillAura then
+            local canAttack = true -- Initialize the flag to allow the next attack
+            game:GetService("RunService").Heartbeat:Connect(function()
+                if _G.KillAura and canAttack then
+                    canAttack = false -- Prevent further attacks until the delay elapses
                     local Closest = GetClosestTorso()
                     if Closest ~= nil then
                         local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
-                        if cooldown <= 0 then
-                            -- I took this from dev forum lol
-                            local args = {
-                                [1] = Player.Character
-                            }
-                            game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
-                            cooldown = delay -- Set the cooldown time to the delay value after each execution
-                        else
-                            cooldown = cooldown - 0.01 -- Decrease the cooldown time by 0.01 seconds
-                        end
+                        -- I took this from dev forum lol
+                        local args = {
+                            [1] = Player.Character
+                        }
+                        game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
+                        wait(delay) -- Introduce the desired delay
+                        canAttack = true -- Allow the next attack
+                    else
+                        canAttack = true -- If no target, allow the next attack immediately
                     end
                 end
             end)
