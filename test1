@@ -347,7 +347,7 @@ if _G.KillAura == false then
             local Closest = GetClosestTorso()
             if Closest ~= nil then
                 local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
-             wait(0.1) -- Adding a delay of 0.1 seconds
+             wait(1) -- Adding a delay of 0.1 seconds
                 -- I took this from dev forum lol
                 local args = {
                     [1] = Player.Character
