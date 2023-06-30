@@ -334,6 +334,32 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
+Tab:AddToggle({
+	Name = "Kill Aura",
+	Default = false,
+	Callback = function(Value)
+		--// Execution
+if _G.KillAura == false then
+    _G.KillAura = true
+    game:GetService("RunService").Stepped:connect(function()
+        if _G.KillAura then
+            local Closest = GetClosestTorso()
+            if Closest ~= nil then
+                local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
+            
+                -- I took this from dev forum lol
+                local args = {
+                    [1] = Player.Character
+                }
+                game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
+            end
+        end
+    end)
+else
+    _G.KillAura = false
+end
+	end    
+})
 
 Tab:AddToggle({
     Name = "Silent Aim",
