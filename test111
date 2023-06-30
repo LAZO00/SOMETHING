@@ -96,7 +96,7 @@ end
 
 function BreakJoints()
     Player.CharacterAdded:wait()
-    for i = 1,20 do
+    for i = 1, 20 do
         RunService.Heartbeat:wait()
         if Player.Character:FindFirstChild("HumanoidRootPart") then
             Player.Character:FindFirstChild("HumanoidRootPart").CFrame = Old
@@ -336,32 +336,36 @@ Callback = <function> - The function of the button.
 
 
 Tab:AddToggle({
-	Name = "Kill Aura",
-	Default = false,
-	Callback = function(Value)
-		--// Execution
-if _G.KillAura == false then
-    _G.KillAura = true
-    game:GetService("RunService").Stepped:connect(function()
-        if _G.KillAura then
-            local Closest = GetClosestTorso()
-            if Closest ~= nil then
-                local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
-             wait(5) -- Adding a delay of 0.1 seconds
-                -- I took this from dev forum lol
-                local args = {
-                    [1] = Player.Character
-                }
-                game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
-            end
+    Name = "Kill Aura",
+    Default = false,
+    Callback = function(Value)
+        --// Execution
+        if _G.KillAura == false then
+            _G.KillAura = true
+            local cooldown = 0.1 -- Set the initial cooldown time (in seconds)
+            game:GetService("RunService").Stepped:Connect(function()
+                if _G.KillAura then
+                    local Closest = GetClosestTorso()
+                    if Closest ~= nil then
+                        local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
+                        if cooldown <= 0 then
+                            -- I took this from dev forum lol
+                            local args = {
+                                [1] = Player.Character
+                            }
+                            game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
+                            cooldown = 0.1 -- Reset the cooldown time after each execution
+                        else
+                            cooldown = cooldown - 0.01 -- Decrease the cooldown time by 0.01 seconds
+                        end
+                    end
+                end
+            end)
+        else
+            _G.KillAura = false
         end
-    end)
-else
-    _G.KillAura = false
-end
-	end    
+    end
 })
-
 Tab:AddButton({
 	Name = "ESP 1",
 	Callback = function()
