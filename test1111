@@ -343,6 +343,7 @@ Tab:AddToggle({
         if _G.KillAura == false then
             _G.KillAura = true
             local cooldown = 0.1 -- Set the initial cooldown time (in seconds)
+            local delay = 5 -- Set the desired delay time (in seconds)
             game:GetService("RunService").Stepped:Connect(function()
                 if _G.KillAura then
                     local Closest = GetClosestTorso()
@@ -354,7 +355,7 @@ Tab:AddToggle({
                                 [1] = Player.Character
                             }
                             game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
-                            cooldown = 0.1 -- Reset the cooldown time after each execution
+                            cooldown = delay -- Set the cooldown time to the delay value after each execution
                         else
                             cooldown = cooldown - 0.01 -- Decrease the cooldown time by 0.01 seconds
                         end
