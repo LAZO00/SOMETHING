@@ -384,12 +384,6 @@ Tab:AddToggle({
                     game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
 local A_1 = "rbxassetid://4150159559" local A_2 = 1 local A_3 = game:GetService("Workspace").Replicators.NonPassive.JumpyXValk.HumanoidRootPart local A_4 = true local Event = game:GetService("ReplicatedStorage").References.Utilities.Shared.SFX.Replicate Event:FireServer(A_1, A_2, A_3, A_4) 
 
-                    local mouse = game:GetService("Players").LocalPlayer:GetMouse()
-                    local screenCenter = Vector2.new(game:GetService("Workspace").CurrentCamera.ViewportSize.X / 2, game:GetService("Workspace").CurrentCamera.ViewportSize.Y / 2)
-                    mouse.X = screenCenter.X
-                    mouse.Y = screenCenter.Y
-                    mouse.Button2Down:Fire()
-                    mouse.Button2Up:Fire()
 
                 end
                 wait(delay)
