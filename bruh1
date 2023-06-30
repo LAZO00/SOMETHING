@@ -362,7 +362,7 @@ end
 })
 
 Tab:AddToggle({
-    Name = "Silent Aim",
+    Name = "Aim",
     Default = false,
     Callback = function(Value)
         --// Execution
