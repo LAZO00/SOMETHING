@@ -343,7 +343,7 @@ Tab:AddToggle({
         --// Execution
         if _G.KillAura == false then
             _G.KillAura = true
-            local delay = 1.5 -- Set the desired delay time (in seconds)
+            local delay = 3 -- Set the desired delay time (in seconds)
             local lastAttackTime = 0 -- Initialize the time of the last attack
             game:GetService("RunService").Heartbeat:Connect(function()
                 if _G.KillAura then
