@@ -8,3 +8,5 @@ local Tab = Window:MakeTab({
 })
 
 --//Global Variables
+getgenv().MaxDistance = 50
+_G.SilentAim = true
