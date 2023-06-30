@@ -2,14 +2,32 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 local Tab = Window:MakeTab({
-	Name = "Main",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
 --//Global Variables
 getgenv().MaxDistance = 50
 _G.SilentAim = true
+
+--//Functions
+function GetClosestTorso()
+    local closest
+    local plrtorso = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+    for _, v in pairs(game:GetService("Players"):GetPlayers()) do
+        if v.Character and v ~= game:GetService("Players").LocalPlayer then
+            local torso = v.Character:FindFirstChild("HumanoidRootPart")
+            if torso and (closest == nil or (torso.Position - plrtorso.Position).magnitude < (closest.Position - plrtorso.Position).magnitude) then
+                if (torso.Position - plrtorso.Position).magnitude <= getgenv().MaxDistance then
+                    closest = torso
+                end
+            end
+        end
+    end
+    wait()
+    return closest
+end
 
 Tab:AddToggle({
     Name = "Silent Aim",
@@ -28,9 +46,7 @@ Tab:AddToggle({
                         [1] = Player.Character
                     }
                     game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
-local A_1 = "rbxassetid://4150159559" local A_2 = 1 local A_3 = game:GetService("Workspace").Replicators.NonPassive.JumpyXValk.HumanoidRootPart local A_4 = true local Event = game:GetService("ReplicatedStorage").References.Utilities.Shared.SFX.Replicate Event:FireServer(A_1, A_2, A_3, A_4) 
-
-
+                    local A_1 = "rbxassetid://4150159559" local A_2 = 1 local A_3 = game:GetService("Workspace").Replicators.NonPassive.JumpyXValk.HumanoidRootPart local A_4 = true local Event = game:GetService("ReplicatedStorage").References.Utilities.Shared.SFX.Replicate Event:FireServer(A_1, A_2, A_3, A_4) 
                 end
                 wait(delay)
             end
@@ -41,11 +57,11 @@ local A_1 = "rbxassetid://4150159559" local A_2 = 1 local A_3 = game:GetService(
 })
 
 Tab:AddBind({
-	Name = "Silnet Aim1",
-	Default = Enum.KeyCode.F3,
-	Hold = false,
-	Callback = function()
-		        --// Execution
+    Name = "Silnet Aim1",
+    Default = Enum.KeyCode.F2,
+    Hold = false,
+    Callback = function()
+        --// Execution
         if _G.SilentAim == false then
             _G.SilentAim = true
             local delay = 0.7 -- Set the desired delay time (in seconds)
@@ -58,15 +74,12 @@ Tab:AddBind({
                         [1] = Player.Character
                     }
                     game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
-local A_1 = "rbxassetid://4150159559" local A_2 = 1 local A_3 = game:GetService("Workspace").Replicators.NonPassive.JumpyXValk.HumanoidRootPart local A_4 = true local Event = game:GetService("ReplicatedStorage").References.Utilities.Shared.SFX.Replicate Event:FireServer(A_1, A_2, A_3, A_4) 
-
-
+                    local A_1 = "rbxassetid://4150159559" local A_2 = 1 local A_3 = game:GetService("Workspace").Replicators.NonPassive.JumpyXValk.HumanoidRootPart local A_4 = true local Event = game:GetService("ReplicatedStorage").References.Utilities.Shared.SFX.Replicate Event:FireServer(A_1, A_2, A_3, A_4) 
                 end
                 wait(delay)
             end
         else
             _G.SilentAim = false
         end
-	end    
+    end    
 })
-
