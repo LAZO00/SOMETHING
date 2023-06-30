@@ -336,7 +336,7 @@ Callback = <function> - The function of the button.
 
 
 Tab:AddToggle({
-    Name = "Kill Aura",
+    Name = "Silent Aim",
     Default = false,
     Callback = function(Value)
         --// Execution
