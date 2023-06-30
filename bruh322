@@ -104,7 +104,6 @@ function BreakJoints()
     end
 end
 
-
 Tab:AddButton({
 	Name = "Hidden Aimbot Script Made by myself F1 to hide",
 	Callback = function()
@@ -343,25 +342,24 @@ Tab:AddToggle({
         --// Execution
         if _G.KillAura == false then
             _G.KillAura = true
-            local delay = 10 -- Set the desired delay time (in seconds)
-            local lastAttackTime = os.clock() - delay -- Initialize the time of the last attack
-            game:GetService("RunService").Heartbeat:Connect(function()
-                if _G.KillAura then
-                    local currentTime = os.clock()
-                    if currentTime - lastAttackTime >= delay then
-                        local Closest = GetClosestTorso()
-                        if Closest ~= nil then
-                            local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
-                            -- I took this from dev forum lol
-                            local args = {
-                                [1] = Player.Character
-                            }
-                            game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
-                            lastAttackTime = currentTime
-                        end
+            local delay = 5 -- Set the desired delay time (in seconds)
+            local lastAttackTime = tick() - delay -- Initialize the time of the last attack
+            while _G.KillAura do
+                local currentTime = tick()
+                if currentTime - lastAttackTime >= delay then
+                    local Closest = GetClosestTorso()
+                    if Closest ~= nil then
+                        local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
+                        -- I took this from dev forum lol
+                        local args = {
+                            [1] = Player.Character
+                        }
+                        game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
+                        lastAttackTime = currentTime
                     end
                 end
-            end)
+                wait()
+            end
         else
             _G.KillAura = false
         end
