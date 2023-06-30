@@ -76,6 +76,10 @@ Callback = <function> - The function of the bind.
 getgenv().MaxDistance = 50
 _G.KillAura = true
 
+getgenv().MaxDistance = 50
+_G.SilentAim = true
+
+
 --//Functions
 function GetClosestTorso()
     local closest
@@ -366,10 +370,10 @@ Tab:AddToggle({
     Default = false,
     Callback = function(Value)
         --// Execution
-        if _G.KillAura == false then
-            _G.KillAura = true
+        if _G.SilentAim == false then
+            _G.SilentAim = true
             local delay = 0.7 -- Set the desired delay time (in seconds)
-            while _G.KillAura do
+            while _G.SilentAim do
                 local Closest = GetClosestTorso()
                 if Closest ~= nil then
                     local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
@@ -382,7 +386,7 @@ Tab:AddToggle({
                 wait(delay)
             end
         else
-            _G.KillAura = false
+            _G.SilentAim = false
         end
     end
 })
