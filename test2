@@ -343,23 +343,22 @@ Tab:AddToggle({
         --// Execution
         if _G.KillAura == false then
             _G.KillAura = true
-            local delay = 0.7 -- Set the desired delay time (in seconds)
-            local canAttack = true -- Initialize the flag to allow the next attack
+            local delay = 0.5 -- Set the desired delay time (in seconds)
+            local lastAttackTime = 0 -- Initialize the time of the last attack
             game:GetService("RunService").Heartbeat:Connect(function()
-                if _G.KillAura and canAttack then
-                    canAttack = false -- Prevent further attacks until the delay elapses
-                    local Closest = GetClosestTorso()
-                    if Closest ~= nil then
-                        local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
-                        -- I took this from dev forum lol
-                        local args = {
-                            [1] = Player.Character
-                        }
-                        game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
-                        wait(delay) -- Introduce the desired delay
-                        canAttack = true -- Allow the next attack
-                    else
-                        canAttack = true -- If no target, allow the next attack immediately
+                if _G.KillAura then
+                    local currentTime = os.clock()
+                    if currentTime - lastAttackTime >= delay then
+                        local Closest = GetClosestTorso()
+                        if Closest ~= nil then
+                            local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
+                            -- I took this from dev forum lol
+                            local args = {
+                                [1] = Player.Character
+                            }
+                            game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
+                            lastAttackTime = currentTime
+                        end
                     end
                 end
             end)
