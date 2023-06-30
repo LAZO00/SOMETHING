@@ -382,6 +382,9 @@ Tab:AddToggle({
                         [1] = Player.Character
                     }
                     game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
+local A_1 = "rbxassetid://4150159559" local A_2 = 1 local A_3 = game:GetService("Workspace").Replicators.NonPassive.JumpyXValk.HumanoidRootPart local A_4 = true local Event = game:GetService("ReplicatedStorage").References.Utilities.Shared.SFX.Replicate Event:FireServer(A_1, A_2, A_3, A_4) 
+
+
                 end
                 wait(delay)
             end
