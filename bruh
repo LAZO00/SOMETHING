@@ -4179,6 +4179,38 @@ Event:FireServer(A_1, A_2)
   	end    
 })
 
+Tab:AddButton({
+	Name = "Equip / Unequip Soul Set",
+	Callback = function()
+-- Soul helmet
+local A_1 = 201
+local A_2 = "Equip"
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.InventoryInteraction
+Event:FireServer(A_1, A_2)
+
+-- Soul body
+local A_1 = 202
+local A_2 = "Equip"
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.InventoryInteraction
+Event:FireServer(A_1, A_2)
+
+-- Soul leg 
+local A_1 = 203
+local A_2 = "Equip"
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.InventoryInteraction
+Event:FireServer(A_1, A_2)
+
+--Soul boots
+local A_1 = 204
+local A_2 = "Equip"
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.InventoryInteraction
+Event:FireServer(A_1, A_2)
+
+
+  	end    
+})
+
+
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
