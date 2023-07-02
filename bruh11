@@ -4548,6 +4548,24 @@ Event:FireServer(A_1, A_2, A_3)
   	end    
 })
 
+Tab:AddButton({
+	Name = "Get Volcanic Ore From Chest",
+	Callback = function()
+      		local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+local A_2 = false -- if true it puts in
+local A_3 = 233  -- id of the item, NOTE: ( NOT SOUL )
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+Event:FireServer(A_1, A_2, A_3)
+
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Moonstone Storage Chest"]
+local A_2 = false -- if true it puts in
+local A_3 = 233  -- id of the item, NOTE: ( NOT SOUL )
+local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+Event:FireServer(A_1, A_2, A_3)
+  	end    
+})
+
+
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
