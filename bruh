@@ -480,6 +480,43 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+Tab:AddLabel("SOUL CRAFT")
+
+Tab:AddButton({
+	Name = "Craft Soul Helmet",
+	Callback = function()
+      		local A_1 = 201 local Event = game:GetService("ReplicatedStorage").References.Comm.Events.CraftItem Event: FireServer(A_1)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Craft Soul Body",
+	Callback = function()
+      		local A_1 = 202 local Event = game:GetService("ReplicatedStorage").References.Comm.Events.CraftItem Event: FireServer(A_1)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Craft Soul Leg",
+	Callback = function()
+      		local A_1 = 203 local Event = game:GetService("ReplicatedStorage").References.Comm.Events.CraftItem Event: FireServer(A_1)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Craft Soul Boots",
+	Callback = function()
+      		local A_1 = 204 local Event = game:GetService("ReplicatedStorage").References.Comm.Events.CraftItem Event: FireServer(A_1)
+  	end    
+})
+
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddLabel("YOU NEED TO HAVE A WOOD CHEST PLAECD")
 
 
 Tab:AddButton({
