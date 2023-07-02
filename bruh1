@@ -499,22 +499,21 @@ Callback = <function> - The function of the button.
 ]]
 
 Tab:AddButton({
-	Name = "Soul Body in",
+	Name = "Soul Body In",
 	Callback = function()
-      		local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
-    local A_2 = false
+      		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+    local A_2 = true
     local A_3 = 202
     local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
     Event:FireServer(A_1, A_2, A_3)
   	end    
 })
 
-
 Tab:AddButton({
-	Name = "Soul Leg in",
+	Name = "Soul Leg In",
 	Callback = function()
-      		local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
-    local A_2 = false
+      		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+    local A_2 = true
     local A_3 = 203
     local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
     Event:FireServer(A_1, A_2, A_3)
@@ -523,15 +522,17 @@ Tab:AddButton({
 
 
 Tab:AddButton({
-	Name = "Soul Boot in",
+	Name = "Soul Boot",
 	Callback = function()
-      		local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
-    local A_2 = false
+      		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+    local A_2 = true
     local A_3 = 204
     local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
     Event:FireServer(A_1, A_2, A_3)
   	end    
 })
+
+
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
