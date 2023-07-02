@@ -517,7 +517,7 @@ Callback = <function> - The function of the button.
 ]]
 
 Tab:AddLabel("YOU NEED TO HAVE A WOOD CHEST PLAECD")
-
+Tab:AddLabel("Chest Out")
 
 Tab:AddButton({
 	Name = "Soul Helmet In",
@@ -559,7 +559,7 @@ Tab:AddButton({
 
 
 Tab:AddButton({
-	Name = "Soul Boot",
+	Name = "Soul Boot In",
 	Callback = function()
       		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
     local A_2 = true
@@ -569,6 +569,57 @@ Tab:AddButton({
   	end    
 })
 
+Tab:AddLabel("Chest Out")
+
+Tab:AddButton({
+	Name = "Soul Helmet Out",
+	Callback = function()
+      		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+    local A_2 = false
+    local A_3 = 201
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "Soul Body Out",
+	Callback = function()
+      		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+    local A_2 = false
+    local A_3 = 202
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Soul Leg Out",
+	Callback = function()
+      		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+    local A_2 = false
+    local A_3 = 203
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Soul Boot Out",
+	Callback = function()
+      		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+    local A_2 = false
+    local A_3 = 204
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+  	end    
+})
 
 --[[
 Name = <string> - The name of the button.
