@@ -510,6 +510,12 @@ Tab:AddButton({
   	end    
 })
 
+Tab:AddButton({
+	Name = "Craft Soul Sheild",
+	Callback = function()
+      		local A_1 = 218 local Event = game:GetService("ReplicatedStorage").References.Comm.Events.CraftItem Event: FireServer(A_1)
+  	end    
+})
 
 --[[
 Name = <string> - The name of the button.
@@ -569,6 +575,17 @@ Tab:AddButton({
   	end    
 })
 
+Tab:AddButton({
+	Name = "Soul Sheild In",
+	Callback = function()
+      		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+    local A_2 = true
+    local A_3 = 218
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+  	end    
+})
+
 Tab:AddLabel("Chest Out")
 
 Tab:AddButton({
@@ -616,6 +633,18 @@ Tab:AddButton({
       		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
     local A_2 = false
     local A_3 = 204
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Soul Sheild Out",
+	Callback = function()
+      		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+    local A_2 = false
+    local A_3 = 208
     local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
     Event:FireServer(A_1, A_2, A_3)
   	end    
