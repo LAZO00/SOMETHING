@@ -482,12 +482,12 @@ local Tab = Window:MakeTab({
 })
 
 
-   local selectedScript = ""
+    local selectedScript = ""
 
 Tab:AddDropdown({
 	Name = "Armors",
 	Default = "Moonstone Set with Moonstone Sword and Moonstone Sheild",
-	Options = {"Moonstone Set with Moonstone Sword and Moonstone Sheild", "Obsidian Set with Obsidian Sword and Obsidian Sheild"},
+	Options = {"Moonstone Set with Moonstone Sword and Moonstone Sheild", "Obsidian Set with Obsidian Sword and Obsidian Sheild", "Lucky Sword", "Option 4"},
 	Callback = function(Value)
 		selectedScript = Value
 	end
@@ -698,9 +698,27 @@ Event:FireServer(A_1, A_2, A_3)
             local A_3 = 235
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
+
+        elseif selectedScript == "Lucky Sword" then
+            
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+            local A_2 = true -- if true it puts in
+            local A_3 = 173  -- id of the item, NOTE: ( NOT SOUL )
+            local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+            Event:FireServer(A_1, A_2, A_3)
+
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+            local A_2 = false -- if true it puts in
+            local A_3 = 173  -- id of the item, NOTE: ( NOT SOUL )
+            local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+            Event:FireServer(A_1, A_2, A_3)
+
+        elseif selectedScript == "Option 4" then
+            -- Add your code for executing Script 4 here
 		end
 	end
 })
+
 
 
 --[[
