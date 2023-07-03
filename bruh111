@@ -481,28 +481,6 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local args = {
-    [1] = "Equip",
-    [2] = "{1845964763352731530}"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("Pet"):FireServer(unpack(args))
-
-
-local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
-    local A_2 = true
-    local A_3 = {1845964763352731530}
-    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
-    Event:FireServer(A_1, A_2, A_3)
-
-    
-
-
-
-
-
-    local selectedScript = ""
-
 Tab:AddDropdown({
 	Name = "Dropdown",
 	Default = "1",
@@ -532,72 +510,72 @@ Tab:AddButton({
             Image = <string> - The icon of the notification.
             Time = <number> - The duration of the notfication.
             ]]
-            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = true
             local A_3 = 227
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
         
-            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = true
             local A_3 = 228
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
         
-            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = true
             local A_3 = 226
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
         
-            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = true
             local A_3 = 225
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
         
-            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = true
             local A_3 = 369
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
-            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = true
             local A_3 = 235
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
 
-            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = false
             local A_3 = 227
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
         
-            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = false
             local A_3 = 228
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
         
-            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = false
             local A_3 = 226
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
         
-            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = false
             local A_3 = 225
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
         
-            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = false
             local A_3 = 369
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
 
-            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+            local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = false
             local A_3 = 235
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
