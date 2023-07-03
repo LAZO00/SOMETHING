@@ -482,12 +482,32 @@ local Tab = Window:MakeTab({
 })
 
 
+local args = {
+    [1] = "Equip",
+    [2] = "{1845964763352731530}"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("Pet"):FireServer(unpack(args))
+
+
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+    local A_2 = true
+    local A_3 = {1845964763352731530}
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+
+    
+
+
+
+
+
     local selectedScript = ""
 
 Tab:AddDropdown({
 	Name = "Dropdown",
-	Default = "1",
-	Options = {"1", "Obsidian Set with Moonstone Sword"},
+	Default = "Moonstone Set with Moonstone Sword",
+	Options = {"Moonstone Set with Moonstone Sword", "Obsidian Set with Moonstone Sword"},
 	Callback = function(Value)
 		selectedScript = Value
 	end
@@ -496,7 +516,7 @@ Tab:AddDropdown({
 Tab:AddButton({
 	Name = "Button!",
 	Callback = function()
-		if selectedScript == "1" then
+		if selectedScript == "Moonstone Set with Moonstone Sword" then
 			local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"] -- change the chest to what chest it is
 local A_2 = true -- if true it puts in
 local A_3 = 369  -- ID of the item, NOTE: ( NOT SOUL ) ( ID OF THE ITEMS,BOOKS CAN BE PURCHASED VIA WHATEVER DISCORD SERVER)
