@@ -480,22 +480,27 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-Tab:AddButton({
-	Name = "Button!",
-	Callback = function()
-		print("button pressed")
-	end
-})
+
+local selectedScript = ""
 
 Tab:AddDropdown({
 	Name = "Dropdown",
 	Default = "1",
 	Options = {"1", "2"},
 	Callback = function(Value)
-		if Value == "1" then
-			print("yes")
-		elseif Value == "2" then
-			print("no")
+		selectedScript = Value
+	end
+})
+
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+		if selectedScript == "1" then
+			print("Executing Script 1")
+			-- Add your code for executing Script 1 here
+		elseif selectedScript == "2" then
+			print("Executing Script 2")
+			-- Add your code for executing Script 2 here
 		end
 	end
 })
