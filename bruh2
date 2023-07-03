@@ -485,7 +485,7 @@ local Tab = Window:MakeTab({
     local selectedScript = ""
 
 Tab:AddDropdown({
-	Name = "Dropdown",
+	Name = "Armors",
 	Default = "Moonstone Set with Moonstone Sword",
 	Options = {"Moonstone Set with Moonstone Sword", "Obsidian Set with Moonstone Sword"},
 	Callback = function(Value)
@@ -496,10 +496,10 @@ Tab:AddDropdown({
 Tab:AddButton({
 	Name = "Repair",
 	Callback = function()
-		if selectedScript == "Moonstone Set with Moonstone Sword" then
+		if selectedScript == "Moonstone Set with Moonstone Sword and Moonstone Sheild" then
             OrionLib:MakeNotification({
                 Name = "",
-                Content = "successfully Repaired an obsidian set with a moonstone Sword",
+                Content = "successfully Repaired a moonstone set with a moonstone Sword and moonstone shield.",
                 Image = "rbxassetid://4483345998",
                 Time = 5
             })
@@ -614,10 +614,10 @@ Event:FireServer(A_1, A_2, A_3)
 
 
 			-- Add your code for executing Script 1 here
-		elseif selectedScript == "Obsidian Set with Moonstone Sword" then
+		elseif selectedScript == "Obsidian Set with Obsidian Sword and Obsidian Sheild" then
 			OrionLib:MakeNotification({
                 Name = "",
-                Content = "successfully Repaired an obsidian set with a moonstone Sword",
+                Content = "successfully Repaired an Obsidan set with an Obsidan Sword and Obsidan shield.",
                 Image = "rbxassetid://4483345998",
                 Time = 5
             })
@@ -654,7 +654,7 @@ Event:FireServer(A_1, A_2, A_3)
         
             local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = true
-            local A_3 = 369
+            local A_3 = 230
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
             local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
@@ -689,7 +689,7 @@ Event:FireServer(A_1, A_2, A_3)
         
             local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
             local A_2 = false
-            local A_3 = 369
+            local A_3 = 230
             local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
             Event:FireServer(A_1, A_2, A_3)
 
