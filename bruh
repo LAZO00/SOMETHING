@@ -482,26 +482,6 @@ local Tab = Window:MakeTab({
 })
 
 
-local args = {
-    [1] = "Equip",
-    [2] = "{1845964763352731530}"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("Pet"):FireServer(unpack(args))
-
-
-local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
-    local A_2 = true
-    local A_3 = {1845964763352731530}
-    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
-    Event:FireServer(A_1, A_2, A_3)
-
-    
-
-
-
-
-
     local selectedScript = ""
 
 Tab:AddDropdown({
@@ -514,9 +494,22 @@ Tab:AddDropdown({
 })
 
 Tab:AddButton({
-	Name = "Button!",
+	Name = "Repair",
 	Callback = function()
 		if selectedScript == "Moonstone Set with Moonstone Sword" then
+            OrionLib:MakeNotification({
+                Name = "",
+                Content = "successfully Repaired an obsidian set with a moonstone Sword",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+            
+            --[[
+            Title = <string> - The title of the notification.
+            Content = <string> - The content of the notification.
+            Image = <string> - The icon of the notification.
+            Time = <number> - The duration of the notfication.
+            ]]
 			local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"] -- change the chest to what chest it is
 local A_2 = true -- if true it puts in
 local A_3 = 369  -- ID of the item, NOTE: ( NOT SOUL ) ( ID OF THE ITEMS,BOOKS CAN BE PURCHASED VIA WHATEVER DISCORD SERVER)
