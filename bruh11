@@ -476,6 +476,38 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/
 })
 
 local Tab = Window:MakeTab({
+	Name = "Instant Repair",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+		print("button pressed")
+	end
+})
+
+Tab:AddDropdown({
+	Name = "Dropdown",
+	Default = "1",
+	Options = {"1", "2"},
+	Callback = function(Value)
+		if Value == "1" then
+			print("yes")
+		elseif Value == "2" then
+			print("no")
+		end
+	end
+})
+
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+local Tab = Window:MakeTab({
 	Name = "Dupe",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
