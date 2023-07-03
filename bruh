@@ -481,6 +481,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+Tab:AddLabel("YOU NEED TO HAVE A WOOD CHEST PLACED!!")
 
     local selectedScript = ""
 
