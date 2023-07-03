@@ -482,12 +482,12 @@ local Tab = Window:MakeTab({
 })
 
 
-    local selectedScript = ""
+   local selectedScript = ""
 
 Tab:AddDropdown({
 	Name = "Armors",
 	Default = "Moonstone Set with Moonstone Sword",
-	Options = {"Moonstone Set with Moonstone Sword", "Obsidian Set with Moonstone Sword"},
+	Options = {"Moonstone Set with Moonstone Sword and Moonstone Sheild", "Obsidian Set with Obsidian Sword and Obsidian Sheild"},
 	Callback = function(Value)
 		selectedScript = Value
 	end
@@ -701,6 +701,7 @@ Event:FireServer(A_1, A_2, A_3)
 		end
 	end
 })
+
 
 --[[
 Name = <string> - The name of the tab.
