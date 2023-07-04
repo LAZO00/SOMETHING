@@ -984,6 +984,58 @@ PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 ]]
 
 local Tab = Window:MakeTab({
+	Name = "Pets",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddBind({
+	Name = "Small Pumpkin Dragon",
+	Default = Enum.KeyCode.E,
+	Hold = false,
+	Callback = function()
+		local args = {
+    [1] = "Equip",
+    [2] = "{1845964763293172200}"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("Pet"):FireServer(unpack(args))
+
+	end    
+})
+
+Tab:AddBind({
+	Name = "Reinder Candy Pet",
+	Default = Enum.KeyCode.`,
+	Hold = false,
+	Callback = function()
+		local args = {
+    [1] = "Equip",
+    [2] = "{1845964763338448510}"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("Pet"):FireServer(unpack(args))
+
+	end    
+})
+
+--[[
+Name = <string> - The name of the bind.
+Default = <keycode> - The default value of the bind.
+Hold = <bool> - Makes the bind work like: Holding the key > The bind returns true, Not holding the key > Bind returns false.
+Callback = <function> - The function of the bind.
+]]
+
+
+
+--[[
+Name = <string> - The name of the bind.
+Default = <keycode> - The default value of the bind.
+Hold = <bool> - Makes the bind work like: Holding the key > The bind returns true, Not holding the key > Bind returns false.
+Callback = <function> - The function of the bind.
+]]
+
+local Tab = Window:MakeTab({
 	Name = "Auto Eat",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
