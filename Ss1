@@ -1015,7 +1015,7 @@ local function spamInventoryInteractionEvent()
 end
 
 Tab:AddToggle({
-    Name = "Inventory Interaction",
+    Name = "Spam Pumpkins",
     Default = false,
     Callback = function(Value)
         spamEnabled = Value
@@ -1031,7 +1031,27 @@ Tab:AddToggle({
     end
 })
 
+Tab:AddBind({
+	Name = "Eat Pumpkin",
+	Default = Enum.KeyCode.E,
+	Hold = false,
+	Callback = function()
+		local args = {
+    [1] = 378,
+    [2] = "Eat"
+}
 
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("InventoryInteraction"):FireServer(unpack(args))
+
+	end    
+})
+
+--[[
+Name = <string> - The name of the bind.
+Default = <keycode> - The default value of the bind.
+Hold = <bool> - Makes the bind work like: Holding the key > The bind returns true, Not holding the key > Bind returns false.
+Callback = <function> - The function of the bind.
+]]
 
 
 
