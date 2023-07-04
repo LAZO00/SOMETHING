@@ -1321,7 +1321,7 @@ Tab:AddToggle({
     end
 })
 
-
+Tab:AddLabel("Events1")
 
 local spamEnabled = false
 local isSpamming = false
@@ -1338,7 +1338,7 @@ local function spamToolActionEvent()
 end
 
 Tab:AddToggle({
-    Name = "Mega Candy Rock",
+    Name = "Mega Candy Rock1",
     Default = false,
     Callback = function(Value)
         spamEnabled = Value
