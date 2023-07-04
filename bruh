@@ -1322,7 +1322,6 @@ Tab:AddToggle({
 })
 
 
-Tab:AddLabel("Events.")
 
 local spamEnabled = false
 local isSpamming = false
