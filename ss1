@@ -990,10 +990,10 @@ local Tab = Window:MakeTab({
 })
 
 local spamEnabled = false
-local isSpamming = false
+local isFirstExecution = true
 
 local function spamInventoryInteractionEvent()
-    while isSpamming do
+    while spamEnabled do
         local args = {
             [1] = 378,
             [2] = "Eat"
@@ -1006,20 +1006,19 @@ local function spamInventoryInteractionEvent()
 end
 
 Tab:AddToggle({
-    Name = "Spam Pumpkins",
+    Name = "Inventory Interaction",
     Default = false,
     Callback = function(Value)
         spamEnabled = Value
-        if spamEnabled then
-            if not isSpamming then
-                isSpamming = true
+        if isFirstExecution then
+            isFirstExecution = false
+            if spamEnabled then
                 spawn(spamInventoryInteractionEvent)
             end
-        else
-            isSpamming = false
         end
     end
 })
+
 
 
 
