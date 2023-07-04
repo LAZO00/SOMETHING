@@ -4945,6 +4945,12 @@ Tab:AddBind({
     local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
     Event:FireServer(A_1, A_2, A_3)
 
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+            local A_2 = false -- if true it puts in
+            local A_3 = 219  -- id of the item, NOTE: ( NOT SOUL )
+            local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+            Event:FireServer(A_1, A_2, A_3)
+
     wait(10) -- Delay for 5 seconds before executing the next block of code
 
     local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
@@ -4976,6 +4982,12 @@ Tab:AddBind({
     local A_3 = 369
     local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
     Event:FireServer(A_1, A_2, A_3)
+
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+            local A_2 = false -- if true it puts in
+            local A_3 = 219  -- id of the item, NOTE: ( NOT SOUL )
+            local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+            Event:FireServer(A_1, A_2, A_3)
 
 	end    
 })
@@ -5039,6 +5051,11 @@ local A_3 = 364  -- id of the item, NOTE: ( NOT SOUL )
 local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
 Event:FireServer(A_1, A_2, A_3)
 
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+            local A_2 = false -- if true it puts in
+            local A_3 = 219  -- id of the item, NOTE: ( NOT SOUL )
+            local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+            Event:FireServer(A_1, A_2, A_3)
 
 wait(10) -- Delay for 5 seconds before executing the next block of code
 
@@ -5087,6 +5104,12 @@ local A_2 = false -- if true it puts in
 local A_3 = 364  -- id of the item, NOTE: ( NOT SOUL )
 local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
 Event:FireServer(A_1, A_2, A_3)
+
+local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+            local A_2 = false -- if true it puts in
+            local A_3 = 219  -- id of the item, NOTE: ( NOT SOUL )
+            local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+            Event:FireServer(A_1, A_2, A_3)
 	end    
 })
 
