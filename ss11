@@ -992,24 +992,28 @@ local Tab = Window:MakeTab({
 local spamEnabled = false
 local isSpamming = false
 
-local function spamToolActionEvent()
+local function spamInventoryInteractionEvent()
     while isSpamming do
-        local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Golem"]
-        local Event = game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction
-        Event:FireServer(A_1)
+        local args = {
+            [1] = 378,
+            [2] = "Eat"
+        }
+        
+        local Event = game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("InventoryInteraction")
+        Event:FireServer(unpack(args))
         wait()
     end
 end
 
 Tab:AddToggle({
-    Name = "Obsidian Golem",
+    Name = "Inventory Interaction",
     Default = false,
     Callback = function(Value)
         spamEnabled = Value
         if spamEnabled then
             if not isSpamming then
                 isSpamming = true
-                spawn(spamToolActionEvent)
+                spawn(spamInventoryInteractionEvent)
             end
         else
             isSpamming = false
