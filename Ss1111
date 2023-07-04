@@ -1004,20 +1004,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Co
 	end    
 })
 
-Tab:AddBind({
-	Name = "Reinder Candy Pet",
-	Default = Enum.KeyCode.`,
-	Hold = false,
-	Callback = function()
-		local args = {
-    [1] = "Equip",
-    [2] = "{1845964763338448510}"
-}
 
-game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("Pet"):FireServer(unpack(args))
-
-	end    
-})
 
 --[[
 Name = <string> - The name of the bind.
