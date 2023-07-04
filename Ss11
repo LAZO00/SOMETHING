@@ -1015,7 +1015,7 @@ local function spamInventoryInteractionEvent()
 end
 
 Tab:AddToggle({
-    Name = "Spam Pumpkins",
+    Name = "Inventory Interaction",
     Default = false,
     Callback = function(Value)
         spamEnabled = Value
@@ -1030,6 +1030,7 @@ Tab:AddToggle({
         end
     end
 })
+
 
 Tab:AddBind({
 	Name = "Eat Pumpkin",
