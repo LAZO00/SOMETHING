@@ -1,4 +1,4 @@
-clocal OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 local Tab = Window:MakeTab({
@@ -1024,12 +1024,7 @@ Tab:AddButton({
       		local A_1 = 218 local Event = game:GetService("ReplicatedStorage").References.Comm.Events.CraftItem Event: FireServer(A_1)
   	end    
 })
-Tab:AddButton({
-	Name = "Craft Soul Sword",
-	Callback = function()
-      		local A_1 = 216 local Event = game:GetService("ReplicatedStorage").References.Comm.Events.CraftItem Event: FireServer(A_1)
-  	end    
-})
+
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
@@ -1099,17 +1094,6 @@ Tab:AddButton({
   	end    
 })
 
-Tab:AddButton({
-	Name = "Soul Sword In",
-	Callback = function()
-      		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
-    local A_2 = true
-    local A_3 = 216
-    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
-    Event:FireServer(A_1, A_2, A_3)
-  	end    
-})
-
 Tab:AddLabel("Chest Out")
 
 Tab:AddButton({
@@ -1169,17 +1153,6 @@ Tab:AddButton({
       		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
     local A_2 = false
     local A_3 = 218
-    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
-    Event:FireServer(A_1, A_2, A_3)
-  	end    
-})
-
-Tab:AddButton({
-	Name = "Soul Sword Out",
-	Callback = function()
-      		 local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
-    local A_2 = false
-    local A_3 = 216
     local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
     Event:FireServer(A_1, A_2, A_3)
   	end    
@@ -1320,8 +1293,6 @@ Tab:AddToggle({
         end
     end
 })
-
-
 
 
 local Tab = Window:MakeTab({
@@ -4952,13 +4923,6 @@ Tab:AddBind({
     local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
     Event:FireServer(A_1, A_2, A_3)
 
-local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
-            local A_2 = true -- if true it puts in
-            local A_3 = 219  -- id of the item, NOTE: ( NOT SOUL )
-            local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
-            Event:FireServer(A_1, A_2, A_3)
-
-
     wait(10) -- Delay for 5 seconds before executing the next block of code
 
     local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
@@ -4990,13 +4954,6 @@ local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Ch
     local A_3 = 369
     local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
     Event:FireServer(A_1, A_2, A_3)
-
-local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
-            local A_2 = false -- if true it puts in
-            local A_3 = 219  -- id of the item, NOTE: ( NOT SOUL )
-            local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
-            Event:FireServer(A_1, A_2, A_3)
-
 
 	end    
 })
@@ -5060,11 +5017,6 @@ local A_3 = 364  -- id of the item, NOTE: ( NOT SOUL )
 local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
 Event:FireServer(A_1, A_2, A_3)
 
-local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
-            local A_2 = true -- if true it puts in
-            local A_3 = 219  -- id of the item, NOTE: ( NOT SOUL )
-            local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
-            Event:FireServer(A_1, A_2, A_3)
 
 wait(10) -- Delay for 5 seconds before executing the next block of code
 
@@ -5113,12 +5065,6 @@ local A_2 = false -- if true it puts in
 local A_3 = 364  -- id of the item, NOTE: ( NOT SOUL )
 local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
 Event:FireServer(A_1, A_2, A_3)
-
-local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
-            local A_2 = false -- if true it puts in
-            local A_3 = 219  -- id of the item, NOTE: ( NOT SOUL )
-            local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
-            Event:FireServer(A_1, A_2, A_3)
 	end    
 })
 
