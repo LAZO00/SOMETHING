@@ -1324,35 +1324,7 @@ Tab:AddToggle({
 
 Tab:AddLabel("Events")
 
-local spamEnabled = false
-local isSpamming = false
 
-local function spamToolActionEvent()
-    while isSpamming do
-        local args = {
-            [1] = game:GetService("Workspace"):WaitForChild("Mega Candy Rock")
-        }
-        local Event = game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ToolAction")
-        Event:FireServer(unpack(args))
-        wait()
-    end
-end
-
--- Function to toggle spamming
-local function toggleSpamming(enabled)
-    spamEnabled = enabled
-    if spamEnabled then
-        if not isSpamming then
-            isSpamming = true
-            spawn(spamToolActionEvent)
-        end
-    else
-        isSpamming = false
-    end
-end
-
--- Toggle the spamming
-toggleSpamming(false)  -- Set initial state to false (disabled)
 
 
 local Tab = Window:MakeTab({
