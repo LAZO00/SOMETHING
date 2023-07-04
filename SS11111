@@ -991,16 +991,25 @@ local Tab = Window:MakeTab({
 
 local spamEnabled = false
 local isFirstExecution = true
+local isSpamming = false
+
+local function executeScript()
+    local args = {
+        [1] = 378,
+        [2] = "Eat"
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("InventoryInteraction"):FireServer(unpack(args))
+end
 
 local function spamInventoryInteractionEvent()
-    while spamEnabled do
+    while isSpamming do
         local args = {
             [1] = 378,
             [2] = "Eat"
         }
         
-        local Event = game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("InventoryInteraction")
-        Event:FireServer(unpack(args))
+        game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("InventoryInteraction"):FireServer(unpack(args))
         wait()
     end
 end
@@ -1012,12 +1021,16 @@ Tab:AddToggle({
         spamEnabled = Value
         if isFirstExecution then
             isFirstExecution = false
-            if spamEnabled then
-                spawn(spamInventoryInteractionEvent)
-            end
+            executeScript()
+        elseif spamEnabled then
+            isSpamming = true
+            spawn(spamInventoryInteractionEvent)
+        else
+            isSpamming = false
         end
     end
 })
+
 
 
 
