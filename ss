@@ -1006,7 +1006,7 @@ local function spamInventoryInteractionEvent()
 end
 
 Tab:AddToggle({
-    Name = "Inventory Interaction",
+    Name = "Spam Pumpkins",
     Default = false,
     Callback = function(Value)
         spamEnabled = Value
