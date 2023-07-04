@@ -984,6 +984,44 @@ PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 ]]
 
 local Tab = Window:MakeTab({
+	Name = "Auto Eat",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local isFirstExecution = true
+
+Tab:AddToggle({
+    Name = "Spam Pumpkins",
+    Default = false,
+    Callback = function(Value)
+        if isFirstExecution then
+            -- Script to be executed on the first execution
+            local args = {
+                [1] = 378,
+                [2] = "Eat"
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("InventoryInteraction"):FireServer(unpack(args))
+            
+            isFirstExecution = false
+        else
+            -- Script to be executed on the second execution
+            print("Script execution stopped.")
+            -- You can add any code here that should be executed on the second execution
+            -- This code will not spam the provided script again
+        end
+    end
+})
+
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+local Tab = Window:MakeTab({
 	Name = "Dupe",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
