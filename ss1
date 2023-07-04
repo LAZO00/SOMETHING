@@ -989,30 +989,34 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local isFirstExecution = true
+local spamEnabled = false
+local isSpamming = false
+
+local function spamToolActionEvent()
+    while isSpamming do
+        local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Golem"]
+        local Event = game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction
+        Event:FireServer(A_1)
+        wait()
+    end
+end
 
 Tab:AddToggle({
-    Name = "Spam Pumpkins",
+    Name = "Obsidian Golem",
     Default = false,
     Callback = function(Value)
-        if isFirstExecution then
-            -- Script to be executed on the first execution
-            local args = {
-                [1] = 378,
-                [2] = "Eat"
-            }
-            
-            game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("InventoryInteraction"):FireServer(unpack(args))
-            
-            isFirstExecution = false
+        spamEnabled = Value
+        if spamEnabled then
+            if not isSpamming then
+                isSpamming = true
+                spawn(spamToolActionEvent)
+            end
         else
-            -- Script to be executed on the second execution
-            print("Script execution stopped.")
-            -- You can add any code here that should be executed on the second execution
-            -- This code will not spam the provided script again
+            isSpamming = false
         end
     end
 })
+
 
 
 --[[
