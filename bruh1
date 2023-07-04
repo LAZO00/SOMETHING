@@ -1338,21 +1338,21 @@ local function spamToolActionEvent()
     end
 end
 
-Tab:AddToggle({
-    Name = "Mega Candy Rock",
-    Default = false,
-    Callback = function(Value)
-        spamEnabled = Value
-        if spamEnabled then
-            if not isSpamming then
-                isSpamming = true
-                spawn(spamToolActionEvent)
-            end
-        else
-            isSpamming = false
+-- Function to toggle spamming
+local function toggleSpamming(enabled)
+    spamEnabled = enabled
+    if spamEnabled then
+        if not isSpamming then
+            isSpamming = true
+            spawn(spamToolActionEvent)
         end
+    else
+        isSpamming = false
     end
-})
+end
+
+-- Toggle the spamming
+toggleSpamming(false)  -- Set initial state to false (disabled)
 
 
 local Tab = Window:MakeTab({
