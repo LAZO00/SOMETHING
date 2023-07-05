@@ -394,56 +394,36 @@ Tab:AddToggle({
     end
 })
 
-_G.HeadSize = 20
-_G.HitboxEnabled = false
-local hitboxPart -- Reference to the extended hitbox part
+Tab:AddButton({
+	Name = "Hitbox Extender",
+	Callback = function()
+      		_G.HeadSize = 20
+_G.Disabled = true
 
-local function extendHitbox()
-    -- Create and position the extended hitbox part
-    local player = game.Players.LocalPlayer
-    local character = player.Character
-    if character then
-        local humanoid = character:FindFirstChildOfClass("Humanoid")
-        if humanoid then
-            hitboxPart = Instance.new("Part")
-            hitboxPart.Name = "ExtendedHitbox"
-            hitboxPart.Transparency = 0.7
-            hitboxPart.Size = Vector3.new(_G.HeadSize, _G.HeadSize, _G.HeadSize)
-            hitboxPart.BrickColor = BrickColor.new("Really blue")
-            hitboxPart.Material = "Neon"
-            hitboxPart.CanCollide = false
-            hitboxPart.CFrame = humanoid.RootPart.CFrame
-            hitboxPart.Parent = workspace
+game:GetService('RunService').RenderStepped:Connect(function()
+    if _G.Disabled then
+        for i, v in ipairs(game:GetService('Players'):GetPlayers()) do
+            if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+                pcall(function()
+                    local humanoidRootPart = v.Character and v.Character:FindFirstChild("HumanoidRootPart")
+                    if humanoidRootPart then
+                        humanoidRootPart.Size = Vector3.new(_G.HeadSize, _G.HeadSize, _G.HeadSize)
+                        humanoidRootPart.Transparency = 1
+                        humanoidRootPart.CanCollide = false
+                    end
+                end)
+            end
         end
     end
-end
+end)
 
-local function removeHitbox()
-    -- Remove the extended hitbox part
-    if hitboxPart and hitboxPart.Parent == workspace then
-        hitboxPart:Destroy()
-        hitboxPart = nil
-    end
-end
-
-local function toggleHitbox()
-    if not _G.HitboxEnabled then
-        _G.HitboxEnabled = true
-        extendHitbox()
-    else
-        _G.HitboxEnabled = false
-        removeHitbox()
-    end
-end
-
-Tab:AddToggle({
-    Name = "Hitbox Extender",
-    Default = false,
-    Callback = function(Value)
-        toggleHitbox()
-    end    
+  	end    
 })
 
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 
 
