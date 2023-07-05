@@ -4715,6 +4715,62 @@ game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Co
 })
 
 Tab:AddButton({
+	Name = "Medium Chest Farm",
+	Callback = function()
+      		local function findTreasureChest(parent)
+    local chest = nil
+    for _, child in ipairs(parent:GetChildren()) do
+        if child.Name == "Treasure Chest (Medium)" then
+            chest = child
+            break
+        elseif child:IsA("Model") or child:IsA("Folder") then
+            chest = findTreasureChest(child)
+            if chest then
+                break
+            end
+        end
+    end
+    return chest
+end
+
+local function interactWithChest(chest)
+    local originalPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+    local teleportPosition = chest:GetBoundingBox().Position
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+    wait(0.5)
+    local endTime = os.time() + 5
+    while os.time() < endTime do
+        local args = {
+            [1] = chest.PrimaryPart,
+            [2] = "Pickup"
+        }
+        game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
+        wait(0.1)
+    end
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+end
+
+for i = 1, 10 do
+    local args = {
+        [1] = 2
+    }
+    game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("BuyWorldEvent"):FireServer(unpack(args))
+    
+    local chest = findTreasureChest(workspace)
+    if chest and chest:IsDescendantOf(workspace) then
+        interactWithChest(chest)
+    end
+end
+
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
 	Name = "Tp To Easy Chest",
 	Callback = function()
       		local chest = nil
