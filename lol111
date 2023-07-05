@@ -4676,7 +4676,7 @@ Callback = <function> - The function of the button.
 
 -- DAN's Toggle Script Execution
 
-local spamEnabled = false
+local spamEnabled = true
 local isSpamming = false
 
 local function spamInventoryInteractionEvent()
