@@ -4715,7 +4715,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Co
 })
 
 Tab:AddButton({
-	Name = "toldu!",
+	Name = "POLPL!",
 	Callback = function()
       		local function findTreasureChest(parent)
     local chest = nil
@@ -4806,6 +4806,8 @@ local function buyAndInteractWithChest()
     }
     game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("BuyWorldEvent"):FireServer(unpack(args))
 
+    wait(0.5) -- Allow time for the purchase to take effect
+
     local chest = findTreasureChest(workspace)
     if chest and chest:IsDescendantOf(workspace) then
         interactWithChest(chest)
@@ -4816,7 +4818,7 @@ local function buyAndInteractWithChest()
 end
 
 local function performActions()
-    while hasMediumChests() do
+    while true do
         local success = buyAndInteractWithChest()
         if not success then
             break
