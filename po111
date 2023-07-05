@@ -4715,7 +4715,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Co
 })
 
 Tab:AddButton({
-	Name = "MED CHESTT",
+	Name = "XD FARM",
 	Callback = function()
       		local function findTreasureChest(parent)
     local chest = nil
@@ -4794,7 +4794,7 @@ local function autoPickupNearbyItems()
     end
 end
 
-for i = 1, 10 do
+local function buyAndInteractWithChest()
     local args = {
         [1] = 2
     }
@@ -4804,16 +4804,27 @@ for i = 1, 10 do
     if chest and chest:IsDescendantOf(workspace) then
         interactWithChest(chest)
         autoPickupNearbyItems()
+        return true
+    end
+
+    return false
+end
+
+local function performActions()
+    local purchasedCount = 0
+
+    while purchasedCount < 10 do
+        local success = buyAndInteractWithChest()
+        if success then
+            purchasedCount = purchasedCount + 1
+        end
     end
 end
 
+performActions()
+
   	end    
 })
-
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
 
 --[[
 Name = <string> - The name of the button.
