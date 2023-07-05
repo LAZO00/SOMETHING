@@ -4674,6 +4674,51 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
+-- DAN's Toggle Script Execution
+
+local spamEnabled = false
+local isSpamming = false
+
+local function spamInventoryInteractionEvent()
+    while isSpamming do
+        local args1 = {
+            [1] = 63,
+            [2] = "Drop"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("InventoryInteraction"):FireServer(unpack(args1))
+        
+        local args2 = {
+            [1] = 160,
+            [2] = "Drop"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("InventoryInteraction"):FireServer(unpack(args2))
+        
+        wait()
+    end
+end
+
+local function toggleScriptExecution()
+    if not spamEnabled then
+        spamEnabled = true
+        isSpamming = true
+        spawn(spamInventoryInteractionEvent)
+    else
+        spamEnabled = false
+        isSpamming = false
+    end
+end
+
+Tab:AddToggle({
+    Name = "Drop Coal and Ruby Harvester",
+    Default = false,
+    Callback = function(Value)
+        toggleScriptExecution()
+    end    
+})
+
+
 Tab:AddButton({
 	Name = "Open Easy Chest",
 	Callback = function()
