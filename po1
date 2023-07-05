@@ -4715,7 +4715,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Co
 })
 
 Tab:AddButton({
-	Name = "Medium Chest Farm",
+	Name = "MED CHEST FARM",
 	Callback = function()
       		local function findTreasureChest(parent)
     local chest = nil
@@ -4755,6 +4755,45 @@ local function hasMediumChests()
     return chest and chest:IsDescendantOf(workspace)
 end
 
+local function autoPickupNearbyItems()
+    local function getNearbyItems()
+        local player = game:GetService("Players").LocalPlayer
+        local character = player.Character
+        local items = {}
+
+        if character then
+            local playerPosition = character.PrimaryPart.Position
+
+            for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
+                if item:IsA("Model") and item.PrimaryPart then
+                    local itemPosition = item.PrimaryPart.Position
+                    local distance = (playerPosition - itemPosition).Magnitude
+
+                    if distance <= 5 then -- Adjust the distance as needed
+                        table.insert(items, item)
+                    end
+                end
+            end
+        end
+
+        return items
+    end
+
+    local itemInteractedEvent = game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted
+
+    local items = getNearbyItems()
+    for i = 1, #items do
+        local item = items[i]
+        local success = pcall(function()
+            itemInteractedEvent:FireServer(item, "Pickup")
+        end)
+        if not success then
+            warn("Failed to pick up item:", item.Name)
+        end
+        wait() -- Wait a short time before moving on to the next item
+    end
+end
+
 for i = 1, 10 do
     local args = {
         [1] = 2
@@ -4764,11 +4803,17 @@ for i = 1, 10 do
     while hasMediumChests() do
         local chest = findTreasureChest(workspace)
         interactWithChest(chest)
+        autoPickupNearbyItems()
     end
 end
 
   	end    
 })
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 --[[
 Name = <string> - The name of the button.
