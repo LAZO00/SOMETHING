@@ -394,9 +394,8 @@ Tab:AddToggle({
     end
 })
 
--- DAN's Hitbox Extender
-
-local hitboxEnabled = false
+_G.HeadSize = 20
+_G.HitboxEnabled = false
 local hitboxPart -- Reference to the extended hitbox part
 
 local function extendHitbox()
@@ -408,8 +407,11 @@ local function extendHitbox()
         if humanoid then
             hitboxPart = Instance.new("Part")
             hitboxPart.Name = "ExtendedHitbox"
-            hitboxPart.Transparency = 1
-            hitboxPart.Size = Vector3.new(5, 5, 5) -- Adjust the size as desired
+            hitboxPart.Transparency = 0.7
+            hitboxPart.Size = Vector3.new(_G.HeadSize, _G.HeadSize, _G.HeadSize)
+            hitboxPart.BrickColor = BrickColor.new("Really blue")
+            hitboxPart.Material = "Neon"
+            hitboxPart.CanCollide = false
             hitboxPart.CFrame = humanoid.RootPart.CFrame
             hitboxPart.Parent = workspace
         end
@@ -425,11 +427,11 @@ local function removeHitbox()
 end
 
 local function toggleHitbox()
-    if not hitboxEnabled then
-        hitboxEnabled = true
+    if not _G.HitboxEnabled then
+        _G.HitboxEnabled = true
         extendHitbox()
     else
-        hitboxEnabled = false
+        _G.HitboxEnabled = false
         removeHitbox()
     end
 end
@@ -441,6 +443,7 @@ Tab:AddToggle({
         toggleHitbox()
     end    
 })
+
 
 
 
