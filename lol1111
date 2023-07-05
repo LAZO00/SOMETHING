@@ -393,6 +393,56 @@ Tab:AddToggle({
         end
     end
 })
+
+-- DAN's Hitbox Extender
+
+local hitboxEnabled = false
+local hitboxPart -- Reference to the extended hitbox part
+
+local function extendHitbox()
+    -- Create and position the extended hitbox part
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+    if character then
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            hitboxPart = Instance.new("Part")
+            hitboxPart.Name = "ExtendedHitbox"
+            hitboxPart.Transparency = 1
+            hitboxPart.Size = Vector3.new(5, 5, 5) -- Adjust the size as desired
+            hitboxPart.CFrame = humanoid.RootPart.CFrame
+            hitboxPart.Parent = workspace
+        end
+    end
+end
+
+local function removeHitbox()
+    -- Remove the extended hitbox part
+    if hitboxPart then
+        hitboxPart:Destroy()
+        hitboxPart = nil
+    end
+end
+
+local function toggleHitbox()
+    if not hitboxEnabled then
+        hitboxEnabled = true
+        extendHitbox()
+    else
+        hitboxEnabled = false
+        removeHitbox()
+    end
+end
+
+Tab:AddToggle({
+    Name = "Hitbox Extender",
+    Default = false,
+    Callback = function(Value)
+        toggleHitbox()
+    end    
+})
+
+
 Tab:AddButton({
 	Name = "ESP 1",
 	Callback = function()
