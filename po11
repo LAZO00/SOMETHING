@@ -4715,7 +4715,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Co
 })
 
 Tab:AddButton({
-	Name = "MED CHEST FARM",
+	Name = "MED CHESTT",
 	Callback = function()
       		local function findTreasureChest(parent)
     local chest = nil
@@ -4800,8 +4800,8 @@ for i = 1, 10 do
     }
     game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("BuyWorldEvent"):FireServer(unpack(args))
 
-    while hasMediumChests() do
-        local chest = findTreasureChest(workspace)
+    local chest = findTreasureChest(workspace)
+    if chest and chest:IsDescendantOf(workspace) then
         interactWithChest(chest)
         autoPickupNearbyItems()
     end
@@ -4809,11 +4809,6 @@ end
 
   	end    
 })
-
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
 
 --[[
 Name = <string> - The name of the button.
