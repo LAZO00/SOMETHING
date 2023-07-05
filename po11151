@@ -4715,7 +4715,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Co
 })
 
 Tab:AddButton({
-	Name = "Farm!",
+	Name = "Farm me",
 	Callback = function()
       		local function findTreasureChest(parent)
     local chest = nil
@@ -4811,16 +4811,9 @@ local function buyAndInteractWithChest()
 end
 
 local function performActions()
-    local purchasedCount = 0
-
-    while purchasedCount < 10 do
+    while true do
         local success = buyAndInteractWithChest()
-        if success then
-            purchasedCount = purchasedCount + 1
-        end
-
-        -- Check if there are any more medium chests left
-        if not hasMediumChests() then
+        if not success then
             break
         end
     end
@@ -4835,7 +4828,6 @@ performActions()
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
-
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
