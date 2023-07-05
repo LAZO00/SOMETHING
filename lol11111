@@ -418,7 +418,7 @@ end
 
 local function removeHitbox()
     -- Remove the extended hitbox part
-    if hitboxPart then
+    if hitboxPart and hitboxPart.Parent == workspace then
         hitboxPart:Destroy()
         hitboxPart = nil
     end
@@ -441,6 +441,7 @@ Tab:AddToggle({
         toggleHitbox()
     end    
 })
+
 
 
 Tab:AddButton({
