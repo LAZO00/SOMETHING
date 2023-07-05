@@ -4715,7 +4715,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Co
 })
 
 Tab:AddButton({
-	Name = "Farm me",
+	Name = "XXX!",
 	Callback = function()
       		local function findTreasureChest(parent)
     local chest = nil
@@ -4745,9 +4745,10 @@ local function interactWithChest(chest)
             [2] = "Pickup"
         }
         game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
-        wait(0.1)
+        wait(0.01) -- Reduce the wait time for faster pickup
     end
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+    wait(0.5)
 end
 
 local function hasMediumChests()
@@ -4756,41 +4757,47 @@ local function hasMediumChests()
 end
 
 local function autoPickupNearbyItems()
-    local function getNearbyItems()
-        local player = game:GetService("Players").LocalPlayer
-        local character = player.Character
-        local items = {}
+    while true do
+        local function getNearbyItems()
+            local player = game:GetService("Players").LocalPlayer
+            local character = player.Character
+            local items = {}
 
-        if character then
-            local playerPosition = character.PrimaryPart.Position
+            if character then
+                local playerPosition = character.PrimaryPart.Position
 
-            for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
-                if item:IsA("Model") and item.PrimaryPart then
-                    local itemPosition = item.PrimaryPart.Position
-                    local distance = (playerPosition - itemPosition).Magnitude
+                for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
+                    if item:IsA("Model") and item.PrimaryPart then
+                        local itemPosition = item.PrimaryPart.Position
+                        local distance = (playerPosition - itemPosition).Magnitude
 
-                    if distance <= 5 then -- Adjust the distance as needed
-                        table.insert(items, item)
+                        if distance <= 5 then -- Adjust the distance as needed
+                            table.insert(items, item)
+                        end
                     end
                 end
             end
+
+            return items
         end
 
-        return items
-    end
+        local itemInteractedEvent = game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted
 
-    local itemInteractedEvent = game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted
-
-    local items = getNearbyItems()
-    for i = 1, #items do
-        local item = items[i]
-        local success = pcall(function()
-            itemInteractedEvent:FireServer(item, "Pickup")
-        end)
-        if not success then
-            warn("Failed to pick up item:", item.Name)
+        local items = getNearbyItems()
+        for i = 1, #items do
+            local item = items[i]
+            local success = pcall(function()
+                itemInteractedEvent:FireServer(item, "Pickup")
+            end)
+            if not success then
+                warn("Failed to pick up item:", item.Name)
+            end
         end
-        wait() -- Wait a short time before moving on to the next item
+        
+        if not hasMediumChests() then
+            break
+        end
+        wait(0.01) -- Reduce the wait time for faster pickup
     end
 end
 
@@ -4803,7 +4810,6 @@ local function buyAndInteractWithChest()
     local chest = findTreasureChest(workspace)
     if chest and chest:IsDescendantOf(workspace) then
         interactWithChest(chest)
-        autoPickupNearbyItems()
         return true
     end
 
@@ -4816,6 +4822,7 @@ local function performActions()
         if not success then
             break
         end
+        autoPickupNearbyItems()
     end
 end
 
@@ -4828,10 +4835,7 @@ performActions()
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
+
 
 Tab:AddButton({
 	Name = "Tp To Easy Chest",
