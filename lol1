@@ -4715,7 +4715,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Co
 })
 
 Tab:AddButton({
-	Name = "polp!",
+	Name = "Spam Med Chest and pickup very fast until token die!",
 	Callback = function()
       		local function findTreasureChest(parent)
     local chest = nil
