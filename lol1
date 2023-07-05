@@ -4715,7 +4715,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Co
 })
 
 Tab:AddButton({
-	Name = "POLPL!",
+	Name = "polp!",
 	Callback = function()
       		local function findTreasureChest(parent)
     local chest = nil
@@ -4751,7 +4751,6 @@ local function interactWithChest(chest)
         end
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
         wait(0.5) -- Wait for character to settle before auto pickup
-        autoPickupNearbyItems()
         chest = findTreasureChest(workspace)
     end
 end
@@ -4762,10 +4761,9 @@ local function hasMediumChests()
 end
 
 local function autoPickupNearbyItems()
-    local function getNearbyItems()
+    while true do
         local player = game:GetService("Players").LocalPlayer
         local character = player.Character
-        local items = {}
 
         if character then
             local playerPosition = character.PrimaryPart.Position
@@ -4776,27 +4774,18 @@ local function autoPickupNearbyItems()
                     local distance = (playerPosition - itemPosition).Magnitude
 
                     if distance <= 5 then -- Adjust the distance as needed
-                        table.insert(items, item)
+                        local success = pcall(function()
+                            game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(item, "Pickup")
+                        end)
+                        if not success then
+                            warn("Failed to pick up item:", item.Name)
+                        end
                     end
                 end
             end
         end
 
-        return items
-    end
-
-    local itemInteractedEvent = game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted
-
-    local items = getNearbyItems()
-    for i = 1, #items do
-        local item = items[i]
-        local success = pcall(function()
-            itemInteractedEvent:FireServer(item, "Pickup")
-        end)
-        if not success then
-            warn("Failed to pick up item:", item.Name)
-        end
-        wait() -- Wait a short time before moving on to the next item
+        wait()
     end
 end
 
@@ -4826,6 +4815,7 @@ local function performActions()
     end
 end
 
+spawn(autoPickupNearbyItems)
 performActions()
 
   	end    
