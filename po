@@ -4750,20 +4750,30 @@ local function interactWithChest(chest)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
 end
 
+local function hasMediumChests()
+    local chest = findTreasureChest(workspace)
+    return chest and chest:IsDescendantOf(workspace)
+end
+
 for i = 1, 10 do
     local args = {
         [1] = 2
     }
     game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("BuyWorldEvent"):FireServer(unpack(args))
-    
-    local chest = findTreasureChest(workspace)
-    if chest and chest:IsDescendantOf(workspace) then
+
+    while hasMediumChests() do
+        local chest = findTreasureChest(workspace)
         interactWithChest(chest)
     end
 end
 
   	end    
 })
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 --[[
 Name = <string> - The name of the button.
