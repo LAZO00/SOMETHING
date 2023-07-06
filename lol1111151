@@ -1062,7 +1062,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local spamEnabled = false
+local spamEnabled = true
 local isSpamming = false
 
 local function spamScript()
