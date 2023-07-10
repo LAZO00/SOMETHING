@@ -80,19 +80,17 @@ local function toggleAutoPickup()
     if isAutoPickupEnabled then
         userInputService.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceHide
         autoPickupNearbyItems()
-        OrionLib:MakeNotification({
-            Name = "Auto Pickup",
-            Content = "Autopickup enabled!",
-            Image = "rbxassetid://4483345998",
-            Time = 5
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Auto Pickup",
+            Text = "Autopickup enabled!",
+            Duration = 5
         })
     else
         userInputService.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.None
-        OrionLib:MakeNotification({
-            Name = "Auto Pickup",
-            Content = "Autopickup disabled!",
-            Image = "rbxassetid://4483345998",
-            Time = 5
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Auto Pickup",
+            Text = "Autopickup disabled!",
+            Duration = 5
         })
     end
 end
