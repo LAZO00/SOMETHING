@@ -58,7 +58,7 @@ Tab:AddBind({
                     end
                 elseif not interactFunction then
                     warn("Interact function not found in item:", item.Name)
-                else
+                elseif not interactFunction:IsA("RemoteFunction") then
                     warn("Interact function is not a RemoteFunction in item:", item.Name)
                 end
                 wait() -- Wait a short time before moving on to the next item
@@ -68,7 +68,6 @@ Tab:AddBind({
         autoPickupNearbyItems()
     end
 })
-
 
 
 
