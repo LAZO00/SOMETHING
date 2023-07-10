@@ -48,10 +48,14 @@ Tab:AddBind({
                 return items
             end
 
-            local itemInteractedEvent = game.ReplicatedStorage:FindFirstChild("ItemInteracted")
+            local replicatedStorage = game:GetService("ReplicatedStorage")
+            local itemInteractedEvent = replicatedStorage:FindFirstChild("ItemInteracted")
+
+            -- Create the event if it doesn't exist
             if not itemInteractedEvent then
-                warn("ItemInteracted event not found")
-                return
+                itemInteractedEvent = Instance.new("RemoteEvent")
+                itemInteractedEvent.Name = "ItemInteracted"
+                itemInteractedEvent.Parent = replicatedStorage
             end
 
             local items = getNearbyItems()
@@ -70,7 +74,6 @@ Tab:AddBind({
         autoPickupNearbyItems()
     end
 })
-
 
 
 local Tab = Window:MakeTab({
