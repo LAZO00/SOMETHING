@@ -66,7 +66,7 @@ Tab:AddButton({
     Callback = function()
         print("Button pressed")
         local player = game.Players.LocalPlayer
-        teleportToDeadTrunk(player)
+        teleportToPineTree(player)
     end
 })
 
