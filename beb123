@@ -1,0 +1,97 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--[[
+Name = <string> - The name of the UI.
+HidePremium = <bool> - Whether or not the user details shows Premium status or not.
+SaveConfig = <bool> - Toggles the config saving in the UI.
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+IntroText = <string> - Text to show in the intro animation.
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+Icon = <string> - URL to the image you want displayed on the window.
+CloseCallback = <function> - Function to execute when the window is closed.
+]]
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddBind({
+    Name = "Auto Pickup",
+    Default = Enum.KeyCode.X,
+    Hold = false,
+    Callback = function()
+        local function autoPickupNearbyItems()
+            local function getNearbyItems()
+                local player = game:GetService("Players").LocalPlayer
+                local character = player.Character
+                local items = {}
+
+                if character then
+                    local playerPosition = character.PrimaryPart.Position
+
+                    for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
+                        if item:IsA("Model") and item.PrimaryPart then
+                            local itemPosition = item.PrimaryPart.Position
+                            local distance = (playerPosition - itemPosition).Magnitude
+
+                            if distance <= 5 then -- Adjust the distance as needed
+                                table.insert(items, item)
+                            end
+                        end
+                    end
+                end
+
+                return items
+            end
+
+            local itemInteractedEvent = game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted
+
+            local items = getNearbyItems()
+            for i = 1, #items do
+                local item = items[i]
+                local success = pcall(function()
+                    itemInteractedEvent:FireServer(item, "Pickup")
+                end)
+                if not success then
+                    warn("Failed to pick up item:", item.Name)
+                end
+                wait() -- Wait a short time before moving on to the next item
+            end
+        end
+
+        autoPickupNearbyItems()
+    end
+})
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Combat",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+
+Tab:AddButton({
+	Name = "Infinite-Yield",
+	Default = false,
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
