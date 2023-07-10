@@ -1039,6 +1039,21 @@ game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Co
 })
 
 
+Tab:AddBind({
+	Name = "Small Pumpkin Dragon JUMPY",
+	Default = Enum.KeyCode.F1,
+	Hold = false,
+	Callback = function()
+local args = {
+    [1] = "Equip",
+    [2] = "{2726873988311144630}"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("Pet"):FireServer(unpack(args))
+
+	end    
+})
+
 
 --[[
 Name = <string> - The name of the bind.
