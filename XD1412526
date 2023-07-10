@@ -19,57 +19,37 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local function getNil(name, class)
-    for _, v in ipairs(getnilinstances()) do
-        if v.ClassName == class and v.Name == name then
-            return v
-        end
-    end
+local TweenService = game:GetService("TweenService")
+
+-- Example function to tween an object
+local function tweenObject(object, endPosition, duration)
+    local tweenInfo = TweenInfo.new(duration)
+    local tween = TweenService:Create(object, tweenInfo, { Position = endPosition })
+    tween:Play()
 end
 
-local args = {
-    [1] = getNil("Raw Meat", "UnionOperation")
-}
+local function getNearbyItems()
+    local player = game:GetService("Players").LocalPlayer
+    local character = player.Character
 
-game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Pickup"):FireServer(unpack(args))
+    local items = {}
 
-local function autoPickupNearbyItems()
-    local function getNearbyItems()
-        local player = game:GetService("Players").LocalPlayer
-        local character = player.Character
-        local items = {}
+    if character then
+        local playerPosition = character.PrimaryPart.Position
 
-        if character then
-            local playerPosition = character.PrimaryPart.Position
+        for _, item in ipairs(game.Workspace:GetDescendants()) do
+            if item:IsA("BasePart") then
+                local itemPosition = item.Position
+                local distance = (playerPosition - itemPosition).Magnitude
 
-            for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
-                if item:IsA("Model") and item.PrimaryPart then
-                    local itemPosition = item.PrimaryPart.Position
-                    local distance = (playerPosition - itemPosition).Magnitude
-
-                    if distance <= 5 then -- Adjust the distance as needed
-                        table.insert(items, item)
-                    end
+                if distance <= 5 then -- Adjust the distance as needed
+                    table.insert(items, item)
                 end
             end
         end
-
-        return items
     end
 
-    local itemInteractedEvent = game:GetService("ReplicatedStorage"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ItemInteracted")
-
-    local items = getNearbyItems()
-    for i = 1, #items do
-        local item = items[i]
-        local success = pcall(function()
-            itemInteractedEvent:FireServer(item, "Pickup")
-        end)
-        if not success then
-            warn("Failed to pick up item:", item.Name)
-        end
-        wait() -- Wait a short time before moving on to the next item
-    end
+    return items
 end
 
 local userInputService = game:GetService("UserInputService")
@@ -79,19 +59,15 @@ local function toggleAutoPickup()
     isAutoPickupEnabled = not isAutoPickupEnabled
     if isAutoPickupEnabled then
         userInputService.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceHide
-        autoPickupNearbyItems()
-        game.StarterGui:SetCore("SendNotification", {
-            Title = "Auto Pickup",
-            Text = "Autopickup enabled!",
-            Duration = 5
-        })
+
+        local items = getNearbyItems()
+        for _, item in ipairs(items) do
+            -- Example tweening the item's position
+            local endPosition = Vector3.new(item.Position.X, item.Position.Y + 10, item.Position.Z)
+            tweenObject(item, endPosition, 1)
+        end
     else
         userInputService.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.None
-        game.StarterGui:SetCore("SendNotification", {
-            Title = "Auto Pickup",
-            Text = "Autopickup disabled!",
-            Duration = 5
-        })
     end
 end
 
@@ -107,6 +83,7 @@ Tab:AddBind({
     Hold = false,
     Callback = toggleAutoPickup
 })
+
 
 
 
