@@ -71,19 +71,26 @@ local function toggleAutoPickup()
     end
 end
 
-game:GetService("UserInputService").InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.X then
+local bindKey = Enum.KeyCode.X -- Modify the bind key as needed
+
+local function createBindUI()
+    -- Create your GUI element for the bind here
+    -- For example, you can use a TextButton or ImageButton
+    local bindButton = Instance.new("TextButton")
+    bindButton.Text = "Auto Pickup (X)"
+    bindButton.Parent = game:GetService("StarterGui")
+    bindButton.Activated:Connect(function()
+        toggleAutoPickup()
+    end)
+end
+
+createBindUI()
+
+userInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == bindKey then
         toggleAutoPickup()
     end
 end)
-
-Tab:AddBind({
-    Name = "Auto Pickup",
-    Default = Enum.KeyCode.X,
-    Hold = false,
-    Callback = toggleAutoPickup
-})
-
 
 
 
