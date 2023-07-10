@@ -27,7 +27,6 @@ Tab:AddBind({
         local function autoPickupNearbyItems()
             local player = game:GetService("Players").LocalPlayer
             local character = player.Character
-            local replicatedStorage = game:GetService("ReplicatedStorage")
 
             if not character then
                 return
@@ -48,19 +47,28 @@ Tab:AddBind({
                 end
             end
 
-            local itemInteractedEvent = replicatedStorage:FindFirstChild("Events"):FindFirstChild("ItemInteracted")
+            local replicatedStorage = game:GetService("ReplicatedStorage")
+            local eventsFolder = replicatedStorage:FindFirstChild("Events")
+            if not eventsFolder then
+                eventsFolder = Instance.new("Folder")
+                eventsFolder.Name = "Events"
+                eventsFolder.Parent = replicatedStorage
+            end
+
+            local itemInteractedEvent = eventsFolder:FindFirstChild("ItemInteracted")
             if not itemInteractedEvent then
-                warn("ItemInteracted event not found")
-                return
+                itemInteractedEvent = Instance.new("RemoteEvent")
+                itemInteractedEvent.Name = "ItemInteracted"
+                itemInteractedEvent.Parent = eventsFolder
             end
 
             for _, item in ipairs(items) do
-                replicatedStorage:WaitForChild("Events"):WaitForChild("ItemInteracted"):FireServer(item, "Pickup")
+                itemInteractedEvent:FireServer(item, "Pickup")
                 wait() -- Wait a short time before moving on to the next item
             end
         end
 
-        spawn(autoPickupNearbyItems)
+        autoPickupNearbyItems()
     end
 })
 
