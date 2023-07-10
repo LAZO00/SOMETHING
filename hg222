@@ -24,50 +24,32 @@ Tab:AddBind({
     Default = Enum.KeyCode.X,
     Hold = false,
     Callback = function()
+        local player = game.Players.LocalPlayer
+        local replicatedStorage = game:GetService("ReplicatedStorage")
+
         local function autoPickupNearbyItems()
-            local function getNearbyItems()
-                local player = game:GetService("Players").LocalPlayer
-                local character = player.Character
-                local items = {}
+            local character = player.Character
+            if not character then
+                return
+            end
+            
+            local playerPosition = character.PrimaryPart.Position
+            local pickupDistance = 5 -- Adjust the distance as needed
+            
+            local items = {}
+            for _, item in ipairs(game.Workspace:GetDescendants()) do
+                if item:IsA("Model") and item.PrimaryPart then
+                    local itemPosition = item.PrimaryPart.Position
+                    local distance = (playerPosition - itemPosition).Magnitude
 
-                if character then
-                    local playerPosition = character.PrimaryPart.Position
-
-                    for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
-                        if item:IsA("Model") and item.PrimaryPart then
-                            local itemPosition = item.PrimaryPart.Position
-                            local distance = (playerPosition - itemPosition).Magnitude
-
-                            if distance <= 5 then -- Adjust the distance as needed
-                                table.insert(items, item)
-                            end
-                        end
+                    if distance <= pickupDistance then
+                        table.insert(items, item)
                     end
                 end
-
-                return items
             end
 
-            local replicatedStorage = game:GetService("ReplicatedStorage")
-            local itemInteractedEvent = replicatedStorage:FindFirstChild("ItemInteracted")
-
-            -- Create the event if it doesn't exist
-            if not itemInteractedEvent then
-                itemInteractedEvent = Instance.new("RemoteEvent")
-                itemInteractedEvent.Name = "ItemInteracted"
-                itemInteractedEvent.Parent = replicatedStorage
-            end
-
-            local items = getNearbyItems()
-            for i = 1, #items do
-                local item = items[i]
-                -- Modify the event firing logic according to your game's implementation
-                local success, error = pcall(function()
-                    itemInteractedEvent:FireServer(item, "Pickup")
-                end)
-                if not success then
-                    warn("Failed to pick up item:", item.Name, error)
-                end
+            for _, item in ipairs(items) do
+                replicatedStorage:WaitForChild("Events"):WaitForChild("ItemInteracted"):FireServer(item, "Pickup")
                 wait() -- Wait a short time before moving on to the next item
             end
         end
