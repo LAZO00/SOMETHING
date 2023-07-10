@@ -55,9 +55,9 @@ local Tab = Window:MakeTab({
 
 
 -- Teleportation function
-local function teleportToDeadTrunk(player)
-    local deadTrunkPosition = Vector3.new(x, y, z) -- Replace x, y, and z with the coordinates of Dead Trunk
-    player.Character:SetPrimaryPartCFrame(CFrame.new(deadTrunkPosition))
+local function teleportToPineTree(player)
+    local PineTreePosition = Vector3.new(x, y, z) -- Replace x, y, and z with the coordinates of Dead Trunk
+    player.Character:SetPrimaryPartCFrame(CFrame.new(PineTreePosition))
 end
 
 -- Button callback
