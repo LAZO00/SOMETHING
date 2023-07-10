@@ -24,20 +24,20 @@ Tab:AddBind({
     Default = Enum.KeyCode.X,
     Hold = false,
     Callback = function()
-        local player = game.Players.LocalPlayer
-        local replicatedStorage = game:GetService("ReplicatedStorage")
-
         local function autoPickupNearbyItems()
+            local player = game:GetService("Players").LocalPlayer
             local character = player.Character
+            local replicatedStorage = game:GetService("ReplicatedStorage")
+
             if not character then
                 return
             end
-            
+
             local playerPosition = character.PrimaryPart.Position
             local pickupDistance = 5 -- Adjust the distance as needed
-            
+
             local items = {}
-            for _, item in ipairs(game.Workspace:GetDescendants()) do
+            for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
                 if item:IsA("Model") and item.PrimaryPart then
                     local itemPosition = item.PrimaryPart.Position
                     local distance = (playerPosition - itemPosition).Magnitude
@@ -48,15 +48,22 @@ Tab:AddBind({
                 end
             end
 
+            local itemInteractedEvent = replicatedStorage:FindFirstChild("Events"):FindFirstChild("ItemInteracted")
+            if not itemInteractedEvent then
+                warn("ItemInteracted event not found")
+                return
+            end
+
             for _, item in ipairs(items) do
                 replicatedStorage:WaitForChild("Events"):WaitForChild("ItemInteracted"):FireServer(item, "Pickup")
                 wait() -- Wait a short time before moving on to the next item
             end
         end
 
-        autoPickupNearbyItems()
+        spawn(autoPickupNearbyItems)
     end
 })
+
 
 
 local Tab = Window:MakeTab({
