@@ -88,6 +88,7 @@ Tab:AddBind({
 })
 
 
+
 local Tab = Window:MakeTab({
 	Name = "Combat",
 	Icon = "rbxassetid://4483345998",
