@@ -48,18 +48,11 @@ Tab:AddBind({
             end
 
             for _, item in ipairs(items) do
-                local interactFunction = item:FindFirstChild("Interact")
-                if interactFunction and interactFunction:IsA("RemoteFunction") then
-                    local success, error = pcall(function()
-                        interactFunction:InvokeServer("Pickup")
-                    end)
-                    if not success then
-                        warn("Failed to invoke Interact function on item:", item.Name, error)
-                    end
-                elseif not interactFunction then
-                    warn("Interact function not found in item:", item.Name)
-                elseif not interactFunction:IsA("RemoteFunction") then
-                    warn("Interact function is not a RemoteFunction in item:", item.Name)
+                local interactEvent = item:FindFirstChild("InteractEvent")
+                if interactEvent and interactEvent:IsA("BindableEvent") then
+                    interactEvent:Fire("Pickup")
+                else
+                    warn("InteractEvent not found or not a BindableEvent in item:", item.Name)
                 end
                 wait() -- Wait a short time before moving on to the next item
             end
@@ -68,6 +61,7 @@ Tab:AddBind({
         autoPickupNearbyItems()
     end
 })
+
 
 
 
