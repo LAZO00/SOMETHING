@@ -73,18 +73,45 @@ end
 
 local bindKey = Enum.KeyCode.X -- Modify the bind key as needed
 
-userInputService.InputBegan:Connect(function(input)
+local function createBindUI()
+    local playerGui = game:GetService("Players").LocalPlayer.PlayerGui
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "AutoPickupGui"
+    screenGui.Parent = playerGui
+end
+
+createBindUI()
+
+local function onInputBegan(input, gameProcessed)
+    if gameProcessed then
+        return
+    end
+    
     if input.KeyCode == bindKey then
         toggleAutoPickup()
     end
-end)
+end
+
+userInputService.InputBegan:Connect(onInputBegan)
 
 Tab:AddBind({
     Name = "Auto Pickup",
-    Default = Enum.KeyCode.X,
+    Default = bindKey,
     Hold = false,
     Callback = toggleAutoPickup
 })
+
+Tab:AddBind({
+    Name = "Bind",
+    Default = Enum.KeyCode.E,
+    Hold = false,
+    Callback = toggleAutoPickup
+})
+
+-- Prevent character flying
+game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(character)
+    character.Humanoid.PlatformStand = true
+end)
 
 
 
