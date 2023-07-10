@@ -51,7 +51,7 @@ local function autoPickupNearbyItems()
         return items
     end
 
-    local itemInteractedEvent = game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted
+    local itemInteractedEvent = game:GetService("ReplicatedStorage"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ItemInteracted")
 
     local items = getNearbyItems()
     for i = 1, #items do
@@ -106,4 +106,18 @@ local Tab = Window:MakeTab({
 Name = <string> - The name of the tab.
 Icon = <string> - The icon of the tab.
 PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+
+Tab:AddButton({
+	Name = "Infinite-Yield",
+	Default = false,
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
 ]]
