@@ -48,16 +48,16 @@ Tab:AddBind({
                 return items
             end
 
-            local itemInteractedEvent = game:GetService("ReplicatedStorage"):WaitForChild("ItemInteracted")
+            local itemInteractedEvent = game.ReplicatedStorage:WaitForChild("Events"):WaitForChild("ItemInteracted")
 
             local items = getNearbyItems()
             for i = 1, #items do
                 local item = items[i]
-                local success = pcall(function()
+                local success, error = pcall(function()
                     itemInteractedEvent:FireServer(item, "Pickup")
                 end)
                 if not success then
-                    warn("Failed to pick up item:", item.Name)
+                    warn("Failed to pick up item:", item.Name, error)
                 end
                 wait() -- Wait a short time before moving on to the next item
             end
