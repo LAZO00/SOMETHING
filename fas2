@@ -47,13 +47,16 @@ Tab:AddBind({
                 end
             end
 
+            local replicatedStorage = game:GetService("ReplicatedStorage")
+            local itemInteractedEvent = replicatedStorage.Events:FindFirstChild("ItemInteracted")
+            
+            if not itemInteractedEvent then
+                warn("ItemInteracted event not found")
+                return
+            end
+
             for _, item in ipairs(items) do
-                local interactFunction = item:FindFirstChild("Interact")
-                if interactFunction then
-                    interactFunction:FireServer("Pickup")
-                else
-                    warn("Interact function not found in item:", item.Name)
-                end
+                replicatedStorage.Events.ItemInteracted:FireServer(item, "Pickup")
                 wait() -- Wait a short time before moving on to the next item
             end
         end
