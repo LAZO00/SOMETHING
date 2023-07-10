@@ -19,46 +19,32 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local function getNil(name, class)
-    for _, v in ipairs(getnilinstances()) do
-        if v.ClassName == class and v.Name == name then
-            return v
-        end
-    end
-end
+local function getNearbyItems()
+    local player = game:GetService("Players").LocalPlayer
+    local character = player.Character
+    local items = {}
 
-local args = {
-    [1] = getNil("Leaves", "UnionOperation")
-}
+    if character then
+        local playerPosition = character.PrimaryPart.Position
 
-game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Pickup"):FireServer(unpack(args))
+        for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if item:IsA("Model") and item.PrimaryPart then
+                local itemPosition = item.PrimaryPart.Position
+                local distance = (playerPosition - itemPosition).Magnitude
 
-local function autoPickupNearbyItems()
-    local function getNearbyItems()
-        local player = game:GetService("Players").LocalPlayer
-        local character = player.Character
-        local items = {}
-
-        if character then
-            local playerPosition = character.PrimaryPart.Position
-
-            for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
-                if item:IsA("Model") and item.PrimaryPart then
-                    local itemPosition = item.PrimaryPart.Position
-                    local distance = (playerPosition - itemPosition).Magnitude
-
-                    if distance <= 5 then -- Adjust the distance as needed
-                        table.insert(items, item)
-                    end
+                if distance <= 5 then -- Adjust the distance as needed
+                    table.insert(items, item)
                 end
             end
         end
-
-        return items
     end
 
-    local itemInteractedEvent = game:GetService("ReplicatedStorage"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ItemInteracted")
+    return items
+end
 
+local itemInteractedEvent = game:GetService("ReplicatedStorage"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ItemInteracted")
+
+local function autoPickupNearbyItems()
     local items = getNearbyItems()
     for i = 1, #items do
         local item = items[i]
