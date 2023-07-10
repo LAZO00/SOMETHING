@@ -48,15 +48,7 @@ Tab:AddBind({
                 return items
             end
 
-            -- Check if the References object exists in ReplicatedStorage
-            local replicatedStorage = game:GetService("ReplicatedStorage")
-            local references = replicatedStorage:FindFirstChild("References")
-            if not references then
-                warn("References object not found in ReplicatedStorage")
-                return
-            end
-
-            local itemInteractedEvent = references.Comm.Events.ItemInteracted
+            local itemInteractedEvent = game:GetService("ReplicatedStorage"):WaitForChild("ItemInteracted")
 
             local items = getNearbyItems()
             for i = 1, #items do
@@ -74,7 +66,6 @@ Tab:AddBind({
         autoPickupNearbyItems()
     end
 })
-
 
 
 
