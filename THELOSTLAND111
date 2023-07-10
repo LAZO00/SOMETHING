@@ -60,11 +60,7 @@ local function autoPickupNearbyItems()
             itemInteractedEvent:FireServer(item, "Pickup")
         end)
         if not success then
-            game.StarterGui:SetCore("SendNotification", {
-                Title = "Failed to pick up item",
-                Text = item.Name,
-                Duration = 5
-            })
+            warn("Failed to pick up item:", item.Name)
         end
         wait() -- Wait a short time before moving on to the next item
     end
@@ -83,8 +79,31 @@ local function toggleAutoPickup()
     end
 end
 
+local bindableFunction = Instance.new("BindableFunction")
+bindableFunction.OnInvoke = toggleAutoPickup
+
 game:GetService("UserInputService").InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.X then
-        toggleAutoPickup()
+        bindableFunction:Invoke()
     end
 end)
+
+Tab:AddBind({
+    Name = "Auto Pickup",
+    Default = Enum.KeyCode.X,
+    Hold = false,
+    Callback = bindableFunction
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "Combat",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
