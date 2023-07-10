@@ -48,7 +48,15 @@ Tab:AddBind({
                 return items
             end
 
-            local itemInteractedEvent = game.ReplicatedStorage:WaitForChild("Events"):WaitForChild("ItemInteracted")
+            local itemInteractedEvent
+            local success, error = pcall(function()
+                itemInteractedEvent = game.ReplicatedStorage.Events:WaitForChild("ItemInteracted")
+            end)
+
+            if not success then
+                warn("Failed to locate ItemInteracted event:", error)
+                return
+            end
 
             local items = getNearbyItems()
             for i = 1, #items do
