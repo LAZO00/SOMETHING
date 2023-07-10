@@ -25,42 +25,29 @@ Tab:AddBind({
     Hold = false,
     Callback = function()
         local function autoPickupNearbyItems()
-            local function getNearbyItems()
-                local player = game:GetService("Players").LocalPlayer
-                local character = player.Character
-                local items = {}
-
-                if character then
-                    local playerPosition = character.PrimaryPart.Position
-
-                    for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
-                        if item:IsA("Model") and item.PrimaryPart then
-                            local itemPosition = item.PrimaryPart.Position
-                            local distance = (playerPosition - itemPosition).Magnitude
-
-                            if distance <= 5 then -- Adjust the distance as needed
-                                table.insert(items, item)
-                            end
-                        end
-                    end
-                end
-
-                return items
-            end
-
-            local itemInteractedEvent
-            local success, error = pcall(function()
-                itemInteractedEvent = game.ReplicatedStorage.Events:WaitForChild("ItemInteracted")
-            end)
-
-            if not success then
-                warn("Failed to locate ItemInteracted event:", error)
+            local player = game:GetService("Players").LocalPlayer
+            local character = player.Character
+            if not character then
                 return
             end
+            
+            local playerPosition = character.PrimaryPart.Position
+            local pickupDistance = 5 -- Adjust the distance as needed
+            
+            local items = {}
+            for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
+                if item:IsA("Model") and item.PrimaryPart then
+                    local itemPosition = item.PrimaryPart.Position
+                    local distance = (playerPosition - itemPosition).Magnitude
 
-            local items = getNearbyItems()
-            for i = 1, #items do
-                local item = items[i]
+                    if distance <= pickupDistance then
+                        table.insert(items, item)
+                    end
+                end
+            end
+
+            local itemInteractedEvent = game.ReplicatedStorage:WaitForChild("ItemInteracted")
+            for _, item in ipairs(items) do
                 local success, error = pcall(function()
                     itemInteractedEvent:FireServer(item, "Pickup")
                 end)
