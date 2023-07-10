@@ -1125,7 +1125,7 @@ local function toggleSpamScript()
 end
 
 Tab:AddToggle({
-    Name = "Potato Drop Spammer",
+    Name = "Raw Potato Drop Spammer",
     Default = false,
     Callback = function(Value)
         toggleSpamScript()
