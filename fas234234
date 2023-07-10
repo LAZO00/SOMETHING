@@ -50,9 +50,16 @@ Tab:AddBind({
             for _, item in ipairs(items) do
                 local interactEvent = item:FindFirstChild("InteractEvent")
                 if interactEvent and interactEvent:IsA("BindableEvent") then
-                    interactEvent:Fire("Pickup")
+                    local success, error = pcall(function()
+                        interactEvent:Fire("Pickup")
+                    end)
+                    if not success then
+                        warn("Failed to fire InteractEvent in item:", item.Name, error)
+                    end
+                elseif not interactEvent then
+                    warn("InteractEvent not found in item:", item.Name)
                 else
-                    warn("InteractEvent not found or not a BindableEvent in item:", item.Name)
+                    warn("InteractEvent is not a BindableEvent in item:", item.Name)
                 end
                 wait() -- Wait a short time before moving on to the next item
             end
@@ -61,6 +68,7 @@ Tab:AddBind({
         autoPickupNearbyItems()
     end
 })
+
 
 
 
