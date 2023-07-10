@@ -19,32 +19,46 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local function getNearbyItems()
-    local player = game:GetService("Players").LocalPlayer
-    local character = player.Character
-    local items = {}
+local function getNil(name, class)
+    for _, v in ipairs(getnilinstances()) do
+        if v.ClassName == class and v.Name == name then
+            return v
+        end
+    end
+end
 
-    if character then
-        local playerPosition = character.PrimaryPart.Position
+local args = {
+    [1] = getNil("Raw Meat", "UnionOperation")
+}
 
-        for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
-            if item:IsA("Model") and item.PrimaryPart then
-                local itemPosition = item.PrimaryPart.Position
-                local distance = (playerPosition - itemPosition).Magnitude
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Pickup"):FireServer(unpack(args))
 
-                if distance <= 5 then -- Adjust the distance as needed
-                    table.insert(items, item)
+local function autoPickupNearbyItems()
+    local function getNearbyItems()
+        local player = game:GetService("Players").LocalPlayer
+        local character = player.Character
+        local items = {}
+
+        if character then
+            local playerPosition = character.PrimaryPart.Position
+
+            for _, item in ipairs(game:GetService("Workspace"):GetDescendants()) do
+                if item:IsA("Model") and item.PrimaryPart then
+                    local itemPosition = item.PrimaryPart.Position
+                    local distance = (playerPosition - itemPosition).Magnitude
+
+                    if distance <= 5 then -- Adjust the distance as needed
+                        table.insert(items, item)
+                    end
                 end
             end
         end
+
+        return items
     end
 
-    return items
-end
+    local itemInteractedEvent = game:GetService("ReplicatedStorage"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ItemInteracted")
 
-local itemInteractedEvent = game:GetService("ReplicatedStorage"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ItemInteracted")
-
-local function autoPickupNearbyItems()
     local items = getNearbyItems()
     for i = 1, #items do
         local item = items[i]
@@ -66,31 +80,36 @@ local function toggleAutoPickup()
     if isAutoPickupEnabled then
         userInputService.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceHide
         autoPickupNearbyItems()
+        OrionLib:MakeNotification({
+            Name = "Auto Pickup",
+            Content = "Autopickup enabled!",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
     else
         userInputService.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.None
+        OrionLib:MakeNotification({
+            Name = "Auto Pickup",
+            Content = "Autopickup disabled!",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
     end
 end
 
-local bindKey = Enum.KeyCode.X -- Modify the bind key as needed
-
-local function createBindUI()
-    -- Create your GUI element for the bind here
-    -- For example, you can use a TextButton or ImageButton
-    local bindButton = Instance.new("TextButton")
-    bindButton.Text = "Auto Pickup (X)"
-    bindButton.Parent = game:GetService("StarterGui")
-    bindButton.Activated:Connect(function()
-        toggleAutoPickup()
-    end)
-end
-
-createBindUI()
-
-userInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == bindKey then
+game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.X then
         toggleAutoPickup()
     end
 end)
+
+Tab:AddBind({
+    Name = "Auto Pickup",
+    Default = Enum.KeyCode.X,
+    Hold = false,
+    Callback = toggleAutoPickup
+})
+
 
 
 
