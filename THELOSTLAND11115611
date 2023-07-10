@@ -85,11 +85,21 @@ local function toggleAutoPickup()
     end
 end
 
+local bindableFunction = Instance.new("BindableFunction")
+bindableFunction.OnInvoke = toggleAutoPickup
+
 game:GetService("UserInputService").InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.X then
-        toggleAutoPickup()
+        bindableFunction:Invoke()
     end
 end)
+
+Tab:AddBind({
+    Name = "Auto Pickup",
+    Default = Enum.KeyCode.X,
+    Hold = false,
+    Callback = bindableFunction
+})
 
 
 
