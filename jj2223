@@ -55,9 +55,10 @@ local Tab = Window:MakeTab({
 
 
 -- Teleportation function
-local function teleportToPineTree(player)
-    local PineTreePosition = Vector3.new(x, y, z) -- Replace x, y, and z with the coordinates of Dead Trunk
-    player.Character:SetPrimaryPartCFrame(CFrame.new(PineTreePosition))
+local function teleportToDeadTrunk(player)
+    local deadTrunkPosition = Vector3.new(x, y, z) -- Replace x, y, and z with the coordinates of Dead Trunk
+    deadTrunkPosition = deadTrunkPosition - Vector3.new(0, 10, 0) -- Adjust the Y coordinate to move underground
+    player.Character:SetPrimaryPartCFrame(CFrame.new(deadTrunkPosition))
 end
 
 -- Button callback
@@ -66,7 +67,7 @@ Tab:AddButton({
     Callback = function()
         print("Button pressed")
         local player = game.Players.LocalPlayer
-        teleportToPineTree(player)
+        teleportToDeadTrunk(player)
     end
 })
 
