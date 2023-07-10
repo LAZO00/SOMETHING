@@ -61,6 +61,7 @@ Tab:AddBind({
             local items = getNearbyItems()
             for i = 1, #items do
                 local item = items[i]
+                -- Modify the event firing logic according to your game's implementation
                 local success, error = pcall(function()
                     itemInteractedEvent:FireServer(item, "Pickup")
                 end)
