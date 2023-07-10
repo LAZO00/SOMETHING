@@ -47,16 +47,18 @@ Tab:AddBind({
                 end
             end
 
-            local replicatedStorage = game:GetService("ReplicatedStorage")
-            local itemInteractedEvent = replicatedStorage.Events:FindFirstChild("ItemInteracted")
-            
-            if not itemInteractedEvent then
-                warn("ItemInteracted event not found")
-                return
-            end
-
             for _, item in ipairs(items) do
-                replicatedStorage.Events.ItemInteracted:FireServer(item, "Pickup")
+                local interactFunction = item:FindFirstChild("Interact")
+                if interactFunction and interactFunction:IsA("RemoteFunction") then
+                    local success, error = pcall(function()
+                        interactFunction:InvokeServer("Pickup")
+                    end)
+                    if not success then
+                        warn("Failed to invoke Interact function on item:", item.Name, error)
+                    end
+                else
+                    warn("Interact function not found or not a RemoteFunction in item:", item.Name)
+                end
                 wait() -- Wait a short time before moving on to the next item
             end
         end
@@ -64,6 +66,7 @@ Tab:AddBind({
         autoPickupNearbyItems()
     end
 })
+
 
 
 
