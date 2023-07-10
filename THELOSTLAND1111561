@@ -19,6 +19,20 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+local function getNil(name, class)
+    for _, v in ipairs(getnilinstances()) do
+        if v.ClassName == class and v.Name == name then
+            return v
+        end
+    end
+end
+
+local args = {
+    [1] = getNil("Leaves", "UnionOperation")
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Pickup"):FireServer(unpack(args))
+
 local function autoPickupNearbyItems()
     local function getNearbyItems()
         local player = game:GetService("Players").LocalPlayer
@@ -43,12 +57,12 @@ local function autoPickupNearbyItems()
         return items
     end
 
-    local itemInteractedEvent = game:GetService("ReplicatedStorage"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ItemInteracted")
+    local itemInteractedEvent = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemInteracted")
 
     local items = getNearbyItems()
     for i = 1, #items do
         local item = items[i]
-        local success, err = pcall(function()
+        local success = pcall(function()
             itemInteractedEvent:FireServer(item, "Pickup")
         end)
         if not success then
@@ -71,21 +85,12 @@ local function toggleAutoPickup()
     end
 end
 
-local bindableFunction = Instance.new("BindableFunction")
-bindableFunction.OnInvoke = toggleAutoPickup
-
 game:GetService("UserInputService").InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.X then
-        bindableFunction:Invoke()
+        toggleAutoPickup()
     end
 end)
 
-Tab:AddBind({
-    Name = "Auto Pickup",
-    Default = Enum.KeyCode.X,
-    Hold = false,
-    Callback = bindableFunction
-})
 
 
 
