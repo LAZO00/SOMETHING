@@ -57,7 +57,7 @@ local function autoPickupNearbyItems()
         return items
     end
 
-    local itemInteractedEvent = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemInteracted")
+    local itemInteractedEvent = game:GetService("ReplicatedStorage"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("ItemInteracted")
 
     local items = getNearbyItems()
     for i = 1, #items do
@@ -85,12 +85,9 @@ local function toggleAutoPickup()
     end
 end
 
-local bindableFunction = Instance.new("BindableFunction")
-bindableFunction.OnInvoke = toggleAutoPickup
-
 game:GetService("UserInputService").InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.X then
-        bindableFunction:Invoke()
+        toggleAutoPickup()
     end
 end)
 
@@ -98,7 +95,7 @@ Tab:AddBind({
     Name = "Auto Pickup",
     Default = Enum.KeyCode.X,
     Hold = false,
-    Callback = bindableFunction
+    Callback = toggleAutoPickup
 })
 
 
