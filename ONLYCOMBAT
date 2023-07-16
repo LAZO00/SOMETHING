@@ -1,0 +1,492 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--[[
+Name = <string> - The name of the UI.
+HidePremium = <bool> - Whether or not the user details shows Premium status or not.
+SaveConfig = <bool> - Toggles the config saving in the UI.
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+IntroText = <string> - Text to show in the intro animation.
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+Icon = <string> - URL to the image you want displayed on the window.
+CloseCallback = <function> - Function to execute when the window is closed.
+]]
+local Tab = Window:MakeTab({
+	Name = "Combat",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+--//Global Variables
+getgenv().MaxDistance = 50
+_G.KillAura = true
+
+getgenv().MaxDistance = 50
+_G.SilentAim = true
+
+
+--//Functions
+function GetClosestTorso()
+    local closest
+    local plrtorso = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+    for _,v in pairs(game:GetService("Players"):GetPlayers()) do
+        if v.Character and v ~= game:GetService("Players").LocalPlayer then
+            local torso = v.Character:FindFirstChild("HumanoidRootPart")
+            if torso and (closest == nil or (torso.Position - plrtorso.Position).magnitude < (closest.Position - plrtorso.Position).magnitude) then
+                if (torso.Position - plrtorso.Position).magnitude <= getgenv().MaxDistance then
+                    closest = torso
+                end
+            end
+        end
+    end
+    wait()
+    return closest
+end
+
+function BreakJoints()
+    Player.CharacterAdded:Wait()
+    for i = 1, 20 do
+        RunService.Heartbeat:Wait()
+        if Player.Character:FindFirstChild("HumanoidRootPart") then
+            Player.Character:FindFirstChild("HumanoidRootPart").CFrame = Old
+        end
+    end
+end
+
+Tab:AddButton({
+	Name = "Hidden Aimbot Script Made by myself F1 to hide",
+	Callback = function()
+      		local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+
+local LocalPlayer = Players.LocalPlayer
+local Holding = false
+local TargetSelected = false
+local SelectedPlayer = nil
+
+local AimbotEnabled = true
+local AimPart = "Head"
+local Sensitivity = 0
+
+-- GUI Setup
+local AimbotGui = Instance.new("ScreenGui")
+AimbotGui.Name = "AimbotGui"
+AimbotGui.Parent = game.CoreGui
+
+local Frame = Instance.new("Frame")
+Frame.Name = "AimbotFrame"
+Frame.Size = UDim2.new(0, 230, 0, 120) -- Increased height to accommodate additional text
+Frame.Position = UDim2.new(0.5, -100, 0.5, -60) -- Center position
+Frame.BorderSizePixel = 0
+Frame.Visible = true
+Frame.BackgroundColor3 = Color3.fromRGB(72, 119, 200) -- Set the background color to a nice blue
+Frame.Parent = AimbotGui
+
+local TargetLabel = Instance.new("TextLabel")
+TargetLabel.Name = "TargetLabel"
+TargetLabel.Size = UDim2.new(0, 180, 0, 20)
+TargetLabel.Position = UDim2.new(0, 10, 0, 30)
+TargetLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TargetLabel.BackgroundTransparency = 1
+TargetLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TargetLabel.TextSize = 14
+TargetLabel.TextXAlignment = Enum.TextXAlignment.Left
+TargetLabel.Parent = Frame
+
+local DiscordLabel = Instance.new("TextLabel")
+DiscordLabel.Name = "DiscordLabel"
+DiscordLabel.Size = UDim2.new(0, 180, 0, 20)
+DiscordLabel.Position = UDim2.new(0, 10, 0, 60)
+DiscordLabel.BackgroundColor3 = Color3.fromRGB(102, 255, 204)
+DiscordLabel.BackgroundTransparency = 1
+DiscordLabel.TextColor3 = Color3.fromRGB(102, 255, 204)
+DiscordLabel.TextSize = 14
+DiscordLabel.TextXAlignment = Enum.TextXAlignment.Left
+DiscordLabel.Text = "discord.gg/87dGbU9t5W"
+DiscordLabel.Parent = Frame
+
+local ControlLabel = Instance.new("TextLabel")
+ControlLabel.Name = "ControlLabel"
+ControlLabel.Size = UDim2.new(0, 180, 0, 20)
+ControlLabel.Position = UDim2.new(0, 10, 0, 90)
+ControlLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ControlLabel.BackgroundTransparency = 1
+ControlLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+ControlLabel.TextSize = 14
+ControlLabel.TextXAlignment = Enum.TextXAlignment.Left
+ControlLabel.Text = "CTRL to target"
+ControlLabel.Parent = Frame
+
+-- Dragging Variables
+local dragToggle = nil
+local dragStart = nil
+local startPos = nil
+
+local function updateDrag(input)
+    local delta = input.Position - dragStart
+    Frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+Frame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragToggle = true
+        dragStart = input.Position
+        startPos = Frame.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragToggle = false
+            end
+        end)
+    end
+end)
+
+Frame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        if dragToggle then
+            updateDrag(input)
+        end
+    end
+end)
+
+local function GetClosestPlayer()
+    local MaximumDistance = math.huge
+    local Target = nil
+
+    for _, v in ipairs(Players:GetPlayers()) do
+        if v ~= LocalPlayer then
+            local Character = v.Character
+            if Character and Character:FindFirstChild("HumanoidRootPart") then
+                local ScreenPoint = workspace.CurrentCamera:WorldToScreenPoint(Character.HumanoidRootPart.Position)
+                local VectorDistance = (Vector2.new(UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y) - Vector2.new(ScreenPoint.X, ScreenPoint.Y)).Magnitude
+
+                if VectorDistance < MaximumDistance then
+                    Target = v
+                    MaximumDistance = VectorDistance
+                end
+            end
+        end
+    end
+
+    return Target
+end
+
+local Hidden = false
+
+local function UpdateTargetLabel()
+    if TargetSelected then
+        TargetLabel.Text = "Target: " .. SelectedPlayer.Name
+        TargetLabel.TextColor3 = Color3.fromRGB(0, 0, 255) -- Set the color to blue
+    else
+        TargetLabel.Text = "Target: None"
+        TargetLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Set the color to white
+    end
+end
+
+local function ShowFrame()
+    Frame.Visible = true
+    Hidden = false
+end
+
+local function HideFrame()
+    Frame.Visible = false
+    Hidden = true
+end
+
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.LeftControl then
+        if AimbotEnabled then
+            if not Holding then
+                if not TargetSelected then
+                    SelectedPlayer = GetClosestPlayer()
+                    if SelectedPlayer then
+                        TargetSelected = true
+                        UpdateTargetLabel()
+                        
+                    end
+                else
+                    SelectedPlayer = nil
+                    TargetSelected = false
+                    UpdateTargetLabel()
+                    
+                end
+            end
+        end
+    elseif input.UserInputType == Enum.UserInputType.MouseButton2 then
+        Holding = true
+    elseif input.KeyCode == Enum.KeyCode.F1 then
+        Hidden = not Hidden
+        if Hidden then
+            HideFrame()
+        else
+            ShowFrame()
+        end
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton2 then
+        Holding = false
+    end
+end)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    if Holding and AimbotEnabled and TargetSelected then
+        local Character = SelectedPlayer.Character
+        if Character and Character:FindFirstChild(AimPart) then
+            local AimPartPosition = Character[AimPart].Position
+            TweenService:Create(workspace.CurrentCamera, TweenInfo.new(Sensitivity, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, AimPartPosition)}):Play()
+        end
+    end
+end)
+
+UpdateTargetLabel()
+
+
+
+-- Loop to print the Discord server link every 3 minutes
+while true do
+    wait(180) -- 3 minutes in seconds
+    PrintDiscordLink()
+end
+
+
+
+-- Rainbow color effect
+local hue = 0
+local saturation = 1
+local value = 1
+local animationSpeed = 0.005 -- Adjust the speed here (smaller values make it slower)
+
+local function UpdateFrameColor()
+    Frame.BackgroundColor3 = Color3.fromHSV(hue, saturation, value)
+end
+
+while true do
+    if LocalPlayer.Character then
+        break
+    end
+    wait()
+end
+
+while LocalPlayer.Character do
+    hue = (hue + animationSpeed) % 1
+    UpdateFrameColor()
+    wait()
+end
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddToggle({
+	Name = "Kill Aura",
+	Default = false,
+	Callback = function(Value)
+		--// Execution
+if _G.KillAura == false then
+    _G.KillAura = true
+    game:GetService("RunService").Stepped:connect(function()
+        if _G.KillAura then
+            local Closest = GetClosestTorso()
+            if Closest ~= nil then
+                local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
+            
+                -- I took this from dev forum lol
+                local args = {
+                    [1] = Player.Character
+                }
+                game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
+            end
+        end
+    end)
+else
+    _G.KillAura = false
+end
+	end    
+})
+
+Tab:AddToggle({
+    Name = "Silent Aim",
+    Default = false,
+    Callback = function(Value)
+        --// Execution
+        if _G.SilentAim == false then
+            _G.SilentAim = true
+            local delay = 0.7 -- Set the desired delay time (in seconds)
+            while _G.SilentAim do
+                local Closest = GetClosestTorso()
+                if Closest ~= nil then
+                    local Player = game:GetService("Players"):GetPlayerFromCharacter(Closest.Parent)
+                    -- I took this from dev forum lol
+                    local args = {
+                        [1] = Player.Character
+                    }
+                    game:GetService("ReplicatedStorage").References.Comm.Events.ToolAction:FireServer(unpack(args))
+
+
+
+                end
+                wait(delay)
+            end
+        else
+            _G.SilentAim = false
+        end
+    end
+})
+
+Tab:AddButton({
+	Name = "Hitbox Extender",
+	Callback = function()
+      		_G.HeadSize = 20
+_G.Disabled = true
+
+game:GetService('RunService').RenderStepped:Connect(function()
+    if _G.Disabled then
+        for i, v in ipairs(game:GetService('Players'):GetPlayers()) do
+            if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+                pcall(function()
+                    local humanoidRootPart = v.Character and v.Character:FindFirstChild("HumanoidRootPart")
+                    if humanoidRootPart then
+                        humanoidRootPart.Size = Vector3.new(_G.HeadSize, _G.HeadSize, _G.HeadSize)
+                        humanoidRootPart.Transparency = 1
+                        humanoidRootPart.CanCollide = false
+                    end
+                end)
+            end
+        end
+    end
+end)
+
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+
+
+Tab:AddButton({
+	Name = "ESP 1",
+	Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FishExploitsYT/ESP/53c5835d974487dad9297200f630e58e45d69427/Good%20ESP.lua"))()
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "ESP 2",
+	Callback = function()
+      		local FillColor = Color3.fromRGB(175,25,255)
+local DepthMode = "AlwaysOnTop"
+local FillTransparency = 0.5
+local OutlineColor = Color3.fromRGB(255,255,255)
+local OutlineTransparency = 0
+
+local CoreGui = game:FindService("CoreGui")
+local Players = game:FindService("Players")
+local lp = Players.LocalPlayer
+local connections = {}
+
+local Storage = Instance.new("Folder")
+Storage.Parent = CoreGui
+Storage.Name = "Highlight_Storage"
+
+local function Highlight(plr)
+    local Highlight = Instance.new("Highlight")
+    Highlight.Name = plr.Name
+    Highlight.FillColor = FillColor
+    Highlight.DepthMode = DepthMode
+    Highlight.FillTransparency = FillTransparency
+    Highlight.OutlineColor = OutlineColor
+    Highlight.OutlineTransparency = 0
+    Highlight.Parent = Storage
+    
+    local plrchar = plr.Character
+    if plrchar then
+        Highlight.Adornee = plrchar
+    end
+
+    connections[plr] = plr.CharacterAdded:Connect(function(char)
+        Highlight.Adornee = char
+    end)
+end
+
+Players.PlayerAdded:Connect(Highlight)
+for i,v in next, Players:GetPlayers() do
+    Highlight(v)
+end
+
+Players.PlayerRemoving:Connect(function(plr)
+    local plrname = plr.Name
+    if Storage[plrname] then
+        Storage[plrname]:Destroy()
+    end
+    if connections[plr] then
+        connections[plr]:Disconnect()
+    end
+end)
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
+
+Tab:AddButton({
+	Name = "Infinite-Yield",
+	Default = false,
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+	end    
+})
+
+
+Tab:AddBind({
+	Name = "Eat Pumpkin",
+	Default = Enum.KeyCode.E,
+	Hold = false,
+	Callback = function()
+		local args = {
+    [1] = 378,
+    [2] = "Eat"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("InventoryInteraction"):FireServer(unpack(args))
+
+	end    
+})
+Tab:AddBind({
+	Name = "Small Pumpkin Dragon",
+	Default = Enum.KeyCode.F1,
+	Hold = false,
+	Callback = function()
+		local args = {
+    [1] = "Equip",
+    [2] = "{1845964763293172200}"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("References"):WaitForChild("Comm"):WaitForChild("Events"):WaitForChild("Pet"):FireServer(unpack(args))
+
+	end    
+})
