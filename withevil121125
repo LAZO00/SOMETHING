@@ -28,7 +28,7 @@ PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 local executeFalseActionsFlag = false
 
 local function updateStorageChest(action, id)
-    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Moonstone Storage Chest"]
     local A_2 = action
     local A_3 = id
     local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
