@@ -57,22 +57,24 @@ local function onPlayButtonClicked()
 end
 
 local function main()
-    -- Simulate clicking the "true" button
-    updateStorageChest(true, 227)
-    updateStorageChest(true, 228)
-    updateStorageChest(true, 226)
-    updateStorageChest(true, 225)
-    updateStorageChest(true, 369)
-    updateStorageChest(true, 219)
+    for i = 1, 100 do
+        -- Simulate clicking the "true" button
+        updateStorageChest(true, 227)
+        updateStorageChest(true, 228)
+        updateStorageChest(true, 226)
+        updateStorageChest(true, 225)
+        updateStorageChest(true, 369)
+        updateStorageChest(true, 219)
 
-    -- Listen for the "Play" button event
-    game:GetService("ReplicatedStorage").References.Comm.Events.MainMenu.OnClientEvent:Connect(onPlayButtonClicked)
+        -- Listen for the "Play" button event
+        game:GetService("ReplicatedStorage").References.Comm.Events.MainMenu.OnClientEvent:Connect(onPlayButtonClicked)
 
-    -- Simulate clicking the "Play" button
-    local args = {
-        [1] = "Play"
-    }
-    game:GetService("ReplicatedStorage").References.Comm.Events.MainMenu:FireServer(unpack(args))
+        -- Simulate clicking the "Play" button
+        local args = {
+            [1] = "Play"
+        }
+        game:GetService("ReplicatedStorage").References.Comm.Events.MainMenu:FireServer(unpack(args))
+    end
 end
 
 main()
@@ -80,3 +82,9 @@ main()
 	end    
 })
 
+--[[
+Name = <string> - The name of the bind.
+Default = <keycode> - The default value of the bind.
+Hold = <bool> - Makes the bind work like: Holding the key > The bind returns true, Not holding the key > Bind returns false.
+Callback = <function> - The function of the bind.
+]]
