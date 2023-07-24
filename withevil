@@ -1,0 +1,62 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--[[
+Name = <string> - The name of the UI.
+HidePremium = <bool> - Whether or not the user details shows Premium status or not.
+SaveConfig = <bool> - Toggles the config saving in the UI.
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+IntroText = <string> - Text to show in the intro animation.
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+Icon = <string> - URL to the image you want displayed on the window.
+CloseCallback = <function> - Function to execute when the window is closed.
+]]
+local Tab = Window:MakeTab({
+	Name = "Tab 1",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+local function updateStorageChest(action, id)
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+    local A_2 = action
+    local A_3 = id
+    local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
+    Event:FireServer(A_1, A_2, A_3)
+end
+
+local function executeFalseActions()
+    updateStorageChest(false, 227)
+    updateStorageChest(false, 228)
+    updateStorageChest(false, 226)
+    updateStorageChest(false, 225)
+    updateStorageChest(false, 369)
+    updateStorageChest(false, 219)
+end
+
+Tab:AddBind({
+    Name = "wood to chest",
+    Default = Enum.KeyCode.F2,
+    Hold = false,
+    Callback = function()
+        updateStorageChest(true, 227)
+        updateStorageChest(true, 228)
+        updateStorageChest(true, 226)
+        updateStorageChest(true, 225)
+        updateStorageChest(true, 369)
+        updateStorageChest(true, 219)
+
+        local args = {
+            [1] = "Play"
+        }
+        game:GetService("ReplicatedStorage").References.Comm.Events.MainMenu:FireServer(unpack(args))
+
+        executeFalseActions()
+    end
+})
