@@ -16,6 +16,22 @@ local Tab = Window:MakeTab({
 	Name = "Tab 1",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+
+Tab:AddBind({
+	Name = "Bind",
+	Default = Enum.KeyCode.E,
+	Hold = false,
+	Callback = function()
+		local executeFalseActionsFlag = false
+
 local function updateStorageChest(action, id)
     local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
     local A_2 = action
@@ -25,36 +41,42 @@ local function updateStorageChest(action, id)
 end
 
 local function executeFalseActions()
-    updateStorageChest(false, 227)
-    updateStorageChest(false, 228)
-    updateStorageChest(false, 226)
-    updateStorageChest(false, 225)
-    updateStorageChest(false, 369)
-    updateStorageChest(false, 219)
+    if executeFalseActionsFlag then
+        updateStorageChest(false, 227)
+        updateStorageChest(false, 228)
+        updateStorageChest(false, 226)
+        updateStorageChest(false, 225)
+        updateStorageChest(false, 369)
+        updateStorageChest(false, 219)
+    end
 end
 
-local executedTrues = false
+local function onPlayButtonClicked()
+    executeFalseActionsFlag = true
+    executeFalseActions()
+end
 
-Tab:AddBind({
-    Name = "wood to chest",
-    Default = Enum.KeyCode.F2,
-    Hold = false,
-    Callback = function()
-        if not executedTrues then
-            updateStorageChest(true, 227)
-            updateStorageChest(true, 228)
-            updateStorageChest(true, 226)
-            updateStorageChest(true, 225)
-            updateStorageChest(true, 369)
-            updateStorageChest(true, 219)
-            executedTrues = true
-        else
-            local args = {
-                [1] = "Play"
-            }
-            game:GetService("ReplicatedStorage").References.Comm.Events.MainMenu:FireServer(unpack(args))
-            executeFalseActions()
-        end
-    end
+local function main()
+    -- Simulate clicking the "true" button
+    updateStorageChest(true, 227)
+    updateStorageChest(true, 228)
+    updateStorageChest(true, 226)
+    updateStorageChest(true, 225)
+    updateStorageChest(true, 369)
+    updateStorageChest(true, 219)
+
+    -- Listen for the "Play" button event
+    game:GetService("ReplicatedStorage").References.Comm.Events.MainMenu.OnClientEvent:Connect(onPlayButtonClicked)
+
+    -- Simulate clicking the "Play" button
+    local args = {
+        [1] = "Play"
+    }
+    game:GetService("ReplicatedStorage").References.Comm.Events.MainMenu:FireServer(unpack(args))
+end
+
+main()
+
+	end    
 })
 
