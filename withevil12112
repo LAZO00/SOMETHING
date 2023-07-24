@@ -25,15 +25,10 @@ PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 ]]
 
 
-Tab:AddBind({
-	Name = "Bind",
-	Default = Enum.KeyCode.E,
-	Hold = false,
-	Callback = function()
-		local executeFalseActionsFlag = false
+local executeFalseActionsFlag = false
 
 local function updateStorageChest(action, id)
-    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Wood Storage Chest"]
+    local A_1 = game:GetService("Workspace").Replicators.NonPassive["Obsidian Storage Chest"]
     local A_2 = action
     local A_3 = id
     local Event = game:GetService("ReplicatedStorage").References.Comm.Events.UpdateStorageChest
@@ -46,7 +41,6 @@ local function executeFalseActions()
         updateStorageChest(false, 228)
         updateStorageChest(false, 226)
         updateStorageChest(false, 225)
-        updateStorageChest(false, 369)
         updateStorageChest(false, 219)
     end
 end
@@ -56,14 +50,26 @@ local function onPlayButtonClicked()
     executeFalseActions()
 end
 
+local function checkPlayerHP()
+    local player = game.Players.LocalPlayer
+    if player and player.Character and player.Character:FindFirstChild("Humanoid") then
+        local humanoid = player.Character.Humanoid
+        if humanoid.Health < 20 then
+            executeFalseActionsFlag = true
+            executeFalseActions()
+        else
+            executeFalseActionsFlag = false
+        end
+    end
+end
+
 local function main()
-    for i = 1, 100 do
+    while true do
         -- Simulate clicking the "true" button
         updateStorageChest(true, 227)
         updateStorageChest(true, 228)
         updateStorageChest(true, 226)
         updateStorageChest(true, 225)
-        updateStorageChest(true, 369)
         updateStorageChest(true, 219)
 
         -- Listen for the "Play" button event
@@ -74,17 +80,12 @@ local function main()
             [1] = "Play"
         }
         game:GetService("ReplicatedStorage").References.Comm.Events.MainMenu:FireServer(unpack(args))
+
+        -- Check player HP
+        checkPlayerHP()
+
+        wait(5) -- Adjust the time interval (in seconds) between each iteration as needed
     end
 end
 
 main()
-
-	end    
-})
-
---[[
-Name = <string> - The name of the bind.
-Default = <keycode> - The default value of the bind.
-Hold = <bool> - Makes the bind work like: Holding the key > The bind returns true, Not holding the key > Bind returns false.
-Callback = <function> - The function of the bind.
-]]
