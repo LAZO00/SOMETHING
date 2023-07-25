@@ -3816,9 +3816,7 @@ Callback = <function> - The function of the button.
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
-]]
-
-Tab:AddButton({
+]]Tab:AddButton({
     Name = "Watermelon Patch",
     Callback = function()
         local chest = nil
@@ -3844,9 +3842,6 @@ Tab:AddButton({
             local teleportPosition = chest:GetBoundingBox().Position
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition + Vector3.new(0, 5, 0))
 
-            -- Wait for a short interval to ensure the character is at the watermelon patch
-            wait(0.5)
-
             -- Loop to pick up the treasure chest for 5 seconds
             local endTime = os.time() + 5
             while os.time() < endTime do
@@ -3863,33 +3858,34 @@ Tab:AddButton({
 
             -- Check if the chest was successfully acquired
             if not chest:IsDescendantOf(game.Workspace) then
-                -- Display the success notification with a mischievous twist
+                -- Display the success notification with a joyful message
                 OrionLib:MakeNotification({
                     Name = "",
                     Content = "Watermelon Patch successfully acquired",
                     Image = "rbxassetid://4483345998",
-                    Time = 5
+                    Time = 2  -- Reduced the display time to 2 seconds
                 })
             else
-                -- Display the failure notification with a rebellious touch
+                -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "",
                     Content = "Failed to acquire Watermelon Patch",
                     Image = "rbxassetid://4483345998",
-                    Time = 5
+                    Time = 2  -- Reduced the display time to 2 seconds
                 })
             end
         else
-            -- Display the failure notification with a rebellious touch
+            -- Display the failure notification with an unhappy message
             OrionLib:MakeNotification({
                 Name = "",
                 Content = "We can't find a Watermelon Patch.",
                 Image = "rbxassetid://4483345998",
-                Time = 5
+                Time = 2  -- Reduced the display time to 2 seconds
             })
         end
     end
 })
+
 
 
 --[[
