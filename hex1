@@ -3846,7 +3846,7 @@ Tab:AddButton({
                 -- Display the first notification with a joyful message
                 OrionLib:MakeNotification({
                     Name = "",
-                    Content = "Watermelon Patch found",
+                    Content = "Watermelon Patch found1",
                     Image = "rbxassetid://4483345998",
                     Time = 2
                 })
