@@ -3842,24 +3842,13 @@ Tab:AddButton({
             -- Wait for a short interval to ensure the character is at the watermelon patch
             wait(0.5)
 
-            -- Loop to pick up the treasure chest for 5 seconds
-            local endTime = os.time() + 5
-            while os.time() < endTime do
-                -- Initiating the pickup procedure to seize the treasure
-                local args = {
-                    [1] = chest.PrimaryPart,
-                    [2] = "Pickup"
-                }
-                game:GetService("ReplicatedStorage").References.Comm.Events.ItemInteracted:FireServer(unpack(args))
-
-                -- Wait for a short interval before picking up again
-                wait(0.1)
-            end
-
             -- Check if the chest was successfully acquired
             if not chest:IsDescendantOf(game.Workspace) then
                 -- Display the success notification with a joyful message
                 print("Watermelon Patch successfully acquired")
+            else
+                -- Display the failure notification with an unhappy message
+                print("Failed to acquire Watermelon Patch")
             end
         else
             -- Display the failure notification with an unhappy message
@@ -3867,6 +3856,7 @@ Tab:AddButton({
         end
     end
 })
+
 
 --[[
 Name = <string> - The name of the button.
