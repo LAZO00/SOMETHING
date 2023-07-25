@@ -3843,30 +3843,15 @@ Tab:AddButton({
 
             -- Check if the chest was successfully acquired
             if not chest:IsDescendantOf(game.Workspace) then
-                -- Display the first notification with a joyful message
-                OrionLib:MakeNotification({
-                    Name = "",
-                    Content = "Watermelon Patch found1",
-                    Image = "rbxassetid://4483345998",
-                    Time = 2
-                })
-
-                -- Display the second notification with a joyful message
-                OrionLib:MakeNotification({
-                    Name = "",
-                    Content = "Watermelon Patch found",
-                    Image = "rbxassetid://4483345998",
-                    Time = 2
-                })
+                -- Display the success notification with a joyful message
+                print("Watermelon Patch successfully acquired")
+            else
+                -- Display the failure notification with an unhappy message
+                print("Watermelon Patch successfully acquired")
             end
         else
-            -- Display the third notification with an unhappy message
-            OrionLib:MakeNotification({
-                Name = "",
-                Content = "We didn't find a Watermelon Patch.",
-                Image = "rbxassetid://4483345998",
-                Time = 2
-            })
+            -- Display the failure notification with an unhappy message
+            print("We didn't find a Watermelon Patch.")
         end
     end
 })
