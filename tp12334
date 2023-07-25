@@ -3862,14 +3862,6 @@ Tab:AddButton({
                     Image = "rbxassetid://4483345998",
                     Time = 2  -- Reduced the display time to 2 seconds
                 })
-            else
-                -- Display the failure notification with an unhappy message
-                OrionLib:MakeNotification({
-                    Name = "",
-                    Content = "Failed to acquire Watermelon Patch",
-                    Image = "rbxassetid://4483345998",
-                    Time = 2  -- Reduced the display time to 2 seconds
-                })
             end
         else
             -- Display the failure notification with an unhappy message
@@ -3882,6 +3874,7 @@ Tab:AddButton({
         end
     end
 })
+
 
 
 
