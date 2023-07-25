@@ -3840,6 +3840,13 @@ Tab:AddButton({
 
         -- Confirming the existence and accessibility of the treasure chest
         if chest and chest:IsDescendantOf(workspace) then
+            -- Teleport the character near the treasure chest
+            local teleportPosition = chest:GetBoundingBox().Position
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition + Vector3.new(0, 5, 0))
+
+            -- Wait for a short interval to ensure the character is at the watermelon patch
+            wait(0.5)
+
             -- Loop to pick up the treasure chest for 5 seconds
             local endTime = os.time() + 5
             while os.time() < endTime do
@@ -3884,14 +3891,6 @@ Tab:AddButton({
     end
 })
 
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
 
 --[[
 Name = <string> - The name of the button.
