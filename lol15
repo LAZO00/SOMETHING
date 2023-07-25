@@ -3812,7 +3812,6 @@ Callback = <function> - The function of the button.
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
-
 Tab:AddButton({
     Name = "Watermelon Patch",
     Callback = function()
@@ -3848,7 +3847,7 @@ Tab:AddButton({
                 print("Watermelon Patch successfully acquired")
             else
                 -- Display the failure notification with an unhappy message
-                print("Failed to acquire Watermelon Patch")
+                print("Watermelon Patch not found")
             end
         else
             -- Display the failure notification with an unhappy message
@@ -3856,7 +3855,6 @@ Tab:AddButton({
         end
     end
 })
-
 
 
 --[[
