@@ -3844,10 +3844,7 @@ Tab:AddButton({
             -- Check if the chest was successfully acquired
             if not chest:IsDescendantOf(game.Workspace) then
                 -- Display the success notification with a joyful message
-                print("Watermelon Patch successfully acquired")
-            else
-                -- Display the failure notification with an unhappy message
-                print("Watermelon Patch not acquired")
+                print("Watermelon Patch found and acquired")
             end
         else
             -- Display the failure notification with an unhappy message
