@@ -3870,7 +3870,7 @@ Tab:AddButton({
             -- Display the failure notification with an unhappy message
             OrionLib:MakeNotification({
                 Name = "",
-                Content = "We can't find a Watermelon Patch.",
+                Content = "We didn't find a Watermelon Patch.",
                 Image = "rbxassetid://4483345998",
                 Time = 2  -- Reduced the display time to 2 seconds
             })
