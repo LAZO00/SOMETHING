@@ -3813,10 +3813,7 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]Tab:AddButton({
+Tab:AddButton({
     Name = "Watermelon Patch",
     Callback = function()
         local chest = nil
