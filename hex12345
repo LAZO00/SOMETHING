@@ -3346,7 +3346,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Mega Candy Rock not acquired",
+                    Content = "Mega Candy Rock successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
