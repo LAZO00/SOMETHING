@@ -3406,7 +3406,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Asteroid not acquired",
+                    Content = "Asteroid successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -3472,7 +3472,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Candy not acquired",
+                    Content = "Candy successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -3532,7 +3532,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Pile of Candy not acquired",
+                    Content = "Pile of Candy successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -3594,7 +3594,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Potato Patch not acquired",
+                    Content = "Potato Patch successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -3686,7 +3686,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Cabbage Patch not acquired",
+                    Content = "Cabbage Patch successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -3754,7 +3754,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Watermelon Patch not acquired",
+                    Content = "Watermelon Patch successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -3818,7 +3818,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Carrot Patch not acquired",
+                    Content = "Carrot Patch successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -3880,7 +3880,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Obsidian Golem not acquired",
+                    Content = "Obsidian Golem successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -3940,7 +3940,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Ogre not acquired",
+                    Content = "Ogre successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -3999,7 +3999,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Lucky Slime not acquired",
+                    Content = "Lucky Slime successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -4063,7 +4063,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Silver Rock not acquired",
+                    Content = "Silver Rock successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -4123,7 +4123,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Gold Rock not acquired",
+                    Content = "Gold Rock successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -4183,7 +4183,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Ruby Rock not acquired",
+                    Content = "Ruby Rock successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -4242,7 +4242,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Diamond Rock not acquired",
+                    Content = "Diamond Rock successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -4301,7 +4301,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Zenyte Rock not acquired",
+                    Content = "Zenyte Rock successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -4360,7 +4360,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Volcanic Rock not acquired",
+                    Content = "Volcanic Rock successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
@@ -4419,7 +4419,7 @@ Tab:AddButton({
                 -- Display the failure notification with an unhappy message
                 OrionLib:MakeNotification({
                     Name = "Failure!",
-                    Content = "Magic Rock not acquired",
+                    Content = "Magic Rock successfully acquired",
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
